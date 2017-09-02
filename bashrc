@@ -35,17 +35,33 @@ bind '"\e[B": history-search-forward'
 # practice without this:
 # export PATH=${PATH}:.
 
-# Aliases 
+# Settings specific to individual machines:
+HOST=`hostname -s`
+echo $HOST
+
+if [[ $HOST = pn* ]]; then
+  echo 'mac hostname: ' $HOST
+  TARFILE="~/a/tar.tar"
+elif [[ $HOST = ccs* ]]; then
+  echo 'ccs hostname: ' $HOST
+elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
+  echo 'IC hostname: ' $HOST
+elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]]; then
+  echo 'Oak Ridge hostname: ' $HOST
+elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
+  echo 'Oak Ridge hostname: ' $HOST
+elif [[ $HOST = theta* ]]; then
+  echo 'theta hostname: ' $HOST
+fi
 
 # git aliases
 alias gitlp='git log --graph --oneline -n 12'
 
+
+
 # this should go to the scratch on every machine
 alias csh='csh -f'
 alias r='cd /Users/mpeterse/runs; pwd'
-alias sc='cd /local1/mpetersen/; pwd; ls'
-alias scr='cd /local1/mpetersen/runs; pwd'
-alias nsc='cd /local1/mpetersen/; pwd; ls'
 set t='/local/mpetersen/trash'
 set hostname=`hostname -s`
 
@@ -63,33 +79,36 @@ alias grep='grep -d skip --color=always'
 alias python='/Users/mpeterse/anaconda/bin/python'
 alias ipython='/Users/mpeterse/anaconda/bin/ipython'
 
-# login aliases: turqoise network
+# login and tar aliases
+# CCS server
+alias toccs='scp ~/a/tar.tar mpeterse@ccscs8:/home/mpeterse/a'
+alias tccs='scp mpeterse@ccscs8.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
 alias ccs='ssh mpeterse@ccscs8.lanl.gov'
-alias wf='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@wf-fe'
+# LANL IC
+alias tt='scp mpeterse@wtrw.lanl.gov:mpeterse@wf-fe2.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
+alias tot=' echo "sending ~/a/tar.tar to turqoise"; scp ~/a/tar.tar mpeterse@wtrw.lanl.gov:mpeterse@wf-fe1.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;'
 alias gr='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@gr-fe'
+alias wf='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@wf-fe'
+alias gpfs='ssh -tX mpeterse@wtrw.lanl.gov ssh ar-tn'
+# NERSC
 alias ed='ssh -Y edison.nersc.gov'
 alias darwin='ssh darwin-fe.lanl.gov'
 alias cori='ssh -Y cori.nersc.gov'
 alias ted='scp edison.nersc.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias toed='scp ~/a/tar.tar edison.nersc.gov:a/tar.tar'
-alias git='/usr/local/git/bin/git'
-alias gpfs='ssh -tX mpeterse@wtrw.lanl.gov ssh ar-tn'
+# Oak Ridge
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
 alias titan='ssh mpetersen@titan.ccs.ornl.gov'
 alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+# Argonne
 alias theta='ssh theta.alcf.anl.gov'
 
+alias git='/usr/local/git/bin/git'
 # taring aliases
 alias t=' echo "tarring the following files to ~/a/tar.tar"; tar cvf ~/a/tar.tar'
 alias unt='echo "** Untarring from ~/a/tar.tar"; tar xvf ~/a/tar.tar'
-alias tt='scp mpeterse@wtrw.lanl.gov:mpeterse@wf-fe2.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
-alias tot=' echo "sending ~/a/tar.tar to turqoise"; scp ~/a/tar.tar mpeterse@wtrw.lanl.gov:mpeterse@wf-fe1.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;'
-alias toccs='scp ~/a/tar.tar mpeterse@ccscs8:/home/mpeterse/a'
-alias tccs='scp mpeterse@ccscs8.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
 
 # alias to change directory
 alias c='rm -f ~/a/pwd_file; set d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
 alias d='set d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
-
-
