@@ -28,7 +28,7 @@ fi
 export BASHRC_SOURCED=yes
 
 # command line
-export PS1='\W$ '
+export PS1='\e[0;32m\h:\W$ \e[m'
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
@@ -53,8 +53,10 @@ CASE_ROOT=~/acme_cases
 if [[ $HOST = pn* ]]; then
   echo 'mac hostname: ' $HOST
   TARFILE="~/a/tar.tar"
+  alias git='/usr/local/git/bin/git'
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   echo 'IC hostname: ' $HOST
+  PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
   alias ml='echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio"; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module load python/anaconda-2.7-climate; module load intel/15.0.5 openmpi/1.6.5 netcdf/4.4.0 parallel-netcdf/1.5.0 pio/1.7.2'
   alias mlg='echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio"; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module load python/anaconda-2.7-climate; module load gcc/4.8.2 openmpi/1.6.5 netcdf/4.4.0 parallel-netcdf/1.5.0 pio/1.7.2'
   alias mlgr='module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
@@ -122,19 +124,12 @@ alias ar='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`'
 
-# this should go to the scratch on every machine
-alias csh='csh -f'
-alias r='cd /Users/mpeterse/runs; pwd'
-set t='/local/mpetersen/trash'
-set hostname=`hostname -s`
-
 # unix aliases
 alias ex='exit'
 alias dir='ls -tlFhG | head'
 alias h='history'
 alias m='less'
 alias cdd='cd \!*; ls'
-alias home='cd /home/mpeterse; pwd; ls'
 alias space='du -k | sort -n'
 alias ls='ls -G'
 alias grep='grep -d skip --color=always'
@@ -167,7 +162,6 @@ alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared
 # Argonne
 alias theta='ssh theta.alcf.anl.gov'
 
-alias git='/usr/local/git/bin/git'
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
 alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
