@@ -94,7 +94,7 @@ elif [[ $HOST = theta* ]]; then
 
   module load hsi
   module load cray-netcdf
-  export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
+  export RUN_ROOT=/projects/OceanClimate/mpeterse
 
 elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
@@ -103,16 +103,17 @@ fi
 
 
 if [[ $QUEUETYPE = slurm ]]; then
-  alias j='squeue -u mpeterse'
-  alias ja='squeue'
-  alias canceljob='scancel'
-  alias llogin='salloc --qos=interactive -t 4:0:0 -N 1'
-  alias partitions='sinfo |cut -c 1-100'
+  alias j='echo "slurm: squeue -u mpeterse"; squeue -u mpeterse'
+  alias ja='echo "slurm: squeue"; squeue'
+  alias canceljob='echo "slurm: scancel"; scancel'
+  alias llogin='echo "slurm: salloc --qos=interactive -t 4:0:0 -N 1"; salloc --qos=interactive -t 4:0:0 -N 1'
+  alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
 elif [[ $QUEUETYPE = pbs ]]; then
-  alias j='qstat -u mpeterse'
-  alias j='qstat'
-  alias llogin='qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
-  alias partitions='qstat -Q'
+  export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
+  alias j='echo "pbs: qstat -u mpeterse"; qstat -u mpeterse'
+  alias ja='echo "pbs: qstat"; qstat'
+  alias llogin='echo "pbs: qsub -I -t 1:00:00 -n 1 -q debug-flat-quad"; qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
+  alias partitions='echo "pbs: qstat -Q"; qstat -Q'
 fi
 
 alias home='cd $HOMEDIR; pwd; ls'
