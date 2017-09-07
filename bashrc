@@ -56,8 +56,7 @@ elif [[ $HOST = ccs* ]]; then
   export PS1='\e[0;31m\h:\W$ \e[m' # red
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   echo 'IC hostname: ' $HOST
-  # old: PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
-  PS1='\e[1;32m\][\u@\h \W]\$\[\e[0m ' # green
+  PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
   export QUEUETYPE=slurm
   module load git
