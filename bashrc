@@ -48,9 +48,16 @@ if [[ $HOST = pn* ]]; then
   echo 'mac hostname: ' $HOST
   alias git='/usr/local/git/bin/git'
   export PS1='\W$ '
+elif [[ $HOST = forest* ]]; then
+  echo 'forest hostname: ' $HOST
+  export PS1='\W$ '
+elif [[ $HOST = ccs* ]]; then
+  echo 'ccs hostname: ' $HOST
+  export PS1='\e[0;31m\h:\W$ \e[m' # red
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   echo 'IC hostname: ' $HOST
-  PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
+  # old: PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
+  PS1='\e[1;32m\][\u@\h \W]\$\[\e[0m ' # green
   export HOMEDIR=/usr/projects/climate/mpeterse
   export QUEUETYPE=slurm
   module load git
@@ -76,12 +83,10 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data_for_uploading/acme/inputdata; pwd; ls'
   TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
 
-elif [[ $HOST = ccs* ]]; then
-  echo 'ccs hostname: ' $HOST
 elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]]; then
-
   echo 'NERSC hostname: ' $HOST
   export QUEUETYPE=slurm
+  export PS1='\e[0;34m\h:\W$ \e[m' # blue
 
   alias llogin='salloc --partition=debug --nodes=1 --time=30:00'
   alias r='cd $SCRATCH/runs; pwd'
