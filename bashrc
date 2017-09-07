@@ -47,6 +47,7 @@ export HOMEDIR=~
 if [[ $HOST = pn* ]]; then
   echo 'mac hostname: ' $HOST
   alias git='/usr/local/git/bin/git'
+  export PS1='\W$ '
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
