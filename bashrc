@@ -48,6 +48,7 @@ if [[ $HOST = pn* ]]; then
   echo 'mac hostname: ' $HOST
   alias git='/usr/local/git/bin/git'
   export PS1='\W$ '
+  alias ls='ls -G'
 elif [[ $HOST = forest* ]]; then
   echo 'forest hostname: ' $HOST
   export PS1='\W$ '
@@ -82,12 +83,13 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data_for_uploading/acme/inputdata; pwd; ls'
   TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
 
-elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]]; then
+elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   echo 'NERSC hostname: ' $HOST
   export QUEUETYPE=slurm
-  export PS1='\e[0;34m\h:\W$ \e[m' # blue
+  export PS1='\e[0;34m\h:\W$ \e[m' # blue, edison
+  export PS1='\e[0;36m\h:\W$ \e[m' # bright blue, cori
 
-  alias llogin='salloc --partition=debug --nodes=1 --time=30:00'
+  module use /global/cscratch1/sd/lvroekel/modulefiles/all
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
   RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch
@@ -100,10 +102,12 @@ elif [[ $HOST = theta* ]]; then
   module load hsi
   module load cray-netcdf
   export RUN_ROOT=/projects/OceanClimate/mpeterse
+  alias in='cd /projects/OceanClimate/acme/inputdata; pwd; ls'
 
 elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   export QUEUETYPE=pbs
+  export PS1='\e[0;33m\h:\W$ \e[m' # yellow
 fi
 
 
@@ -112,6 +116,7 @@ if [[ $QUEUETYPE = slurm ]]; then
   alias ja='echo "slurm: squeue"; squeue'
   alias canceljob='echo "slurm: scancel"; scancel'
   alias llogin='echo "slurm: salloc --qos=interactive -t 4:0:0 -N 1"; salloc --qos=interactive -t 4:0:0 -N 1'
+  # for cori: salloc --partition=debug --nodes=32 --time=30:00 -C knl
   alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
 elif [[ $QUEUETYPE = pbs ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
