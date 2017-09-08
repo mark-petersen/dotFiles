@@ -4,7 +4,7 @@
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+# don't overwrite GNU Midnight Commander's exportting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
@@ -12,7 +12,7 @@ export HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# for exportting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -67,8 +67,8 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
   
   ### acme section ###
-  set RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
-  set ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/archive
+  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
+  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/archive
   
   alias ar='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`'
   alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
@@ -103,6 +103,8 @@ elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   export QUEUETYPE=pbs
   export PS1='\e[0;33m\h:\W$ \e[m' # yellow
+  export RUN_ROOT=/ccs/home/mpetersen/acme_scratch/cli127
+  alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
 fi
 
 
@@ -176,6 +178,7 @@ alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
 alias titan='ssh mpetersen@titan.ccs.ornl.gov'
 alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared/mpetersen/trash/tar.tar'
 # Argonne
 alias theta='ssh theta.alcf.anl.gov'
 
