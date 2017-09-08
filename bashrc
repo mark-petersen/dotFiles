@@ -32,9 +32,6 @@ export PS1='\e[0;32m\h:\W$ \e[m'
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-# practice without this:
-# export PATH=${PATH}:.
-
 # Settings specific to individual machines:
 HOST=`hostname -s`
 echo $HOST
@@ -65,8 +62,6 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   alias mlg='echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio"; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module load python/anaconda-2.7-climate; module load gcc/4.8.2 openmpi/1.6.5 netcdf/4.4.0 parallel-netcdf/1.5.0 pio/1.7.2'
   alias mlgr='module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias mlgri='module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias mr='cd /usr/projects/climate/mpeterse/repos/MPAS-Release; pwd'
-  alias mt='cd /usr/projects/climate/mpeterse/repos/MPAS-Tools; pwd'
   alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r2='cd /lustre/scratch2/turquoise/mpeterse/runs; pwd'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
@@ -114,7 +109,7 @@ fi
 if [[ $QUEUETYPE = slurm ]]; then
   alias j='echo "slurm: squeue -u mpeterse"; squeue -u mpeterse'
   alias ja='echo "slurm: squeue"; squeue'
-  alias canceljob='echo "slurm: scancel"; scancel'
+  alias canceljob='echo "slurm: scancel"; scancel '
   alias llogin='echo "slurm: salloc --qos=interactive -t 4:0:0 -N 1"; salloc --qos=interactive -t 4:0:0 -N 1'
   # for cori: salloc --partition=debug --nodes=32 --time=30:00 -C knl
   alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
@@ -122,14 +117,21 @@ elif [[ $QUEUETYPE = pbs ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
   alias j='echo "pbs: qstat -u mpeterse"; qstat -u mpeterse'
   alias ja='echo "pbs: qstat"; qstat'
+  alias canceljob='echo "pbs: qdel"; qdel '
   alias llogin='echo "pbs: qsub -I -t 1:00:00 -n 1 -q debug-flat-quad"; qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
   alias partitions='echo "pbs: qstat -Q"; qstat -Q'
 fi
 
+export PATH="$HOMEDIR/software/anaconda2/bin:$PATH"
+# practice without this:
+# export PATH=${PATH}:.
+
 alias home='cd $HOMEDIR; pwd; ls'
+alias re='cd $HOMEDIR/repos; pwd'
 alias b='cd $HOMEDIR/repos/MPAS; pwd; dir'
 alias o='cd $HOMEDIR/repos/MPAS/ocean_develop; pwd'
 alias a='cd $HOMEDIR/repos/ACME; pwd; ls'
+alias mt='cd $HOMEDIR/repos/MPAS-Tools; pwd'
 alias linter='$HOMEDIR/repos/MPAS-Tools/MPAS-Tools/python_scripts/mpas_source_linter/mpas_source_linter.py'
 
 ACME_ROOT=$HOMEDIR/repos/ACME
@@ -151,9 +153,6 @@ alias m='less'
 alias cdd='cd \!*; ls'
 alias space='du -k | sort -n'
 alias grep='grep -d skip --color=always'
-
-alias python='/Users/mpeterse/anaconda/bin/python'
-alias ipython='/Users/mpeterse/anaconda/bin/ipython'
 
 # login and tar aliases
 # CCS server
