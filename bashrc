@@ -186,4 +186,4 @@ alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
 
 # alias to change directory
 alias c='rm -f ~/a/pwd_file; export d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
-alias d='export=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
+alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
