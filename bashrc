@@ -46,6 +46,15 @@ if [[ $HOST = pn* ]]; then
   alias git='/usr/local/git/bin/git'
   export PS1='\W$ '
   alias ls='ls -G'
+  # see https://hpc.lanl.gov/proxy_setup
+  export http_proxy="http://proxyout.lanl.gov:8080"
+  export https_proxy="http://proxyout.lanl.gov:8080"
+  export ftp_proxy="http://proxyout.lanl.gov:8080"
+  export HTTP_PROXY="http://proxyout.lanl.gov:8080"
+  export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
+  export FTP_PROXY="http://proxyout.lanl.gov:8080"
+  export no_proxy="localhost,127.0.0.1"
+
 elif [[ $HOST = forest* ]]; then
   echo 'forest hostname: ' $HOST
   export PS1='\W$ '
@@ -134,8 +143,8 @@ if [[ $QUEUETYPE = slurm ]]; then
   alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
 elif [[ $QUEUETYPE = pbs ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
-  alias j='echo "pbs: qstat -u mpeterse"; qstat -u mpeterse'
-  alias ja='echo "pbs: qstat"; qstat'
+  alias j='echo "pbs: qstat -u mpeterse |cut -c1-100"; qstat -u mpeterse'
+  alias ja='echo "pbs: qstat"; qstat |cut -c1-100'
   alias canceljob='echo "pbs: qdel"; qdel '
   alias llogin='echo "pbs: qsub -I -t 1:00:00 -n 1 -q debug-flat-quad"; qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
   alias partitions='echo "pbs: qstat -Q"; qstat -Q'
@@ -146,7 +155,7 @@ export PATH="$HOMEDIR/software/anaconda2/bin:$PATH"
 # export PATH=${PATH}:.
 
 alias home='cd $HOMEDIR; pwd; ls'
-alias re='cd $HOMEDIR/repos; pwd'
+alias re='cd $HOMEDIR/repos; pwd; ls'
 alias b='cd $HOMEDIR/repos/MPAS; pwd; dir'
 alias o='cd $HOMEDIR/repos/MPAS/ocean_develop; pwd'
 alias a='cd $HOMEDIR/repos/ACME; pwd; ls'
