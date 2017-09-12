@@ -38,7 +38,7 @@ echo $HOST
 
 # Default, unless replaced below: 
 alias ls='ls --color'
-TARFILE="~/a/tar.tar"
+export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
 
 if [[ $HOST = pn* ]]; then
@@ -115,6 +115,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   export PS1='\e[0;33m\h:\W$ \e[m' # yellow
   export RUN_ROOT=/ccs/home/mpetersen/acme_scratch/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
+  TARFILE="/ccs/home/mpetersen/trash/tar.tar"
 
 elif [[ $HOST = anvil* ]] || [[ $HOST = blues* ]]; then
   echo 'Argonne anvil hostname: ' $HOST
