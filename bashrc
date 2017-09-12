@@ -198,6 +198,8 @@ alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared
 alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared/mpetersen/trash/tar.tar'
 # Argonne
 alias theta='ssh theta.alcf.anl.gov'
+alias anvil='ssh blues.lcrc.anl.gov'
+alias blues='ssh blues.lcrc.anl.gov'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
