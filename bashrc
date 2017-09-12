@@ -60,8 +60,8 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   module load git
   alias ml='echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio"; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module load python/anaconda-2.7-climate; module load intel/15.0.5 openmpi/1.6.5 netcdf/4.4.0 parallel-netcdf/1.5.0 pio/1.7.2'
   alias mlg='echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio"; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module load python/anaconda-2.7-climate; module load gcc/4.8.2 openmpi/1.6.5 netcdf/4.4.0 parallel-netcdf/1.5.0 pio/1.7.2'
-  alias mlgr='module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias mlgri='module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
+  alias mlgr='module purge; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
+  alias mlgri='module purge; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r2='cd /lustre/scratch2/turquoise/mpeterse/runs; pwd'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
@@ -78,6 +78,15 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data_for_uploading/acme/inputdata; pwd; ls'
   TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
 
+  # see https://hpc.lanl.gov/proxy_setup
+  export http_proxy="http://proxyout.lanl.gov:8080"
+  export https_proxy="http://proxyout.lanl.gov:8080"
+  export ftp_proxy="http://proxyout.lanl.gov:8080"
+  export HTTP_PROXY="http://proxyout.lanl.gov:8080"
+  export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
+  export FTP_PROXY="http://proxyout.lanl.gov:8080"
+  export no_proxy="localhost,127.0.0.1"
+
 elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   echo 'NERSC hostname: ' $HOST
   export QUEUETYPE=slurm
@@ -85,6 +94,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   export PS1='\e[0;36m\h:\W$ \e[m' # bright blue, cori
 
   module use /global/cscratch1/sd/lvroekel/modulefiles/all
+  module load nco
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
   RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch
@@ -105,6 +115,12 @@ elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   export PS1='\e[0;33m\h:\W$ \e[m' # yellow
   export RUN_ROOT=/ccs/home/mpetersen/acme_scratch/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
+
+elif [[ $HOST = anvil* ]] || [[ $HOST = blues* ]]; then
+  echo 'Argonne anvil hostname: ' $HOST
+  export QUEUETYPE=pbs
+  export PS1='\e[0;35m\h:\W$ \e[m' # maroon
+  export RUN_ROOT=
 fi
 
 
