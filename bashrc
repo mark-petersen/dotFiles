@@ -43,7 +43,6 @@ export HOMEDIR=~
 
 if [[ $HOST = pn* ]]; then
   echo 'mac hostname: ' $HOST
-  alias git='/usr/local/git/bin/git'
   export PS1='\W$ '
   alias ls='ls -G'
   # see https://hpc.lanl.gov/proxy_setup
