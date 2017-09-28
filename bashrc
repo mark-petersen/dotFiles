@@ -122,7 +122,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   export QUEUETYPE=pbs
   export PS1='\e[0;33m\h:\W$ \e[m' # yellow
-  export RUN_ROOT=/ccs/home/mpetersen/acme_scratch/cli127
+  export RUN_ROOT=/lustre/atlas/proj-shared/cli127/mpetersen
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/ccs/home/mpetersen/trash/tar.tar"
 
@@ -143,7 +143,7 @@ if [[ $QUEUETYPE = slurm ]]; then
   alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
 elif [[ $QUEUETYPE = pbs ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
-  alias j='echo "pbs: qstat -u mpeterse |cut -c1-100"; qstat -u mpeterse'
+  alias j='echo "pbs: qstat -u mpeterse(n)"; qstat -u mpeterse; qstat -u mpetersen'
   alias ja='echo "pbs: qstat"; qstat |cut -c1-100'
   alias canceljob='echo "pbs: qdel"; qdel '
   alias llogin='echo "pbs: qsub -I -t 1:00:00 -n 1 -q debug-flat-quad"; qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
