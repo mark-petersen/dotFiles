@@ -1,0 +1,210 @@
+;;; FILE: .emacs (with a period as the first character of the filename)
+;;;
+;;; This is Michael Main's emacs initialization file. You may use and modify
+;;; this file as you like. For a Linux system, put .emacs in your own home
+;;; directory. For Windows, put .emacs (or _emacs) in one of these:
+
+(add-hook 'java-mode-hook 'turn-on-font-lock)
+
+;;; Michael's Preferences                  *** -------------------------------
+(setq kill-whole-line t)                   ;;; Killing line also deletes \n
+(setq next-line-add-newlines nil)          ;;; Down arrow won't add \n at end
+(setq require-final-newline t)             ;;; Put \n at end of last line
+(setq make-backup-files nil)               ;;; Don't make backup files
+(setq scroll-step 1)                       ;;; Scroll 1 line at a time
+(setq line-number-mode t)                  ;;; Put line number in display
+(setq column-number-mode t)                ;;; Put column number in display
+;(setq system-name "main")                  ;;; My login name
+(setq default-major-mode 'text-mode)       ;;; New buffers are text mode
+                                           ;;; -------------------------------
+;; Added by Mark Petersen
+;(setq global-font-lock-mode t)
+(set-background-color "white smoke")
+(global-set-key [delete] 'delete-char)
+;; (global-set-key [tab] "  ")  ; set tab spacing
+(tool-bar-mode 0)
+(set-default-font "7x14")
+(add-to-list 'load-path "/home/mpetersen/matlab/")
+(add-to-list 'load-path "/users/mpeterse/")
+
+; the following lines are are in the matlab.el file.
+   (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
+   (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
+   (autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
+
+; make .ini recognized by fortran.
+;   (setq auto-mode-alist (cons '("\\.ini\\'" . fortran-mode) auto-mode-alist))
+
+; make all fortran files f90-mode
+   (setq auto-mode-alist (cons '("\\.F90\\'" . f90-mode) auto-mode-alist))
+   (setq auto-mode-alist (cons '("\\.F\\'" . f90-mode) auto-mode-alist))
+   (setq auto-mode-alist (cons '("\\.f90\\'" . f90-mode) auto-mode-alist))
+
+; make .jnl recognized by fortran.
+   (setq auto-mode-alist (cons '("\\.jnl\\'" . fortran-mode) auto-mode-alist))
+
+; add folding mode.  this did not work.
+;  (load "folding" 'nomessage 'noerror)
+;  (folding-mode-add-find-file-hook)
+;  (folding-add-to-marks-list 'ruby-mode "#{{{" "#}}}" nil t)
+;; mrp 101021 added:
+
+
+;;; Michael's
+;;; Function
+;;; Definitions:        *** --------------------------------------------------
+;;;  indent-all         ;;; Indents buffer (use fset because of indent-region)
+;;;  open-new-line      ;;; Open a new line after the current line
+;;;  c-return           ;;; In c: indent & open indented new line
+;;;  java-return        ;;; In java: indent & open indented new line
+;;;  delete-whole-line  ;;; Delete all of a line
+;;;  join-lines         ;;; Join this line with the next line
+;;;  front              ;;; Move cursor to front of buffer
+;;;  quit               ;;; Save files and quit emacs 
+;;;  exchange-mp        ;;; Exchange the cursor with the region's mark
+;;;  split              ;;; Split window, move to other window, open new file
+;;;                     *** --------------------------------------------------
+(fset 'indent-all "\C-xh\C-[\C-\\")
+(defun open-new-line( ) (interactive) (end-of-line) (newline-and-indent))
+ (defun c-return( ) (interactive) (c-indent-line) (newline-and-indent))
+
+
+; following line: auto indent mrp030917 this didn't work.
+;(defun return( ) (interactive) (c-indent-line) (newline-and-indent))
+;(defun java-return( ) (interactive) (c-indent-line) (newline-and-indent))
+(defun delete-whole-line( ) (interactive) (beginning-of-line) (kill-line))
+(defun join-lines( ) (interactive) (end-of-line) (kill-line))
+(defun front( ) (interactive) (beginning-of-buffer))
+(defun quit( ) (interactive) (save-buffers-kill-emacs))
+(defun exchange-mp( ) (interactive) (exchange-point-and-mark))
+(defun split( ) (interactive) 
+    (split-window-vertically)
+    (other-window 1)
+)
+(defun kill-something( ) (interactive)
+    (if (and mark-active transient-mark-mode)
+        (kill-region (point) (mark)) 
+        (delete-backward-char 1)
+    )
+)
+
+
+;;; Michael's key bindings                 *** ------------------------------
+(global-set-key [1]                        ;;; Ctrl-a = Alternate commands
+   'mode-specific-command-prefix)          ;;;          (usually emacs ctrl-c)
+(global-set-key [2]  'switch-to-buffer)    ;;; Ctrl-b = Buffer selection
+(global-set-key [4]  'kill-something)      ;;; Ctrl-d = Delete region or char
+(global-set-key [5]  'find-file)           ;;; Ctrl-e = Edit alternate file
+;(global-set-key [6]  'write-file)         ;;; Ctrl-f = File name change
+(global-set-key [6]  'isearch-forward)     ;;; Ctrl-f = Locate mrp030912
+(global-set-key [7]  'goto-line)           ;;; Ctrl-g = Goto specified line
+(global-set-key [8]  'delete-backward-char);;; Ctrl-h = Backspace 
+;(global-set-key [10] 'join-lines)          ;;; Ctrl-j = Join lines
+(global-set-key [10] 'fill-paragraph)          ;;; Ctrl-j = Join lines
+;(global-set-key [11] 'delete-whole-line)  ;;; Ctrl-k = Kill whole line
+;(keyboard-translate ?\C-l ?\C-s)           ;;; Ctrl-l = Locate (same as Ctrl-s)
+(global-set-key [14] 'set-mark-command)    ;;; Ctrl-n = New region starts here
+(global-set-key [15] 'other-window)        ;;; Ctrl-o = Other window
+;;; added by mrp 070119:
+(global-set-key [16] 'fill-paragraph)      ;;; Ctrl-p = fill paragraph
+;;; Not using Ctrl-p, except in c-modes    ;;; Ctrl-p = Pretty-print in c-mode
+;;; Use default for Ctrl-q                 ;;; Ctrl-q = Quoted character
+;;; Use default for Ctrl-r                 ;;; Ctrl-r = Reverse search
+;;; Use default for Ctrl-s                 ;;; Ctrl-s = Locate
+(global-set-key [19] 'save-buffer)         ;;; Ctrl-s = save mrp030912
+(global-set-key [20] 'query-replace)       ;;; Ctrl-t = Translate
+(global-set-key [21] 'exchange-mp)         ;;; Ctrl-u = Exchange mark/point
+(global-set-key [22] 'yank)                ;;; Ctrl-v = paste (as in Windows)
+;(global-set-key [23] 'save-some-buffers)   ;;; Ctrl-w = Write modified buffers
+;;; Use default for Ctrl-x                 ;;; Ctrl-x = Xtra commands
+;;; Use default for Ctrl-x i               ;;; Ctrl-x i = Insert file here
+(global-set-key [17] 'quit)                ;;; Ctrl-q = Exit mrp030912
+(global-set-key "\C-x\C-x" 'quit)          ;;; Ctrl-x Ctrl-x = Exit
+(global-set-key "\C-xx" 'quit)             ;;; Ctrl-x x = Exit
+(global-set-key "\C-x2" 'split)            ;;; Ctrl-x 2 = Split & move to other
+;;; Use default for Ctrl-y                 ;;; Ctrl-y = Yank from kill buffer
+(global-set-key "\C-z" 'undo)               ;;; Ctrl-z = undo
+(global-set-key "\C-@" 'exchange-mp)       ;;; Ctrl-@ = Exchange mark/point
+;;; Home, end, del keys                    *** --------------------------
+;(global-set-key [delete]  'kill-something) ;;; Delete = Delete region or char
+(global-set-key [kp-delete] 'kill-something);; Delete = Delete region or char
+(global-set-key [home] 'beginning-of-line) ;;; Home = Beginning of line
+(global-set-key [kp-home] 'beginning-of-line); Home = Beginning of line
+(global-set-key [kp-end] 'end-of-line)     ;;; End = End of line
+(global-set-key [end] 'end-of-line)        ;;; End = End of line
+(global-set-key [f1] 'help-command)        ;;; F1 = Help
+;(global-set-key [C-home] 'front)           ;;; Ctrl-Home = Front of buffer
+;(global-set-key [C-kp-home] 'front)        ;;; Ctrl-Home = Front of buffer
+;(global-set-key [C-kp-end] 'end-of-buffer) ;;; Ctrl-End = End of buffer
+;(global-set-key [C-end] 'end-of-buffer)    ;;; Ctrl End = End of buffer 
+;;; Keypad keys from VT-100                *** ------------------------------
+(global-set-key "\M-[M" 'scroll-down)      ;;; PgUp = scroll-down
+(global-set-key "\M-[H\M-[2J" 'scroll-up)  ;;; PgDn = scroll-up
+(global-set-key "\M-[H\M-[H"               ;;; Home Home = start of line 
+   'beginning-of-line)                     ;;;    (note: that's Home twice!)
+(global-set-key "\M-[K" 'end-of-line)      ;;; End = end of line
+(global-set-key "\M-[L" 'overwrite-mode)   ;;; Insert = toggle overwrite
+(global-set-key "\M-OA" 'previous-line)    ;;; Up arrow = previous line
+(global-set-key "\M-OB" 'next-line)        ;;; Down arrow = next line
+(global-set-key "\M-OC" 'forward-char)     ;;; Right arrow = forward char
+(global-set-key "\M-OD" 'backward-char)    ;;; Left arrow = backward char
+(global-set-key "\e\e[H" 'front)           ;;; Esc Home = front of file
+(global-set-key "\e\e[K" 'end-of-buffer)   ;;; Esc End = end of file
+                                           ;;; ------------------------------
+
+;;; Michael's special actions upon entering various editing modes
+;;; c-mode
+(add-hook 'c-mode-hook
+   '(lambda() 
+        (local-set-key [13] 'c-return)        ;;; RET with automatic indent
+        (local-set-key [16] 'indent-all)      ;;; Ctrl-p pretty-prints file
+        (c-set-style "k&r")                   ;;; Kernihan & Richie's style
+        (setq c-basic-offset 4)               ;;; 4 spaces for indentations
+        (c-set-offset 'substatement-open 0)   ;;; No indent for open bracket
+    )
+)
+;;; c++-mode
+(add-hook 'c++-mode-hook
+   '(lambda() 
+        (local-set-key [13] 'c-return)        ;;; RET with automatic indent
+        (local-set-key [16] 'indent-all)      ;;; Ctrl-p pretty-prints file
+        (c-set-style "k&r")                   ;;; Kernihan & Richie's style
+        (setq c-basic-offset 4)               ;;; 4 spaces for indentations
+        (c-set-offset 'substatement-open 0)   ;;; No indent for open bracket
+    )
+)
+;;; added by copying above. mrp300917  this didn't work.
+;(add-hook 'fortran-mode-hook
+;   '(lambda() 
+;        (local-set-key [13] 'c-return)        ;;; RET with automatic indent
+;    )
+;)
+
+
+ 
+;;; Michael's connections between editing modes and file names:
+;;; Files ending in .h or .template should be edited in c++-mode.
+;;; Emacs already knows what to do with .c and .scm files.
+;;; I haven't yet found a good mode for bison/flex files, so I just use
+;;; indented-text-mode (where a TAB indents a line the same as last line).
+(setq auto-mode-alist (cons '("\\.h$" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.template$" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.cxx$" . c++-mode) auto-mode-alist))
+;(setq auto-mode-alist (cons '("\\.java$" . java-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.y$" . indented-text-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.xml$" . sgml-mode) auto-mode-alist))
+;;;(setq auto-mode-alist (cons '("\\.m$" . matlab-mode) auto-mode-alist))
+
+;; Options Menu Settings
+;; =====================
+(cond
+ ((and (string-match "XEmacs" emacs-version)
+       (boundp 'emacs-major-version)
+       (or (and
+            (= emacs-major-version 19)
+            (>= emacs-minor-version 14))
+           (= emacs-major-version 20))
+       (fboundp 'load-options-file))
+  (load-options-file "~/.xemacs-options")))
+;; ============================
+;; End of Options Menu Settings
