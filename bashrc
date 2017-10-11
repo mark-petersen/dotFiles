@@ -38,6 +38,7 @@ HOST=`hostname -s`
 echo $HOST
 
 # Default, unless replaced below: 
+umask 002
 alias ls='ls --color'
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
