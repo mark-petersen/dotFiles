@@ -174,6 +174,12 @@ CASE_ROOT=$HOMEDIR/acme_cases
 
 # git aliases
 alias gitlp='git log --graph --oneline -n 12'
+alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
+alias gp="echo 'git push origin master'; git push origin master"
+alias gc="echo 'git commit -a'; git commit -a"
+alias gca="echo 'git commit -a --amend'; git commit -a --amend"
+alias grom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
+alias gsu="echo 'git submodule update'; git submodule update"
 
 alias a='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`; ls'
 alias ar='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`'
