@@ -17,6 +17,7 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 export SVN_EDITOR="/usr/bin/vim"
+export LESS="$LESS -FRXK" 
 export OMP_NUM_THREADS=1
 
 # enable programmable completion features (you don't need to enable
