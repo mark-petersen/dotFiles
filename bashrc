@@ -197,7 +197,7 @@ alias grep='grep -d skip --color=always'
 
 # login and tar aliases
 # CCS server
-alias toccs='scp ~/a/tar.tar mpeterse@ccscs8:/home/mpeterse/a'
+alias toccs='scp ~/a/tar.tar mpeterse@ccscs8.lanl.gov:/home/mpeterse/a'
 alias tccs='scp mpeterse@ccscs8.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
 alias ccs='ssh mpeterse@ccscs8.lanl.gov'
 # LANL IC
@@ -230,3 +230,7 @@ alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
 # alias to change directory
 alias c='rm -f ~/a/pwd_file; export d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
 alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
+
+# Added by Ruby Oct 2017: 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
