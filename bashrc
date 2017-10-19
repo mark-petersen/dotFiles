@@ -30,7 +30,7 @@ fi
 export BASHRC_SOURCED=yes
 
 # command line
-export PS1='\e[0;32m\h:\W$ \e[m'
+PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
@@ -46,7 +46,7 @@ export HOMEDIR=~
 
 if [[ $HOST = pn* ]]; then
   echo 'mac hostname: ' $HOST
-  export PS1='\W$ '
+  PS1='\W$ '
   alias ls='ls -G'
   # see https://hpc.lanl.gov/proxy_setup
   export http_proxy="http://proxyout.lanl.gov:8080"
@@ -59,10 +59,10 @@ if [[ $HOST = pn* ]]; then
 
 elif [[ $HOST = forest* ]]; then
   echo 'forest hostname: ' $HOST
-  export PS1='\W$ '
+  PS1='\W$ '
 elif [[ $HOST = ccs* ]]; then
   echo 'ccs hostname: ' $HOST
-  export PS1='\e[0;31m\h:\W$ \e[m' # red
+  PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # red
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
@@ -101,8 +101,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
 elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   echo 'NERSC hostname: ' $HOST
   export QUEUETYPE=slurm
-  export PS1='\e[0;34m\h:\W$ \e[m' # blue, edison
-  export PS1='\e[0;36m\h:\W$ \e[m' # bright blue, cori
+  PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
 
   module use /global/cscratch1/sd/lvroekel/modulefiles/all
   module load nco
@@ -114,6 +113,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
 elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
   export QUEUETYPE=pbs
+  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
 
   module load hsi
   module load cray-netcdf
@@ -123,7 +123,7 @@ elif [[ $HOST = theta* ]]; then
 elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   export QUEUETYPE=pbs
-  export PS1='\e[0;33m\h:\W$ \e[m' # yellow
+  PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export RUN_ROOT=/lustre/atlas/proj-shared/cli127/mpetersen
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/ccs/home/mpetersen/trash/tar.tar"
@@ -131,7 +131,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
 elif [[ $HOST = anvil* ]] || [[ $HOST = blues* ]]; then
   echo 'Argonne anvil hostname: ' $HOST
   export QUEUETYPE=pbs
-  export PS1='\e[0;35m\h:\W$ \e[m' # maroon
+  PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=
 fi
 
@@ -180,6 +180,7 @@ alias gc="echo 'git commit -a'; git commit -a"
 alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
 alias gsu="echo 'git submodule update'; git submodule update"
+alias gd="echo 'git diff'; git diff"
 
 alias a='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`; ls'
 alias ar='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`'
