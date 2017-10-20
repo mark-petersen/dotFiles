@@ -44,6 +44,7 @@ alias ls='ls --color'
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
 
+### Local laptops
 if [[ $HOST = pn* ]]; then
   echo 'mac hostname: ' $HOST
   PS1='\W$ '
@@ -57,12 +58,17 @@ if [[ $HOST = pn* ]]; then
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
 
+### LANL local unix box
 elif [[ $HOST = forest* ]]; then
   echo 'forest hostname: ' $HOST
   PS1='\W$ '
+
+### LANL ccs servers
 elif [[ $HOST = ccs* ]]; then
   echo 'ccs hostname: ' $HOST
   PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # red
+
+### LANL IC: grizzly and wolf
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
@@ -98,6 +104,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
 
+### NERSC: edison and cori
 elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   echo 'NERSC hostname: ' $HOST
   export QUEUETYPE=slurm
@@ -105,11 +112,13 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
 
   module use /global/cscratch1/sd/lvroekel/modulefiles/all
   module load nco
+  module load git
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
   RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch
   ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/ACME/archive
 
+### Argonne: theta
 elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
   export QUEUETYPE=pbs
@@ -120,6 +129,7 @@ elif [[ $HOST = theta* ]]; then
   export RUN_ROOT=/projects/OceanClimate/mpeterse
   alias in='cd /projects/OceanClimate/acme/inputdata; pwd; ls'
 
+### Oak Ridge: titan and EOS
 elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   export QUEUETYPE=pbs
@@ -128,6 +138,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/ccs/home/mpetersen/trash/tar.tar"
 
+### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blues* ]]; then
   echo 'Argonne anvil hostname: ' $HOST
   export QUEUETYPE=pbs
