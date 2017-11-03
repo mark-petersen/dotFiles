@@ -130,6 +130,7 @@ elif [[ $HOST = theta* ]]; then
   module load cray-netcdf
   export RUN_ROOT=/projects/OceanClimate/mpeterse
   alias in='cd /projects/OceanClimate/acme/inputdata; pwd; ls'
+  alias r='cd $RUN_ROOT/runs; pwd'
 
 ### Oak Ridge: titan and EOS
 elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
