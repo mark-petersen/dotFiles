@@ -217,8 +217,9 @@ alias gitlp='git log --graph --oneline -n 12'
 alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
 alias gp="echo 'git push origin master'; git push origin master"
 alias gc="echo 'git commit -a'; git commit -a"
+alias gcm="echo 'git commit -am'; git commit -am"
 alias gca="echo 'git commit -a --amend'; git commit -a --amend"
-alias grom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
+alias grom="echo 'git rebase origin/master'; git rebase origin/master"
 alias gsu="echo 'git submodule update'; git submodule update"
 alias gd="echo 'git diff'; git diff"
 
