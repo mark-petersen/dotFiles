@@ -68,7 +68,7 @@ elif [[ $HOST = ccs* ]]; then
   echo 'ccs hostname: ' $HOST
   PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # red
 
-### LANL IC: grizzly and wolf
+### LANL turquoise IC: grizzly and wolf
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
@@ -88,11 +88,37 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   ### acme section ###
   export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
   export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/archive
+  alias in='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data; pwd; ls'
+  alias inu='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data_for_uploading/acme/inputdata; pwd; ls'
+  TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
+
+  # see https://hpc.lanl.gov/proxy_setup
+  export http_proxy="http://proxyout.lanl.gov:8080"
+  export https_proxy="http://proxyout.lanl.gov:8080"
+  export ftp_proxy="http://proxyout.lanl.gov:8080"
+  export HTTP_PROXY="http://proxyout.lanl.gov:8080"
+  export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
+  export FTP_PROXY="http://proxyout.lanl.gov:8080"
+  export no_proxy="localhost,127.0.0.1"
+
+### LANL yellow IC: snow
+elif [[ $HOST = sn* ]]; then
+  echo 'IC hostname: ' $HOST
+  PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
+  export HOMEDIR=/users/mpeterse
+  export QUEUETYPE=slurm
+  alias ml='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
+  alias mli='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
+  alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
+  alias r2='cd /lustre/scratch2/turquoise/mpeterse/runs; pwd'
+  alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
+  # add from mlgr for default
+  # from turquoise module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; 
+  #echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
   
-  alias ar='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`'
-  alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
-  
-  alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`'
+  ### acme section ###
+  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
+  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/archive
   alias in='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data; pwd; ls'
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data_for_uploading/acme/inputdata; pwd; ls'
   TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
@@ -123,7 +149,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
-  export QUEUETYPE=pbs
+  rkcbeg DHRHRGLCR=cof
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
 
   module load hsi
@@ -196,6 +222,7 @@ alias grom="echo 'git reset --hard origin/master'; git reset --hard origin/maste
 alias gsu="echo 'git submodule update'; git submodule update"
 alias gd="echo 'git diff'; git diff"
 
+# acme aliases
 alias a='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`; ls'
 alias ar='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
@@ -220,6 +247,7 @@ alias tt='scp mpeterse@wtrw.lanl.gov:mpeterse@wf-fe2.lanl.gov:/lustre/scratch3/t
 alias tot=' echo "sending ~/a/tar.tar to turqoise"; scp ~/a/tar.tar mpeterse@wtrw.lanl.gov:mpeterse@wf-fe1.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;'
 alias gr='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@gr-fe'
 alias wf='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@wf-fe'
+alias sn='ssh -tX mpeterse@sn-fey1.lanl.gov'
 alias gpfs='ssh -tX mpeterse@wtrw.lanl.gov ssh ar-tn'
 # NERSC
 alias ed='ssh -Y edison.nersc.gov'
