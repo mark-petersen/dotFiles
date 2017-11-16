@@ -224,8 +224,7 @@ alias gsu="echo 'git submodule update'; git submodule update"
 alias gd="echo 'git diff'; git diff"
 
 # acme aliases
-alias a='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`; ls'
-alias ar='cd $ACME_ROOT; echo "cd to ACME_ROOT:" `pwd`'
+alias a='cd $HOMEDIR/repos/ACME; echo "cd to ACME_ROOT:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`'
 
