@@ -36,7 +36,6 @@ bind '"\e[B": history-search-forward'
 
 # Settings specific to individual machines:
 HOST=`hostname -s`
-echo $HOST
 
 # Default, unless replaced below: 
 umask 002
@@ -138,13 +137,13 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   export QUEUETYPE=slurm
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
 
-  module use /global/cscratch1/sd/lvroekel/modulefiles/all
   module load nco
   module load git
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
-  RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch
-  ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/ACME/archive
+  alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
+  export RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch/cori-knl
+  export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/ACME/archive
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
