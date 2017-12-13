@@ -38,7 +38,7 @@ bind '"\e[B": history-search-forward'
 HOST=`hostname -s`
 
 # Default, unless replaced below: 
-umask 002
+umask 022
 alias ls='ls --color'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
 export TARFILE="~/a/tar.tar"
