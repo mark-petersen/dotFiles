@@ -216,6 +216,7 @@ CASE_ROOT=$HOMEDIR/acme_cases
 # git aliases
 alias gitlp='git log --graph --oneline -n 12'
 alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
+alias gfa="echo 'git fetch --prune --all'; git fetch --prune --all"
 alias gp="echo 'git push origin master'; git push origin master"
 alias gc="echo 'git commit -a'; git commit -a"
 alias gcm="echo 'git commit -am'; git commit -am"
