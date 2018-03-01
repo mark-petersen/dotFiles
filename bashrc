@@ -67,6 +67,8 @@ elif [[ $HOST = forest* ]]; then
 elif [[ $HOST = ccs* ]]; then
   echo 'ccs hostname: ' $HOST
   PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # red
+  alias sc='cd /scratch/mpeterse; pwd'
+  alias r='cd /scratch/mpeterse; pwd'
 
 ### LANL turquoise IC: grizzly and wolf
 elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
