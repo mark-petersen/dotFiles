@@ -236,7 +236,7 @@ alias dir='ls -tlFhG | head'
 alias h='history'
 alias m='less'
 alias cdd='cd \!*; ls'
-alias space='du -k | sort -n'
+alias space='du -m | sort -n'
 alias grep='grep -d skip --color=always'
 
 # login and tar aliases
