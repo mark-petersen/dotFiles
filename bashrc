@@ -267,6 +267,8 @@ alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli11
 alias theta='ssh theta.alcf.anl.gov'
 alias anvil='ssh blues.lcrc.anl.gov'
 alias blues='ssh blues.lcrc.anl.gov'
+alias bl='ssh blues.lcrc.anl.gov'
+alias tbl='scp blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
