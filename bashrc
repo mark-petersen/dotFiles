@@ -170,11 +170,11 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   module load git
 
 ### Oak Ridge: anvil and blues
-elif [[ $HOST = anvil* ]] || [[ $HOST = blues* ]]; then
-  echo 'Argonne anvil hostname: ' $HOST
+elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
+  echo 'Argonne hostname: ' $HOST
   export QUEUETYPE=pbs
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
-  export RUN_ROOT=
+  export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
 fi
 
 
