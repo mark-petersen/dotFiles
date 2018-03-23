@@ -160,13 +160,14 @@ elif [[ $HOST = theta* ]]; then
   alias r='cd $RUN_ROOT/runs; pwd'
 
 ### Oak Ridge: titan and EOS
-elif [[ $HOST = titan* ]] || [[ $HOST = rhea* ]]; then
+elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   export QUEUETYPE=pbs
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export RUN_ROOT=/lustre/atlas/proj-shared/cli127/mpetersen
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/ccs/home/mpetersen/trash/tar.tar"
+  module load git
 
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blues* ]]; then
