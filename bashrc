@@ -58,6 +58,7 @@ if [[ $HOST = pn* ]]; then
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
 
+  alias r='echo "cd /Users/mpeterse/runs";cd /Users/mpeterse/runs
   alias octave='/usr/local/octave/3.8.0/bin/octave-3.8.0'
 
 ### LANL local unix box
