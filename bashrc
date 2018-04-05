@@ -171,7 +171,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export RUN_ROOT=/lustre/atlas/proj-shared/cli127/mpetersen
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
-  TARFILE="/ccs/home/mpetersen/trash/tar.tar"
+  TARFILE="/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar"
   module load git
   module load python
 
@@ -268,8 +268,8 @@ alias toed='scp ~/a/tar.tar edison.nersc.gov:a/tar.tar'
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
 alias titan='ssh mpetersen@titan.ccs.ornl.gov'
-alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli115/proj-shared/mpetersen/trash/tar.tar'
+alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar'
 # Argonne
 alias theta='ssh theta.alcf.anl.gov'
 alias anvil='ssh blues.lcrc.anl.gov'
