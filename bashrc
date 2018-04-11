@@ -181,6 +181,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   export QUEUETYPE=pbs
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
+  export py='unset LD_LIBRARY_PATH;  soft add +e3sm-unified-1.1.2-nox'
 fi
 
 
