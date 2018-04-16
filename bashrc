@@ -171,7 +171,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
-  TARFILE="/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar"
+  TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
   module load git
   module load python
 
