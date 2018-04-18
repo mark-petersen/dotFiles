@@ -163,6 +163,7 @@ elif [[ $HOST = theta* ]]; then
   export RUN_ROOT=/projects/OceanClimate/mpeterse
   alias in='cd /projects/OceanClimate/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT/runs; pwd'
+  TARFILE='/projects/OceanClimate/mpeterse/trash/tar.tar'
 
 ### Oak Ridge: titan and EOS
 elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
@@ -277,6 +278,7 @@ alias anvil='ssh blues.lcrc.anl.gov'
 alias blues='ssh blues.lcrc.anl.gov'
 alias bl='ssh blues.lcrc.anl.gov'
 alias tbl='scp blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias ttheta='scp theta.alcf.anl.gov:/projects/OceanClimate/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
