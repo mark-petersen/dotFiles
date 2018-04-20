@@ -154,6 +154,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180413;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
+  alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
@@ -185,7 +186,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   export QUEUETYPE=pbs
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
-  alias py='unset LD_LIBRARY_PATH;  soft add +e3sm-unified-1.1.2-nox'
+  alias py='echo "Load python for e3sm"; unset LD_LIBRARY_PATH;  soft add +e3sm-unified-1.1.2-nox'
 fi
 
 
