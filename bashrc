@@ -151,6 +151,9 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch/cori-knl
   export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/ACME/archive
+  alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180413;pwd;ls'
+  alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
+  alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
