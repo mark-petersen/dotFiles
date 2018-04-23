@@ -167,6 +167,10 @@ elif [[ $HOST = theta* ]]; then
   alias in='cd /projects/OceanClimate/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT/runs; pwd'
   TARFILE='/projects/OceanClimate/mpeterse/trash/tar.tar'
+  alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180412;pwd;ls'
+  alias ans='echo "cd to analysis results"; cd /projects/OceanClimate/MPAS-Analysis-Output; pwd;ls'
+  alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate/mpas_analysis_html; pwd; ls'
+  alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
 
 ### Oak Ridge: titan and EOS
 elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
