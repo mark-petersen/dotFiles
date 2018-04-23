@@ -159,7 +159,6 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
-  rkcbeg DHRHRGLCR=cof
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
 
   module load hsi
