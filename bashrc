@@ -168,7 +168,7 @@ elif [[ $HOST = theta* ]]; then
   alias r='cd $RUN_ROOT/runs; pwd'
   TARFILE='/projects/OceanClimate/mpeterse/trash/tar.tar'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
-  alias ans='echo "cd to analysis results"; cd /projects/OceanClimate/MPAS-Analysis-Output; pwd;ls'
+  alias ans='echo "cd to analysis results"; cd /projects/OceanClimate/mpas_analysis_output; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate/mpas_analysis_html; pwd; ls'
   alias py='echo "Load python for e3sm"; module unload python; module use /projects/OceanClimate/modulefiles/all; module load e3sm-unified/1.1.2'
 
@@ -182,7 +182,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
   alias anre='echo "cd to analysis repo"; cd /ccs/home/mpetersen/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /lustre/atlas/scratch/mpetersen/cli127/analysis; pwd;ls'
-  alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas_analysis_html; pwd; ls'
+  alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas-analysis_html; pwd; ls'
   module load git
   module load python
 
