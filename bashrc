@@ -194,8 +194,8 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
   alias py='echo "Load python for e3sm"; unset LD_LIBRARY_PATH;  soft add +e3sm-unified-1.1.2-nox'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
-  alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis_results; pwd; ls'
-  alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/analysis_results; pwd; ls'
+  alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
+  alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
 fi
 
 
