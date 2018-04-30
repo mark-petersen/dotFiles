@@ -151,7 +151,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch/cori-knl
   export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/ACME/archive
-  alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180413;pwd;ls'
+  alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
@@ -167,7 +167,7 @@ elif [[ $HOST = theta* ]]; then
   alias in='cd /projects/OceanClimate/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT/runs; pwd'
   TARFILE='/projects/OceanClimate/mpeterse/trash/tar.tar'
-  alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180412;pwd;ls'
+  alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /projects/OceanClimate/MPAS-Analysis-Output; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate/mpas_analysis_html; pwd; ls'
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
@@ -180,6 +180,9 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
+  alias anre='echo "cd to analysis repo"; cd /ccs/home/mpetersen/repos/analysis/develop_180430;pwd;ls'
+  alias ans='echo "cd to analysis results"; cd /lustre/atlas/scratch/mpetersen/cli127/analysis; pwd;ls'
+  alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas_analysis_html; pwd; ls'
   module load git
   module load python
 
@@ -190,7 +193,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
   alias py='echo "Load python for e3sm"; unset LD_LIBRARY_PATH;  soft add +e3sm-unified-1.1.2-nox'
-  alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/MPAS-Analysis/develop_180223; pwd; ls'
+  alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
   alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis_results; pwd; ls'
   alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/analysis_results; pwd; ls'
 fi
