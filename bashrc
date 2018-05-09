@@ -19,6 +19,8 @@ HISTFILESIZE=2000
 export SVN_EDITOR="/usr/bin/vim"
 export LESS="$LESS -FRXK" 
 export OMP_NUM_THREADS=1
+# added this to avoid window pop-ups from git commands
+unset SSH_ASKPASS
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
