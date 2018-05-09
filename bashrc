@@ -91,7 +91,8 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   # add from mlgr for default
   module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; 
   echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
-  
+  alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+
   ### acme section ###
   export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
   export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/archive
