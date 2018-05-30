@@ -157,7 +157,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
-  alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
+  alias py='echo "Load python for e3sm"; source /global/project/projectdirs/acme/software/anaconda_envs/cori/base/etc/profile.d/conda.sh; conda activate e3sm_unified_1.2.0_py2.7_nox'
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
