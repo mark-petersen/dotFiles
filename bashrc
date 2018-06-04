@@ -276,6 +276,7 @@ alias gr='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@gr-fe'
 alias wf='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@wf-fe'
 alias sn='ssh -tX mpeterse@sn-fey1.lanl.gov'
 alias gpfs='ssh -tX mpeterse@wtrw.lanl.gov ssh ar-tn'
+alias ar='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 # NERSC
 alias ed='ssh -Y edison.nersc.gov'
 alias darwin='ssh darwin-fe.lanl.gov'
