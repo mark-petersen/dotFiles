@@ -283,7 +283,7 @@ alias ar='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 alias ed='ssh -Y edison.nersc.gov'
 alias darwin='ssh darwin-fe.lanl.gov'
 alias cori='ssh -Y cori.nersc.gov'
-alias ted='scp edison.nersc.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias ted='scp edison.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias toed='scp ~/a/tar.tar edison.nersc.gov:a/tar.tar'
 # Oak Ridge
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
