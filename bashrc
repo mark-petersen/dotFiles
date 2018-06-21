@@ -165,6 +165,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
 elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
+  export QUEUETYPE=pbs
 
   module load hsi
   module load cray-netcdf
