@@ -47,7 +47,7 @@ export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
 
 ### Local laptops
-if [[ $HOST = pn* ]]; then
+if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   echo 'mac hostname: ' $HOST
   PS1='\W$ '
   alias ls='ls -G'
@@ -91,7 +91,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
   # add from mlgr for default
   module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; 
   echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
-  alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
 
   ### acme section ###
   export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
@@ -277,14 +277,14 @@ alias tot=' echo "sending ~/a/tar.tar to turqoise"; scp ~/a/tar.tar mpeterse@wtr
 alias gr='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@gr-fe'
 alias wf='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@wf-fe'
 alias sn='ssh -tX mpeterse@sn-fey1.lanl.gov'
+alias darwin='ssh darwin-fe.lanl.gov'
 alias gpfs='ssh -tX mpeterse@wtrw.lanl.gov ssh ar-tn'
 alias ar='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 # NERSC
-alias ed='ssh -Y edison.nersc.gov'
-alias darwin='ssh darwin-fe.lanl.gov'
-alias cori='ssh -Y cori.nersc.gov'
-alias ted='scp edison.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias toed='scp ~/a/tar.tar edison.nersc.gov:a/tar.tar'
+alias ed='ssh -Y mpeterse@edison.nersc.gov'
+alias cori='ssh -Y mpeterse@cori.nersc.gov'
+alias ted='scp mpeterse@edison.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias toed='scp ~/a/tar.tar mpeterse@edison.nersc.gov:a/tar.tar'
 # Oak Ridge
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
