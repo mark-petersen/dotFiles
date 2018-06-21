@@ -289,15 +289,15 @@ alias toed='scp ~/a/tar.tar mpeterse@edison.nersc.gov:a/tar.tar'
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
 alias titan='ssh mpetersen@titan.ccs.ornl.gov'
-alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar'
 # Argonne
-alias theta='ssh theta.alcf.anl.gov'
-alias anvil='ssh blues.lcrc.anl.gov'
-alias blues='ssh blues.lcrc.anl.gov'
-alias bl='ssh blues.lcrc.anl.gov'
-alias tbl='scp blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias ttheta='scp theta.alcf.anl.gov:/projects/OceanClimate/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias theta='ssh mpeterse@theta.alcf.anl.gov'
+alias anvil='ssh mpeterse@blues.lcrc.anl.gov'
+alias blues='ssh mpeterse@blues.lcrc.anl.gov'
+alias bl='ssh mpeterse@blues.lcrc.anl.gov'
+alias tbl='scp mpeterse@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias ttheta='scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
