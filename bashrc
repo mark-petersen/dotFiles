@@ -169,14 +169,14 @@ elif [[ $HOST = theta* ]]; then
 
   module load hsi
   module load cray-netcdf
-  export RUN_ROOT=/projects/OceanClimate/mpeterse
-  alias in='cd /projects/OceanClimate/acme/inputdata; pwd; ls'
+  export RUN_ROOT=/projects/OceanClimate_2/mpeterse
+  alias in='cd /projects/OceanClimate_2/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT/runs; pwd'
-  TARFILE='/projects/OceanClimate/mpeterse/trash/tar.tar'
+  TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
-  alias ans='echo "cd to analysis results"; cd /projects/OceanClimate/mpas_analysis_output; pwd;ls'
-  alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate/mpas_analysis_html; pwd; ls'
-  alias py='echo "Load python for e3sm"; module unload python; module use /projects/OceanClimate/modulefiles/all; module load e3sm-unified/1.1.2'
+  alias ans='echo "cd to analysis results"; cd /projects/OceanClimate_2/mpas_analysis_output; pwd;ls'
+  alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate_2/mpas_analysis_html; pwd; ls'
+  alias py='echo "Load python for e3sm"; module unload python; module use /projects/OceanClimate_2/modulefiles/all; module load e3sm-unified/1.1.2'
 
 ### Oak Ridge: titan and EOS
 elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
@@ -298,7 +298,7 @@ alias anvil='ssh mpeterse@blues.lcrc.anl.gov'
 alias blues='ssh mpeterse@blues.lcrc.anl.gov'
 alias bl='ssh mpeterse@blues.lcrc.anl.gov'
 alias tbl='scp mpeterse@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias ttheta='scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias ttheta='scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate_2/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
