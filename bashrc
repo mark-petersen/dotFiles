@@ -75,8 +75,8 @@ elif [[ $HOST = ccs* ]]; then
   alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
 
-### LANL turquoise IC: grizzly and wolf
-elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]]; then
+### LANL turquoise IC: grizzly and badger
+elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]] || [[ $HOST = ba* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
@@ -276,6 +276,7 @@ alias ccs='ssh mpeterse@ccscs8.lanl.gov'
 alias tt='scp mpeterse@wtrw.lanl.gov:mpeterse@gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 alias tot=' echo "sending ~/a/tar.tar to turqoise"; scp ~/a/tar.tar mpeterse@wtrw.lanl.gov:mpeterse@gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;'
 alias gr='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@gr-fe'
+alias ba='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ba-fe'
 alias wf='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@wf-fe'
 alias sn='ssh -tX mpeterse@sn-fey1.lanl.gov'
 alias darwin='ssh darwin-fe.lanl.gov'
