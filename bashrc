@@ -141,7 +141,7 @@ elif [[ $HOST = sn* ]]; then
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
 
-### NERSC: edison and cori
+### nersc: edison and cori
 elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   echo 'NERSC hostname: ' $HOST
   export QUEUETYPE=slurm
@@ -149,8 +149,6 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   MODULEPATH='/global/project/projectdirs/acme/software/modulefiles/all' 
 
-  module load nco
-  module load git
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
@@ -161,6 +159,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  py
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
@@ -175,6 +174,7 @@ elif [[ $HOST = theta* ]]; then
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /projects/OceanClimate_2/mpas_analysis_output; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate_2/mpas_analysis_html; pwd; ls'
+  py
 
 ### Oak Ridge: titan and EOS
 elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
