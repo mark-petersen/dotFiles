@@ -45,6 +45,7 @@ alias ls='ls --color'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
+alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEPATH; module load e3sm-unified/1.2.2'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
@@ -146,6 +147,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   export QUEUETYPE=slurm
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
+  MODULEPATH='/global/project/projectdirs/acme/software/modulefiles/all' 
 
   module load nco
   module load git
@@ -158,7 +160,6 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
-  alias py='echo "Load python for e3sm"; source /global/project/projectdirs/acme/software/anaconda_envs/cori/base/etc/profile.d/conda.sh; conda activate e3sm_unified_1.2.0_py2.7_nox'
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
 
 ### Argonne: theta
@@ -166,17 +167,14 @@ elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
   export QUEUETYPE=pbs
-
-  module load hsi
-  module load cray-netcdf
   export RUN_ROOT=/projects/OceanClimate_2/mpeterse
+  TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
+  MODULEPATH='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
   alias in='cd /projects/OceanClimate_2/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT/runs; pwd'
-  TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /projects/OceanClimate_2/mpas_analysis_output; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate_2/mpas_analysis_html; pwd; ls'
-  alias py='echo "Load python for e3sm"; module unload python; module use /projects/OceanClimate_2/modulefiles/all; module load e3sm-unified/1.1.2'
 
 ### Oak Ridge: titan and EOS
 elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
@@ -186,6 +184,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
+  MODULEPATH='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   alias anre='echo "cd to analysis repo"; cd /ccs/home/mpetersen/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /lustre/atlas/scratch/mpetersen/cli127/analysis; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas-analysis_html; pwd; ls'
@@ -198,7 +197,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   export QUEUETYPE=pbs
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
-  alias py='echo "Load python for e3sm"; unset LD_LIBRARY_PATH;  soft add +e3sm-unified-1.1.2-nox'
+  alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate e3sm_unified_1.2.2_py2.7_nox; unset LD_LIBRARY_PATH'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
   alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
   alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
