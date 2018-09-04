@@ -224,16 +224,16 @@ export PATH="$HOMEDIR/software/anaconda2/bin:$PATH"
 
 alias home='cd $HOMEDIR; pwd; ls'
 alias re='cd $HOMEDIR/repos; pwd; ls'
-alias b='cd $HOMEDIR/repos/MPAS; pwd; dir'
-alias o='cd $HOMEDIR/repos/MPAS/ocean_develop; pwd'
-alias ma='cd $HOMEDIR/repos/MPAS-Analysis; pwd; dir'
-alias mt='cd $HOMEDIR/repos/MPAS-Tools; pwd; dir'
-alias mtm='cd $HOMEDIR/repos/MPAS-Tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
-alias md='cd $HOMEDIR/repos/MPAS-Documents; pwd; dir'
-alias mq='cd $HOMEDIR/repos/MPAS-QuickViz; pwd; dir'
+alias b='cd $HOMEDIR/repos/model; pwd; dir'
+alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
+alias ma='cd $HOMEDIR/repos/analysis; pwd; dir'
+alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
+alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
+alias md='cd $HOMEDIR/repos/documents; pwd; dir'
+alias mq='cd $HOMEDIR/repos/quickviz; pwd; dir'
 alias dot='cd $HOMEDIR/repos/dotFiles; pwd'
 alias a='cd $HOMEDIR/repos/ACME; pwd; dir'
-alias linter='$HOMEDIR/repos/MPAS-Tools/master/python_scripts/mpas_source_linter/mpas_source_linter.py'
+alias linter='$HOMEDIR/repos/tools/master/source_code_processing/mpas_source_linter/mpas_source_linter.py'
 
 ACME_ROOT=$HOMEDIR/repos/ACME
 CASE_ROOT=$HOMEDIR/acme_cases
