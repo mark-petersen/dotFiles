@@ -94,11 +94,11 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]] || [[ $HOST = ba* ]]; then
   echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
 
-  ### acme section ###
-  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
-  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/archive
-  alias in='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data; pwd; ls'
-  alias inu='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data_for_uploading/acme/inputdata; pwd; ls'
+  ### E3SM section ###
+  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/cases
+  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/archive
+  alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
+  alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
   TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
@@ -125,11 +125,11 @@ elif [[ $HOST = sn* ]]; then
   # from turquoise module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; 
   #echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
   
-  ### acme section ###
-  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/cases
-  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/ACME/archive
-  alias in='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data; pwd; ls'
-  alias inu='cd /lustre/scratch3/turquoise/mpeterse/ACME/input_data_for_uploading/acme/inputdata; pwd; ls'
+  ### E3SM section ###
+  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/cases
+  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/archive
+  alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
+  alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
   TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
@@ -154,7 +154,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch/cori-knl
-  export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/ACME/archive
+  export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/E3SM/archive
   alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
@@ -232,10 +232,9 @@ alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; d
 alias md='cd $HOMEDIR/repos/documents; pwd; dir'
 alias mq='cd $HOMEDIR/repos/quickviz; pwd; dir'
 alias dot='cd $HOMEDIR/repos/dotFiles; pwd'
-alias a='cd $HOMEDIR/repos/ACME; pwd; dir'
 alias linter='$HOMEDIR/repos/tools/master/source_code_processing/mpas_source_linter/mpas_source_linter.py'
 
-ACME_ROOT=$HOMEDIR/repos/ACME
+E3SM_ROOT=$HOMEDIR/repos/E3SM
 CASE_ROOT=$HOMEDIR/acme_cases
 
 # git aliases
@@ -251,7 +250,7 @@ alias gsu="echo 'git submodule update'; git submodule update"
 alias gd="echo 'git diff'; git diff"
 
 # acme aliases
-alias a='cd $HOMEDIR/repos/ACME; echo "cd to ACME_ROOT:" `pwd`; ls'
+alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`'
 
