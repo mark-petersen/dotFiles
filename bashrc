@@ -45,7 +45,7 @@ alias ls='ls --color'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
-alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEPATH; module load e3sm-unified/1.2.2'
+alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified/1.2.2'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
@@ -147,7 +147,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   export QUEUETYPE=slurm
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
-  MODULEPATH='/global/project/projectdirs/acme/software/modulefiles/all' 
+  MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
@@ -167,7 +167,7 @@ elif [[ $HOST = theta* ]]; then
   export QUEUETYPE=pbs
   export RUN_ROOT=/projects/OceanClimate_2/mpeterse
   TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
-  MODULEPATH='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
+  MODULEFILES='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
   alias in='cd /projects/OceanClimate_2/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT/runs; pwd'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
@@ -182,7 +182,7 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
-  MODULEPATH='/ccs/proj/cli900/sw/rhea/modulefiles/all'
+  MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   alias anre='echo "cd to analysis repo"; cd /ccs/home/mpetersen/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /lustre/atlas/scratch/mpetersen/cli127/analysis; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas-analysis_html; pwd; ls'
