@@ -147,13 +147,13 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   export QUEUETYPE=slurm
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
-  MODULEFILES='/global/project/projectdirs/e3sm/software/modulefiles/all' 
+  MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
-  alias inu='cd /global/cscratch1/sd/mpeterse/e3sm_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
-  alias in='cd /project/projectdirs/e3sm/inputdata/ocn/mpas-o; pwd; ls'
-  export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-knl
+  alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
+  alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
+  export RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch/cori-knl
   export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/E3SM/archive
   alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
@@ -167,8 +167,8 @@ elif [[ $HOST = theta* ]]; then
   export QUEUETYPE=pbs
   export RUN_ROOT=/projects/OceanClimate_2/mpeterse
   TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
-  MODULEFILES='/lus/theta-fs0/projects/ccsm/e3sm/tools/modulefiles'
-  alias in='cd /projects/OceanClimate_2/e3sm/inputdata; pwd; ls'
+  MODULEFILES='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
+  alias in='cd /projects/OceanClimate_2/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT/runs; pwd'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /projects/OceanClimate_2/mpas_analysis_output; pwd;ls'
@@ -194,11 +194,11 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   echo 'Argonne hostname: ' $HOST
   export QUEUETYPE=pbs
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
-  export RUN_ROOT=/lcrc/group/e3sm/mpeterse/acme_scratch/
+  export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
   alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate e3sm_unified_1.2.2_py2.7_nox; unset LD_LIBRARY_PATH'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
-  alias ans='echo "cd to analysis results"; cd /lcrc/group/e3sm/mpeterse/analysis; pwd; ls'
-  alias anh='echo "cd to analysis html dir"; cd /lcrc/group/e3sm/mpeterse/mpas_analysis_html; pwd; ls'
+  alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
+  alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
 fi
 
 
