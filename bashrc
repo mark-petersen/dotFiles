@@ -288,6 +288,7 @@ alias ar='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 alias ed='ssh -Y mpeterse@edison.nersc.gov'
 alias cori='ssh -Y mpeterse@cori.nersc.gov'
 alias ted='scp mpeterse@edison.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tcori='scp mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias toed='scp ~/a/tar.tar mpeterse@edison.nersc.gov:a/tar.tar'
 # Oak Ridge
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
