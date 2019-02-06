@@ -275,8 +275,8 @@ alias toccs='scp ~/a/tar.tar mpeterse@ccscs8.lanl.gov:/home/mpeterse/a'
 alias tccs='scp mpeterse@ccscs8.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
 alias ccs='ssh mpeterse@ccscs8.lanl.gov'
 # LANL IC
-alias tt='scp mpeterse@wtrw.lanl.gov:mpeterse@gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
-alias tot=' echo "sending ~/a/tar.tar to turqoise"; scp ~/a/tar.tar mpeterse@wtrw.lanl.gov:mpeterse@gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;'
+alias tt="scp mpeterse@wtrw.lanl.gov:mpeterse@gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:mpeterse@gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;"
 alias gr='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@gr-fe'
 alias ba='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ba-fe'
 alias wf='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@wf-fe'
