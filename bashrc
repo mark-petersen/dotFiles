@@ -254,6 +254,7 @@ alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git rebase origin/master'; git rebase origin/master"
 alias gsu="echo 'git submodule update'; git submodule update"
 alias gd="echo 'git diff'; git diff"
+alias ggin="echo 'git grep -in '; git grep -in "
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
