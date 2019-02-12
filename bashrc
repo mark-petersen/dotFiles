@@ -94,6 +94,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]] || [[ $HOST = ba* ]]; then
   module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; 
   echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified.sh'
 
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/cases
