@@ -42,6 +42,7 @@ HOST=`hostname -s`
 # Default, unless replaced below: 
 umask 022
 alias ls='ls --color'
+alias dir='ls -tlFh | head'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
@@ -52,6 +53,7 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   echo 'mac hostname: ' $HOST
   PS1='\W$ '
   alias ls='ls -G'
+  alias dir='ls -tlFhG |head'
   # see https://hpc.lanl.gov/proxy_setup
   export http_proxy="http://proxyout.lanl.gov:8080"
   export https_proxy="http://proxyout.lanl.gov:8080"
@@ -263,7 +265,6 @@ alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`'
 
 # unix aliases
 alias ex='exit'
-alias dir='ls -tlFhG | head'
 alias h='history'
 alias m='less'
 alias cdd='cd \!*; ls'
@@ -271,6 +272,7 @@ alias space='du -m | sort -n'
 alias grep='grep -d skip --color=always'
 
 # login and tar aliases
+alias oceans11="ssh mpetersen@oceans11-insider.lanl.gov; echo 'ssh mpetersen@oceans11-insider.lanl.gov then cd /raid/mpas_data/initial_condition_database'"
 # CCS server
 alias toccs='scp ~/a/tar.tar mpeterse@ccscs8.lanl.gov:/home/mpeterse/a'
 alias tccs='scp mpeterse@ccscs8.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
