@@ -84,7 +84,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]] || [[ $HOST = ba* ]]; then
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
   export QUEUETYPE=slurm
-  alias mlg='module purge; module load git; sh ~/repos/dotFiles/modules_badger_gnu.sh'
+  alias mlg='module purge; module load git; source ~/repos/dotFiles/modules_badger_gnu.sh'
   alias mlgr='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias mlgri='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
