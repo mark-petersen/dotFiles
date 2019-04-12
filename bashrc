@@ -312,7 +312,7 @@ alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpe
 alias blues='ssh mpeterse@blues.lcrc.anl.gov'
 alias bl='ssh mpeterse@blues.lcrc.anl.gov'
 alias tbl='scp mpeterse@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias totacc='scp ~/a/tar.tar stampede2.tacc.utexas.edu:~/a/tar.tar"
+alias totacc='scp ~/a/tar.tar stampede2.tacc.utexas.edu:~/a/tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
