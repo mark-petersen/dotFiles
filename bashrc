@@ -47,6 +47,7 @@ alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.??
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
+alias py2='source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_py2.7_nox.sh'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
