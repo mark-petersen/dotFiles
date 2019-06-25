@@ -150,7 +150,7 @@ elif [[ $HOST = sn* ]]; then
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
 
-### nersc: edison and cori
+### nersc: cori
 elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   echo 'NERSC hostname: ' $HOST
   export QUEUETYPE=slurm
@@ -284,9 +284,9 @@ alias grep='grep -d skip --color=always'
 # login and tar aliases
 alias oceans11="ssh mpetersen@oceans11-insider.lanl.gov; echo 'ssh mpetersen@oceans11-insider.lanl.gov then cd /raid/mpas_data/initial_condition_database'"
 # CCS server
-alias toccs='scp ~/a/tar.tar mpeterse@ccscs8.lanl.gov:/home/mpeterse/a'
-alias tccs='scp mpeterse@ccscs8.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
-alias ccs='ssh mpeterse@ccscs8.lanl.gov'
+alias toccs='scp ~/a/tar.tar mpeterse@ccscs1.lanl.gov:/home/mpeterse/a'
+alias tccs='scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
+alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
 alias tt="scp mpeterse@wtrw.lanl.gov:mpeterse@gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias tba="scp mpeterse@wtrw.lanl.gov:mpeterse@ba-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
@@ -299,11 +299,9 @@ alias darwin='ssh darwin-fe.lanl.gov'
 alias gpfs='ssh -tX mpeterse@wtrw.lanl.gov ssh ar-tn'
 alias ar='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 # NERSC
-alias ed='ssh -Y mpeterse@edison.nersc.gov'
 alias cori='ssh -Y mpeterse@cori.nersc.gov'
-alias ted='scp mpeterse@edison.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tcori='scp mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias toed='scp ~/a/tar.tar mpeterse@edison.nersc.gov:a/tar.tar'
+alias tocori='scp ~/a/tar.tar mpeterse@cori.nersc.gov:a/tar.tar'
 # Oak Ridge
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
@@ -321,6 +319,7 @@ alias blues='ssh mpeterse@blues.lcrc.anl.gov'
 alias bl='ssh mpeterse@blues.lcrc.anl.gov'
 alias tbl='scp mpeterse@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias totacc='scp ~/a/tar.tar stampede2.tacc.utexas.edu:~/a/tar.tar'
+alias ttacc='scp stampede2.tacc.utexas.edu:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
