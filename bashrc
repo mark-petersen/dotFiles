@@ -117,6 +117,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = wf* ]] || [[ $HOST = ba* ]]; then
 
   # added by Miniconda2 installer
   # export PATH="/usr/projects/climate/mpeterse/software/miniconda2/bin:$PATH"
+  #. /usr/projects/climate/mpeterse/software/miniconda2/etc/profile.d/conda.sh
 
 ### LANL yellow IC: snow
 elif [[ $HOST = sn* ]]; then
