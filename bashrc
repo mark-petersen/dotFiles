@@ -157,6 +157,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
+  module load git
 
   alias r='cd $SCRATCH/runs; pwd'
   alias cs='cd $CSCRATCH/runs; pwd'
