@@ -216,6 +216,13 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
   alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
   alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
+
+### TACC: stampede2 
+elif [[ $HOST = login* ]]; then
+  echo 'TACC hostname: ' $HOST
+  PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
+  export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
+
 fi
 
 
