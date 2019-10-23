@@ -263,6 +263,7 @@ E3SM_ROOT=$HOMEDIR/repos/E3SM
 CASE_ROOT=$HOMEDIR/e3sm_cases
 
 # git aliases
+alias gs='git status'
 alias g='git log --graph --oneline -n 12'
 alias gitlp='git log --graph --oneline -n 12'
 alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
