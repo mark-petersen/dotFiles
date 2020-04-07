@@ -170,7 +170,9 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias se='cd /global/cscratch1/sd/mpeterse/repos/e3sm; pwd; ls'
-  alias py='echo "Load python for e3sm-unified"; module unload python; source /global/project/projectdirs/acme/software/anaconda_envs/load_latest_e3sm_unified.sh'
+  alias py='echo "Load python for e3sm-unified"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_e3sm_unified.sh'
+  alias ec='cd /global/homes/m/mpeterse/repos/E3SM_current; pwd; dir'
+  alias ecm='cd /global/homes/m/mpeterse/repos/E3SM_current/master; pwd; dir'
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
