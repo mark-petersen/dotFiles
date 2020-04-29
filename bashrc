@@ -252,6 +252,7 @@ alias home='cd $HOMEDIR; pwd; ls'
 alias re='cd $HOMEDIR/repos; pwd; ls'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias o='cd $HOMEDIR/repos/model/od; pwd'
+alias o='cd $HOMEDIR/repos/model/od; pwd'
 alias ma='cd $HOMEDIR/repos/analysis; pwd; dir'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
 alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
@@ -279,7 +280,7 @@ alias gc="echo 'git commit -a'; git commit -a"
 alias gcm="echo 'git commit -am'; git commit -am"
 alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git rebase origin/master'; git rebase origin/master"
-alias gsu="echo 'git submodule update'; git submodule update"
+alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
 alias gd="echo 'git diff'; git diff"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
 alias gdod="echo 'git diff origin/ocean/develop'; git diff origin/ocean/develop"
