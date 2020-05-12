@@ -47,7 +47,6 @@ alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.??
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
-alias py2='source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_py2.7_nox.sh'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
@@ -130,9 +129,6 @@ elif [[ $HOST = sn* ]]; then
   alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r2='cd /lustre/scratch2/turquoise/mpeterse/runs; pwd'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
-  # add from mlgr for default
-  # from turquoise module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; 
-  #echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
   
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/cases
@@ -286,6 +282,7 @@ alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
 alias gdod="echo 'git diff origin/ocean/develop'; git diff origin/ocean/develop"
 alias gdods="echo 'git diff origin/ocean/develop --stat'; git diff origin/ocean/develop --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
+alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/general.config.ocean_template general.config.ocean_turq; echo 'sed -i Qs/DIR/yourdir/gQ general.config.ocean_turq'"
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
