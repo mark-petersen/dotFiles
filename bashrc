@@ -85,18 +85,16 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   export HOMEDIR=/usr/projects/climate/mpeterse
   export QUEUETYPE=slurm
   alias mlba='module purge; module load git; source ~/repos/dotFiles/modules_badger_gnu.sh'
-  alias mlgr='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
+  alias mlgr='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias mlgri='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/;module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias r2='cd /lustre/scratch2/turquoise/mpeterse/runs; pwd'
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
   alias r='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
-  # add from mlgr for default
-  module load git
-  echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified.sh'
+  module load git
 
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/cases
@@ -270,7 +268,7 @@ alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
 alias gfa="echo 'git fetch --prune --all'; git fetch --prune --all"
 alias gfme="echo 'git fetch --prune me'; git fetch --prune me"
 alias gfx="echo 'git fetch --prune xylar'; git fetch --prune xylar"
-alias gfl="echo 'git fetch --prune luke'; git fetch --prune luke"
+alias gfv="echo 'git fetch --prune vanroekel'; git fetch --prune vanroekel"
 alias gp="echo 'git push origin master'; git push origin master"
 alias gc="echo 'git commit -a'; git commit -a"
 alias gcm="echo 'git commit -am'; git commit -am"
@@ -282,7 +280,7 @@ alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
 alias gdod="echo 'git diff origin/ocean/develop'; git diff origin/ocean/develop"
 alias gdods="echo 'git diff origin/ocean/develop --stat'; git diff origin/ocean/develop --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
-alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/general.config.ocean_template general.config.ocean_turq; echo 'sed -i Qs/DIR/yourdir/gQ general.config.ocean_turq'"
+alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/general.config.ocean_template config.ocean_turq; echo 'sed -i Qs/DIR/yourdir/gQ config.ocean_turq'"
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
