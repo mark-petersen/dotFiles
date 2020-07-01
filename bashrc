@@ -157,7 +157,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias cs='cd $CSCRATCH/runs; pwd'
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
-  export RUN_ROOT=/global/cscratch1/sd/mpeterse/acme_scratch/cori-knl
+  export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-knl
   export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/E3SM/archive
   alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
