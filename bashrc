@@ -212,6 +212,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blogin* ]]; then
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
   alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
   alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
+  module load git
 
 ### TACC: stampede2 
 elif [[ $HOST = login* ]]; then
@@ -331,9 +332,9 @@ alias ttheta='scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate_2/mpeterse/
 alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpeterse@stampede2.tacc.utexas.edu'
 alias totacc='scp ~/a/tar.tar stampede2.tacc.utexas.edu:~/a/tar.tar'
 alias ttacc='scp stampede2.tacc.utexas.edu:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
-alias bl='ssh -l ac.mpetersen blues.lcrc.anl.gov -i /Users/mpeterse/.ssh/id_rsa_blues'
-alias tbl='scp  -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias tobl='scp -i /Users/mpeterse/.ssh/id_rsa_blues /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/home/ac.mpetersen/a'
+alias bl='ssh -l ac.mpetersen -i /Users/mpeterse/.ssh/id_rsa_blues blues.lcrc.anl.gov'
+alias tbl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tobl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/home/ac.mpetersen/a'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
