@@ -325,16 +325,15 @@ alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas2/cli127/scratch/mpe
 alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar'
 # Argonne
 alias theta='ssh mpeterse@theta.alcf.anl.gov'
-alias anvil='ssh mpeterse@blues.lcrc.anl.gov'
 alias ttheta='scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate_2/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 
 # other logins
 alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpeterse@stampede2.tacc.utexas.edu'
-alias blues='ssh mpeterse@blues.lcrc.anl.gov'
-alias bl='ssh mpeterse@blues.lcrc.anl.gov'
-alias tbl='scp mpeterse@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias totacc='scp ~/a/tar.tar stampede2.tacc.utexas.edu:~/a/tar.tar'
 alias ttacc='scp stampede2.tacc.utexas.edu:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
+alias bl='ssh -l ac.mpetersen blues.lcrc.anl.gov -i /Users/mpeterse/.ssh/id_rsa_blues'
+alias tbl='scp  -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tobl='scp -i /Users/mpeterse/.ssh/id_rsa_blues /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/home/ac.mpetersen/a'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
