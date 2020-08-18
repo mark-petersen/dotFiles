@@ -45,7 +45,6 @@ bathymetry_database = /lustre/scratch4/turquoise/mpeterse/bathymetry_database
 # conda environment
 [conda]
 
-# If using mpich in conda environments, the netcdf4 package has been compiled
-# with mpich HDF5 and NetCDF4 libraries that require running with mpirun.
-# Uncomment the following:
-# python_prefix = mpirun -np 1
+# Whether a link to load_compass_env.sh should be included with each test case
+# (can also be specified with the --link_load_compass flag)
+link_load_compass = False
