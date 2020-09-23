@@ -165,7 +165,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias se='cd /global/cscratch1/sd/mpeterse/repos/e3sm; pwd; ls'
   alias py='echo "Load python for e3sm-unified"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_e3sm_unified.sh'
-  alias ec='cd /global/homes/m/mpeterse/repos/E3SM_current; pwd; dir'
+  alias ec='cd /global/cscratch1/sd/mpeterse/repos/E3SM/pr; pwd'
   alias ecm='cd /global/homes/m/mpeterse/repos/E3SM_current/master; pwd; dir'
 
 ### Argonne: theta
