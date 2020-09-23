@@ -94,6 +94,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified.sh'
+  alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   module load git
 
   ### E3SM section ###
@@ -165,8 +166,10 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias se='cd /global/cscratch1/sd/mpeterse/repos/e3sm; pwd; ls'
   alias py='echo "Load python for e3sm-unified"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_e3sm_unified.sh'
+  alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
   alias ec='cd /global/cscratch1/sd/mpeterse/repos/E3SM/pr; pwd'
   alias ecm='cd /global/homes/m/mpeterse/repos/E3SM_current/master; pwd; dir'
+  alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
@@ -239,7 +242,8 @@ elif [[ $QUEUETYPE = pbs ]]; then
   alias partitions='echo "pbs: qstat -Q"; qstat -Q'
 fi
 
-export PATH="$HOMEDIR/software/anaconda2/bin:$PATH"
+# mrp 200923 turn off this path for python
+#export PATH="$HOMEDIR/software/anaconda2/bin:$PATH"
 # practice without this:
 # export PATH=${PATH}:.
 
@@ -280,7 +284,6 @@ alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
 alias gdod="echo 'git diff origin/ocean/develop'; git diff origin/ocean/develop"
 alias gdods="echo 'git diff origin/ocean/develop --stat'; git diff origin/ocean/develop --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
-alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/general.config.ocean_template config.ocean_turq; echo 'sed -i Qs/DIR/yourdir/gQ config.ocean_turq'"
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
