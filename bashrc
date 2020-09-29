@@ -217,6 +217,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
   alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
   module load git
+  PATH=$PATH:/usr/libexec/git-core
 
 ### TACC: stampede2 
 elif [[ $HOST = login* ]]; then
