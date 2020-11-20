@@ -64,7 +64,6 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   export no_proxy="localhost,127.0.0.1"
 
   alias r='echo "cd /Users/mpeterse/runs";cd /Users/mpeterse/runs'
-  alias octave='/usr/local/octave/3.8.0/bin/octave-3.8.0'
 
 ### LANL local unix box
 elif [[ $HOST = forest* ]]; then
@@ -92,7 +91,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   alias mlg='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
-  alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
+  alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; ls -tlFh | head'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified.sh'
@@ -254,6 +253,8 @@ alias home='cd $HOMEDIR; pwd; ls'
 alias re='cd $HOMEDIR/repos; pwd; ls'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
+alias cc='cd $HOMEDIR/repos/compass; dir'
+alias cm='cd $HOMEDIR/repos/compass/master; dir'
 alias ma='cd $HOMEDIR/repos/analysis; pwd; dir'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
 alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
