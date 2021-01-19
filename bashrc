@@ -312,11 +312,11 @@ alias tt="scp mpeterse@wtrw.lanl.gov:gr-fe.lanl.gov:/lustre/scratch3/turquoise/m
 alias tba="scp mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;"
 alias toba=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;"
-alias gr='ssh -tX mpeterse@wtrw.lanl.gov ssh gr-fe'
-alias ba='ssh -tX mpeterse@wtrw.lanl.gov ssh ba-fe'
+alias gr='ssh -t mpeterse@wtrw.lanl.gov ssh gr-fe'
+alias ba='ssh -t mpeterse@wtrw.lanl.gov ssh ba-fe'
 alias darwin='ssh darwin-fe.lanl.gov'
-alias gpfs='ssh -tX mpeterse@wtrw.lanl.gov ssh ar-tn'
-alias ar='ssh -tX mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
+alias gpfs='ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
+alias ar='ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
 # NERSC
 alias cori='ssh -Y mpeterse@cori.nersc.gov'
