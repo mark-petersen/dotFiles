@@ -339,7 +339,9 @@ alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpe
 alias totacc='scp ~/a/tar.tar stampede2.tacc.utexas.edu:~/a/tar.tar'
 alias ttacc='scp stampede2.tacc.utexas.edu:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 alias bl='ssh -l ac.mpetersen -i /Users/mpeterse/.ssh/id_rsa_blues blues.lcrc.anl.gov'
+alias ch='ssh -l ac.mpetersen -i /Users/mpeterse/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
 alias tbl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tch='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tobl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/home/ac.mpetersen/a'
 
 # taring aliases
