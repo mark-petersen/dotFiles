@@ -95,6 +95,8 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified.sh'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
+  export b=/usr/projects/climate/mpeterse/repos/model
+  export n=/lustre/scratch3/turquoise/mpeterse/runs/n
   module load git
 
   ### E3SM section ###
@@ -255,6 +257,7 @@ alias home='cd $HOMEDIR; pwd; ls'
 alias re='cd $HOMEDIR/repos; pwd; ls'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
+alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
 alias cc='cd $HOMEDIR/repos/compass; dir'
 alias cm='cd $HOMEDIR/repos/compass/master; dir'
 alias ma='cd $HOMEDIR/repos/analysis; pwd; dir'
@@ -354,4 +357,20 @@ alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
 # alias to change directory
 alias c='rm -f ~/a/pwd_file; export d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
 alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/projects/climate/mpeterse/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/projects/climate/mpeterse/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/projects/climate/mpeterse/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/projects/climate/mpeterse/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
