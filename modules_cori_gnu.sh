@@ -3,6 +3,7 @@ module load PrgEnv-gnu
 module load cray-netcdf-hdf5parallel
 module load cray-parallel-netcdf
 module load cmake
+module load openmpi
 module load git
 source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_e3sm_unified.sh
 export PIO=/global/u2/h/hgkang/my_programs/Scorpio
