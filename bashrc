@@ -223,6 +223,16 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   module load git
   PATH=$PATH:/usr/libexec/git-core
 
+### PNNL: compy
+elif [[ $HOST = compy* ]]; then
+  PS1='\[\e[1;31m\]\W\$\[\e[0m\] ' # red
+  alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
+  alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
+  TARFILE='~/a/tar.tar'
+  module load git
+  module load python
+  export PROJECT=e3sm
+
 ### TACC: stampede2 
 elif [[ $HOST = login* ]]; then
   echo 'TACC hostname: ' $HOST
