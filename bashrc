@@ -330,6 +330,8 @@ alias tcori='scp mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar
 alias tocori='scp ~/a/tar.tar mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
 # PNNL
 alias compy='ssh pete011@compy.pnl.gov'
+alias tcompy='scp pete011@compy.pnl.gov:~/a/tar.tar ~/a/tar.tar'
+alias tocompy='scp ~/a/tar.tar pete011@compy.pnl.gov:~/a/tar.tar'
 # Oak Ridge
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
