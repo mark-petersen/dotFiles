@@ -284,6 +284,7 @@ CASE_ROOT=$HOMEDIR/e3sm_cases
 
 # git aliases
 alias gs='git status'
+alias grv='git remote -v'
 alias g='git log --graph --oneline -n 12'
 alias gitlp='git log --graph --oneline -n 12'
 alias glc='git log -n 1 |cut -c 5-200'
