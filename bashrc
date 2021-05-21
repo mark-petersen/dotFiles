@@ -242,7 +242,7 @@ elif [[ $HOST = login* ]]; then
   echo 'TACC hostname: ' $HOST
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
-
+  alias py='conda activate e3sm-unified-mpich' # see instructions at e3sm unified conda
 fi
 
 
