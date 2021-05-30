@@ -9,8 +9,6 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
-shopt -s histappend
 
 # for exportting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -31,10 +29,14 @@ fi
 
 export BASHRC_SOURCED=yes
 
-# command line
-PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
+
+if [[ $SHELL = /bin/bash ]]; then
+   # append to the history file, don't overwrite it
+   shopt -s histappend
+   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
+   bind '"\e[A": history-search-backward'
+   bind '"\e[B": history-search-forward'
+fi
 
 # Settings specific to individual machines:
 HOST=`hostname -s`
@@ -63,7 +65,7 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
 
-  alias r='echo "cd /Users/mpeterse/runs";cd /Users/mpeterse/runs'
+  alias r='echo "cd ~/runs";cd ~/runs'
 
 ### LANL local unix box
 elif [[ $HOST = forest* ]]; then
