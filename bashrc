@@ -101,6 +101,8 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/usr/projects/climate/mpeterse/repos/model
   export n=/lustre/scratch3/turquoise/mpeterse/runs/n
+  export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
+  export om=/components/mpas-ocean/
   module load git
 
   ### E3SM section ###
@@ -313,6 +315,7 @@ alias ggin="echo 'git grep -in '; git grep -in "
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
+alias ee='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`'
 
