@@ -102,7 +102,6 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   export b=/usr/projects/climate/mpeterse/repos/model
   export n=/lustre/scratch3/turquoise/mpeterse/runs/n
   export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
-  export om=/components/mpas-ocean/
   module load git
 
   ### E3SM section ###
@@ -381,5 +380,6 @@ alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
 alias c='rm -f ~/a/pwd_file; export d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
 alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
 
-
+export om=/components/mpas-ocean/
+alias om='cd components/mpas-ocean'
 
