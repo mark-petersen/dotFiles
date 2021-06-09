@@ -364,8 +364,8 @@ alias ttheta='scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate_2/mpeterse/
 
 # other logins
 alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpeterse@stampede2.tacc.utexas.edu'
-alias totacc='scp /scratch/03443/mpeterse/trash/tar.tar stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar'
-alias ttacc='scp stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
+alias totacc='scp /scratch/03443/mpeterse/trash/tar.tar mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar'
+alias ttacc='scp mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 alias bl='ssh -l ac.mpetersen -i /Users/mpeterse/.ssh/id_rsa_blues blues.lcrc.anl.gov'
 alias ch='ssh -l ac.mpetersen -i /Users/mpeterse/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
 alias tbl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
