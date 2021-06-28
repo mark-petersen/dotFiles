@@ -247,6 +247,7 @@ elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias py='conda activate e3sm-unified-mpich' # see instructions at e3sm unified conda
   TARFILE='/scratch/03443/mpeterse/trash/tar.tar'
+  export QUEUETYPE=slurm
 fi
 
 
