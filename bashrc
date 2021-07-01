@@ -79,6 +79,11 @@ elif [[ $HOST = ccs* ]]; then
   alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
 
+### chrysalis
+elif [[ $HOST = chr* ]]; then
+  echo 'chrysalis hostname: ' $HOST
+  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
+
 ### LANL turquoise IC: grizzly and badger
 elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   echo 'IC hostname: ' $HOST
