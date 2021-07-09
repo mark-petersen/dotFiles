@@ -228,7 +228,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   export QUEUETYPE=pbs
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
-  alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate e3sm_unified_1.2.2_py2.7_nox; unset LD_LIBRARY_PATH'
+  alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate /lcrc/soft/climate/e3sm-unified/base/envs/e3sm_unified_1.5.0rc7_nompi; unset LD_LIBRARY_PATH'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
   alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
   alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
