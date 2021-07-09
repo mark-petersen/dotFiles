@@ -312,6 +312,7 @@ alias gc="echo 'git commit -a'; git commit -a"
 alias gcm="echo 'git commit -am'; git commit -am"
 alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git rebase origin/master'; git rebase origin/master"
+alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
 alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
 alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC"'
 alias gd="echo 'git diff'; git diff"
