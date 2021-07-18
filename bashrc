@@ -48,6 +48,7 @@ alias dir='ls -tlFh | head'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
+export QUEUETYPE=slurm
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
 
 ### Local laptops
@@ -83,13 +84,13 @@ elif [[ $HOST = ccs* ]]; then
 elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
+  export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
 
 ### LANL turquoise IC: grizzly and badger
 elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
-  export QUEUETYPE=slurm
   alias mlba='module purge; module load git; source ~/repos/dotFiles/modules_badger_gnu.sh'
   alias mli='module purge; module load git; source ~/repos/dotFiles/modules_grizzly_intel19.sh'
   alias mlgr='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
@@ -134,7 +135,6 @@ elif [[ $HOST = sn* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export HOMEDIR=/users/mpeterse
-  export QUEUETYPE=slurm
   alias ml='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias mli='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
@@ -160,7 +160,6 @@ elif [[ $HOST = sn* ]]; then
 ### nersc: cori
 elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   echo 'NERSC hostname: ' $HOST
-  export QUEUETYPE=slurm
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
@@ -192,7 +191,6 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
 elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
-  export QUEUETYPE=pbs
   export RUN_ROOT=/projects/OceanClimate_2/mpeterse
   TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
   MODULEFILES='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
@@ -226,8 +224,9 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   echo 'Argonne hostname: ' $HOST
   export QUEUETYPE=pbs
+  export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/anvil
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
-  export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
+  # old export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
   alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate /lcrc/soft/climate/e3sm-unified/base/envs/e3sm_unified_1.5.0rc7_nompi; unset LD_LIBRARY_PATH'
   alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
   alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
@@ -257,7 +256,7 @@ fi
 
 
 if [[ $QUEUETYPE = slurm ]]; then
-  alias j='echo "slurm: squeue -u mpeterse"; squeue -u mpeterse'
+  alias j='echo "slurm: squeue -u $USER"; squeue -u $USER'
   alias ja='echo "slurm: squeue"; squeue'
   alias canceljob='echo "slurm: scancel"; scancel '
   alias llogin='echo "slurm: salloc --qos=interactive -t 4:0:0 -N 1"; salloc --qos=interactive -t 4:0:0 -N 1'
@@ -265,7 +264,7 @@ if [[ $QUEUETYPE = slurm ]]; then
   alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
 elif [[ $QUEUETYPE = pbs ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
-  alias j='echo "pbs: qstat -u mpeterse(n)"; qstat -u mpeterse; qstat -u mpetersen'
+  alias j='echo "pbs: qstat -u $USER"; qstat -u ${USER}; qstat -u ${USER}'
   alias ja='echo "pbs: qstat"; qstat |cut -c1-100'
   alias canceljob='echo "pbs: qdel"; qdel '
   alias llogin='echo "pbs: qsub -I -t 1:00:00 -n 1 -q debug-flat-quad"; qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
