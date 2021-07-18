@@ -85,6 +85,7 @@ elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
+  alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_chrysalis.sh'
 
 ### LANL turquoise IC: grizzly and badger
 elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
@@ -179,7 +180,10 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias se='cd /global/cscratch1/sd/mpeterse/repos/e3sm; pwd; ls'
-  alias py='echo "Load python for e3sm-unified"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_e3sm_unified.sh'
+  alias py='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
+  alias pyh='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
+  alias pyk='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-knl.sh'
+
   alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
   alias ec='cd /global/cscratch1/sd/mpeterse/repos/E3SM/pr; pwd'
   alias ecm='cd /global/homes/m/mpeterse/repos/E3SM_current/master; pwd; dir'
@@ -233,6 +237,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
   module load git
   PATH=$PATH:/usr/libexec/git-core
+  alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_anvil.sh' 
 
 ### PNNL: compy
 elif [[ $HOST = compy* ]]; then
@@ -243,6 +248,7 @@ elif [[ $HOST = compy* ]]; then
   module load git
   module load python
   export PROJECT=e3sm
+  alias py='echo "Load python for e3sm-unified"; module unload python; source /share/apps/E3SM/conda_envs/load_latest_e3sm_unified_compy.sh'
 
 ### TACC: stampede2 
 elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
