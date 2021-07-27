@@ -325,8 +325,8 @@ alias gsu="echo 'git submodule update --init --recursive'; git submodule update 
 alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC"'
 alias gd="echo 'git diff'; git diff"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
-alias gdom="echo 'git diff origin/master'; git diff origin/master"
-alias gdoms="echo 'git diff origin/master'; git diff origin/master --stat"
+alias gdo="echo 'git diff origin/master'; git diff origin/master"
+alias gdos="echo 'git diff origin/master'; git diff origin/master --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
 
 # e3sm aliases
