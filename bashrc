@@ -173,7 +173,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias cs='cd $CSCRATCH/runs; pwd'
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
-  export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-knl
+  export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-haswell
   export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/E3SM/archive
   alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
@@ -322,8 +322,8 @@ alias gsu="echo 'git submodule update --init --recursive'; git submodule update 
 alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC"'
 alias gd="echo 'git diff'; git diff"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
-alias gdod="echo 'git diff origin/ocean/develop'; git diff origin/ocean/develop"
-alias gdods="echo 'git diff origin/ocean/develop --stat'; git diff origin/ocean/develop --stat"
+alias gdom="echo 'git diff origin/master'; git diff origin/master"
+alias gdoms="echo 'git diff origin/master'; git diff origin/master --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
 
 # e3sm aliases
