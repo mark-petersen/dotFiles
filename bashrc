@@ -80,13 +80,6 @@ elif [[ $HOST = ccs* ]]; then
   alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
 
-### chrysalis
-elif [[ $HOST = chr* ]]; then
-  echo 'chrysalis hostname: ' $HOST
-  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
-  export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
-  alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_chrysalis.sh'
-
 ### LANL turquoise IC: grizzly and badger
 elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   echo 'IC hostname: ' $HOST
@@ -224,11 +217,19 @@ elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
   alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas_analysis_html; pwd; ls'
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
 
+### Oak Ridge chrysalis
+elif [[ $HOST = chr* ]]; then
+  echo 'chrysalis hostname: ' $HOST
+  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
+  export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
+  TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
+
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   echo 'Argonne hostname: ' $HOST
   export QUEUETYPE=pbs
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/anvil
+  TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   # old export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
   alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate /lcrc/soft/climate/e3sm-unified/base/envs/e3sm_unified_1.5.0rc7_nompi; unset LD_LIBRARY_PATH'
@@ -382,9 +383,9 @@ alias ttacc='scp mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/tras
 alias bl='ssh -l ac.mpetersen -i /Users/mpeterse/.ssh/id_rsa_blues blues.lcrc.anl.gov'
 alias ch='ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
 # old alias ch='ssh -l ac.mpetersen -i /Users/mpeterse/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
-alias tbl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias tch='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias tobl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/home/ac.mpetersen/a'
+alias tbl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tch='scp -i /Users/mpeterse/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tobl='scp -i /Users/mpeterse/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
