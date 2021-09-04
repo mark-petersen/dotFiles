@@ -95,9 +95,11 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
   alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; ls -tlFh | head'
+  alias n='cd /lustre/scratch3/turquoise/mpeterse/runs/n; ls -tlFh | head'
+  alias nn='cd /lustre/scratch3/turquoise/mpeterse/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
-  alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified.sh'
+  alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_grizzly.sh'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/usr/projects/climate/mpeterse/repos/model
   export n=/lustre/scratch3/turquoise/mpeterse/runs/n
