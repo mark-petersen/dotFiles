@@ -184,7 +184,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias ecm='cd /global/homes/m/mpeterse/repos/E3SM_current/master; pwd; dir'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/global/homes/m/mpeterse/repos/model
-  export e=/global/homes/m/mpeterse/repos/e3sm
+  export e=/global/homes/m/mpeterse/repos/E3SM
   export n=/global/cscratch1/sd/mpeterse/runs/n
 
 ### Argonne: theta
