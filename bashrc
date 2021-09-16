@@ -226,6 +226,10 @@ elif [[ $HOST = chr* ]]; then
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
   TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
+  export r=/lcrc/group/e3sm/ac.mpetersen/scratch/runs
+  export n=/lcrc/group/e3sm/ac.mpetersen/scratch/runs/n
+  alias r='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs; ls -tlFh | head'
+  alias n='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs/n; ls -tlFh | head'
 
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
