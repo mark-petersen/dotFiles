@@ -235,7 +235,6 @@ elif [[ $HOST = chr* ]]; then
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   echo 'Argonne hostname: ' $HOST
-  export QUEUETYPE=pbs
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/anvil
   TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
