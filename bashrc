@@ -405,4 +405,5 @@ alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
 
 export om=/components/mpas-ocean/
 alias om='cd components/mpas-ocean'
+alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 
