@@ -50,6 +50,7 @@ export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
 export QUEUETYPE=slurm
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
+alias ci='vi'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
