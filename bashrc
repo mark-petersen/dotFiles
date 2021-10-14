@@ -338,7 +338,7 @@ alias ggin="echo 'git grep -in '; git grep -in "
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
 alias ee='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
-alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`'
+alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`; ls -tlFh | head'
 
 # unix aliases
 alias ex='exit'
