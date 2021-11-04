@@ -5,7 +5,7 @@ module load cray-parallel-netcdf
 module load cmake
 module load openmpi
 module load git
-source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_e3sm_unified.sh
+module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh
 export PIO=/global/u2/h/hgkang/my_programs/Scorpio
 
 # debug:
