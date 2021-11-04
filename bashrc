@@ -96,8 +96,6 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
   alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; ls -tlFh | head'
-  alias n='cd /lustre/scratch3/turquoise/mpeterse/runs/n; ls -tlFh | head'
-  alias nn='cd /lustre/scratch3/turquoise/mpeterse/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_grizzly.sh'
@@ -333,6 +331,10 @@ alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
 alias gdo="echo 'git diff origin/master'; git diff origin/master"
 alias gdos="echo 'git diff origin/master'; git diff origin/master --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
+
+# directory aliases
+  alias n='cd $n; ls -tlFh | head'
+  alias nn='cd $n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
