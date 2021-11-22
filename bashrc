@@ -268,8 +268,8 @@ fi
 
 
 if [[ $QUEUETYPE = slurm ]]; then
-  alias j='echo "slurm: squeue -u $USER"; squeue -u $USER'
-  alias ja='echo "slurm: squeue"; squeue'
+  alias j='echo "slurm: squeue -u $USER"; squeue -u $USER -l'
+  alias ja='echo "slurm: squeue"; squeue -l'
   alias canceljob='echo "slurm: scancel"; scancel '
   alias llogin='echo "slurm: salloc --qos=interactive -t 4:0:0 -N 1"; salloc --qos=interactive -t 4:0:0 -N 1'
   # for cori: salloc --partition=debug --nodes=32 --time=30:00 -C knl
