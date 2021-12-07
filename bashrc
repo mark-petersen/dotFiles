@@ -51,6 +51,7 @@ export HOMEDIR=~
 export QUEUETYPE=slurm
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
 alias ci='vi'
+alias ma='cd $HOMEDIR/repos/script_mpas_analysis/master; pwd; dir'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
@@ -185,6 +186,7 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   export b=/global/homes/m/mpeterse/repos/model
   export e=/global/homes/m/mpeterse/repos/E3SM
   export n=/global/cscratch1/sd/mpeterse/runs/n
+  alias ma='cd /global/homes/m/mpeterse/repos/scripts_mpas_analysis/master/cori; pwd; dir'
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
@@ -295,7 +297,6 @@ alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
 alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
 alias cc='cd $HOMEDIR/repos/compass; dir'
 alias cm='cd $HOMEDIR/repos/compass/master; dir'
-alias ma='cd $HOMEDIR/repos/analysis; pwd; dir'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
 alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
 alias md='cd $HOMEDIR/repos/documents; pwd; dir'
