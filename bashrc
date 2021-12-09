@@ -146,7 +146,7 @@ elif [[ $HOST = sn* ]]; then
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
   TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
 
-  # see https://hpc.lanl.gov/proxy_setup
+  # see https://hpc.lanl.gov/software/software-guides/proxy-setup.html
   export http_proxy="http://proxyout.lanl.gov:8080"
   export https_proxy="http://proxyout.lanl.gov:8080"
   export ftp_proxy="http://proxyout.lanl.gov:8080"
