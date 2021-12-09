@@ -60,13 +60,14 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   alias ls='ls -G'
   alias dir='ls -tlFhG |head'
   # see https://hpc.lanl.gov/proxy_setup
-  export http_proxy="http://proxyout.lanl.gov:8080"
-  export https_proxy="http://proxyout.lanl.gov:8080"
-  export ftp_proxy="http://proxyout.lanl.gov:8080"
-  export HTTP_PROXY="http://proxyout.lanl.gov:8080"
-  export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
-  export FTP_PROXY="http://proxyout.lanl.gov:8080"
-  export no_proxy="localhost,127.0.0.1"
+  # mrp 211209 this should be for lanl ic only.
+  #export http_proxy="http://proxyout.lanl.gov:8080"
+  #export https_proxy="http://proxyout.lanl.gov:8080"
+  #export ftp_proxy="http://proxyout.lanl.gov:8080"
+  #export HTTP_PROXY="http://proxyout.lanl.gov:8080"
+  #export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
+  #export FTP_PROXY="http://proxyout.lanl.gov:8080"
+  #export no_proxy="localhost,127.0.0.1"
 
   alias r='echo "cd ~/runs";cd ~/runs'
 
