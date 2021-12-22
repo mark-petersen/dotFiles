@@ -99,22 +99,22 @@ elif [[ $HOST = ch-* ]] || [[ $HOST = ba* ]]; then
 
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
-  alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; ls -tlFh | head'
+  alias r='cd /lustre/scratch4/turquoise/mpeterse/runs; ls -tlFh | head'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_grizzly.sh'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/usr/projects/climate/mpeterse/repos/model
-  export n=/lustre/scratch3/turquoise/mpeterse/runs/n
+  export n=/lustre/scratch4/turquoise/mpeterse/runs/n
   export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
   module load git
 
   ### E3SM section ###
-  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/cases
-  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/archive
+  export RUN_ROOT=/lustre/scratch4/turquoise/mpeterse/E3SM/cases
+  export ARCHIVE_ROOT=/lustre/scratch4/turquoise/mpeterse/E3SM/archive
   alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
-  TARFILE="/lustre/scratch3/turquoise/mpeterse/trash/tar.tar"
+  TARFILE="/lustre/scratch4/turquoise/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
   export http_proxy="http://proxyout.lanl.gov:8080"
@@ -361,12 +361,13 @@ alias toccs='scp ~/a/tar.tar mpeterse@ccscs1.lanl.gov:/home/mpeterse/a'
 alias tccs='scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
 alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
-alias tt="scp mpeterse@wtrw.lanl.gov:gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias tba="scp mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:gr-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;"
-alias toba=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch3/turquoise/mpeterse/trash/tar.tar;"
+alias tt="scp mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tch="scp mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:gr-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
+alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias gr='ssh -t mpeterse@wtrw.lanl.gov ssh gr-fe'
 alias ba='ssh -t mpeterse@wtrw.lanl.gov ssh ba-fe'
+alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias darwin='ssh darwin-fe.lanl.gov'
 alias gpfs='ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
 alias ar='ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
@@ -394,7 +395,7 @@ alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpe
 alias totacc='scp /scratch/03443/mpeterse/trash/tar.tar mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar'
 alias ttacc='scp mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 alias bl='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues blues.lcrc.anl.gov'
-alias ch='ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
+alias chr='ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
 # old alias ch='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
 alias tbl='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tch='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
