@@ -83,8 +83,8 @@ elif [[ $HOST = ccs* ]]; then
   alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
 
-### LANL turquoise IC: grizzly and badger
-elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]]; then
+### LANL turquoise IC: grizzly and badger and chicoma
+elif [[ $HOST = ch-* ]] || [[ $HOST = ba* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
