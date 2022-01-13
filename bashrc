@@ -52,6 +52,7 @@ export QUEUETYPE=slurm
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
 alias ci='vi'
 alias ma='cd $HOMEDIR/repos/script_mpas_analysis/master; pwd; dir'
+alias b='cd $HOMEDIR/repos/model; pwd; dir'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
@@ -70,6 +71,8 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   #export no_proxy="localhost,127.0.0.1"
 
   alias r='echo "cd ~/runs";cd ~/runs'
+  alias b='vi ~/s/other/my_pubs.bib'
+  alias a='vi ~/s/other/pa'
 
 ### LANL local unix box
 elif [[ $HOST = forest* ]]; then
@@ -296,7 +299,6 @@ fi
 
 alias home='cd $HOMEDIR; pwd; ls'
 alias re='cd $HOMEDIR/repos; pwd; ls'
-alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
 alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
 alias cc='cd $HOMEDIR/repos/compass; dir'
