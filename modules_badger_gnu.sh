@@ -3,7 +3,7 @@
 echo "Loading modules for badger gnu"
 ## badger modules ###
 module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/spack-lmod/linux-rhel7-x86_64
-#module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh;
+module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh;
 # IC mods
 module load gcc/6.4.0
 module load openmpi/2.1.2

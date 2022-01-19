@@ -168,7 +168,6 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   alias mli='module purge; module load git; source ~/repos/dotFiles/modules_cori_intel.sh'
 
   alias r='cd $SCRATCH/runs; pwd'
-  alias cs='cd $CSCRATCH/runs; pwd'
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-haswell
@@ -307,6 +306,7 @@ alias mq='cd $HOMEDIR/repos/quickviz; pwd; dir'
 alias dot='cd $HOMEDIR/repos/dotFiles; pwd'
 alias linter='$HOMEDIR/repos/tools/master/source_code_processing/mpas_source_linter/mpas_source_linter.py'
 alias vtk='python ${HOMEDIR}/repos/tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+alias cs='cd cime/scripts'
 
 E3SM_ROOT=$HOMEDIR/repos/E3SM
 CASE_ROOT=$HOMEDIR/e3sm_cases
