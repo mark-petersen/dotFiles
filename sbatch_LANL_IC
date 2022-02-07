@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH -J e01aWC14spinup
+#SBATCH -N 20
+#SBATCH -o out_%j
+#SBATCH -A t22_ocean_time_step
+#SBATCH -t 4:00:00
+
+source /usr/projects/climate/mpeterse/repos/compass/pr/load_dev_compass_1.0.0_badger_gnu_mvapich.sh
+compass run

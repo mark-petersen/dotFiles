@@ -84,7 +84,7 @@ elif [[ $HOST = ccs* ]]; then
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
 
 ### LANL turquoise IC: grizzly and badger and chicoma
-elif [[ $HOST = ch-* ]] || [[ $HOST = ba* ]]; then
+elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
@@ -106,6 +106,7 @@ elif [[ $HOST = ch-* ]] || [[ $HOST = ba* ]]; then
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/usr/projects/climate/mpeterse/repos/model
   export n=/lustre/scratch4/turquoise/mpeterse/runs/n
+  export r=/lustre/scratch4/turquoise/mpeterse/runs
   export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
   module load git
 
@@ -299,6 +300,7 @@ alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
 alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
 alias cc='cd $HOMEDIR/repos/compass; dir'
 alias cm='cd $HOMEDIR/repos/compass/master; dir'
+alias cpr='cd $HOMEDIR/repos/compass/pr; dir'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
 alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
 alias md='cd $HOMEDIR/repos/documents; pwd; dir'
@@ -330,7 +332,8 @@ alias grom="echo 'git rebase origin/master'; git rebase origin/master"
 alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
 alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
 alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL"'
-alias gd="echo 'git diff'; git diff"
+alias gd="git diff"
+alias gds="git diff --stat"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
 alias gdo="echo 'git diff origin/master'; git diff origin/master"
 alias gdos="echo 'git diff origin/master'; git diff origin/master --stat"
