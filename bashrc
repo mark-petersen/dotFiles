@@ -104,6 +104,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_grizzly.sh'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
+  alias sb="cp /usr/projects/climate/mpeterse/repos/dotFiles/sbatch_LANL_IC sbatch_script"
   export b=/usr/projects/climate/mpeterse/repos/model
   export n=/lustre/scratch4/turquoise/mpeterse/runs/n
   export r=/lustre/scratch4/turquoise/mpeterse/runs
