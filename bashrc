@@ -102,6 +102,8 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
 
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
+  alias rf='cd /lustre/scratch5/mpeterse/runs; pwd'
+  alias nf='cd /lustre/scratch5/mpeterse/runs/n; pwd'
   alias r='cd /lustre/scratch4/turquoise/mpeterse/runs; ls -tlFh | head'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
