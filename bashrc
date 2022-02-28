@@ -433,3 +433,4 @@ export om=/components/mpas-ocean/
 alias om='cd components/mpas-ocean'
 alias co='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 alias cr='compass run'
+
