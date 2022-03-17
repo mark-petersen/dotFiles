@@ -110,6 +110,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_grizzly.sh'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   alias sb="cp /usr/projects/climate/mpeterse/repos/dotFiles/sbatch_LANL_IC sbatch_script"
+  alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t22_ocean_time_step'
   export b=/usr/projects/climate/mpeterse/repos/model
   export n=/lustre/scratch4/turquoise/mpeterse/runs/n
   export r=/lustre/scratch4/turquoise/mpeterse/runs
@@ -320,6 +321,7 @@ CASE_ROOT=$HOMEDIR/e3sm_cases
 
 # git aliases
 alias gs='git status'
+alias gba='git branch --all'
 alias grv='git remote -v'
 alias g='git log --graph --oneline -n 12'
 alias gitlp='git log --graph --oneline -n 12'
@@ -343,6 +345,8 @@ alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
 alias gdo="echo 'git diff origin/master'; git diff origin/master"
 alias gdos="echo 'git diff origin/master'; git diff origin/master --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
+alias gdh="echo 'git diff HEAD~1'; git diff HEAD~1"
+alias gdhs="echo 'git diff HEAD~1 --stat'; git diff HEAD~1 --stat"
 
 # directory aliases
   alias n='cd $n; ls -tlFh | head'
@@ -359,6 +363,10 @@ alias ex='exit'
 alias h='history'
 alias m='less'
 alias cdd='cd \!*; ls'
+alias cd.='cd ..'
+alias cd..='cd ../..'
+alias cd...='cd ../../..'
+alias cd....='cd ../../../..'
 alias space='du -m | sort -n'
 alias grep='grep -d skip --color=always'
 
@@ -419,5 +427,5 @@ alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
 
 export om=/components/mpas-ocean/
 alias om='cd components/mpas-ocean'
-alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
-
+alias co='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
+alias cr='compass run'
