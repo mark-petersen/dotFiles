@@ -113,6 +113,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t22_ocean_time_step'
   export b=/usr/projects/climate/mpeterse/repos/model
   export n=/lustre/scratch4/turquoise/mpeterse/runs/n
+  export n5=/lustre/scratch5/turquoise/mpeterse/runs/n
   export r=/lustre/scratch4/turquoise/mpeterse/runs
   export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
   module load git
@@ -307,6 +308,8 @@ alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
 alias cc='cd $HOMEDIR/repos/compass; dir'
 alias cm='cd $HOMEDIR/repos/compass/master; dir'
 alias cpr='cd $HOMEDIR/repos/compass/pr; dir'
+alias cmlg='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_gnu_mvapich.sh'
+alias cmli='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_intel_impi.sh'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
 alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
 alias md='cd $HOMEDIR/repos/documents; pwd; dir'
