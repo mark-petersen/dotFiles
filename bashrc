@@ -107,12 +107,13 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   alias r='cd /lustre/scratch4/turquoise/mpeterse/runs; ls -tlFh | head'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
-  alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_grizzly.sh'
+  alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   alias sb="cp /usr/projects/climate/mpeterse/repos/dotFiles/sbatch_LANL_IC sbatch_script"
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t22_ocean_time_step'
   export b=/usr/projects/climate/mpeterse/repos/model
-  export n=/lustre/scratch4/turquoise/mpeterse/runs/n
+  export n=/lustre/scratch5/turquoise/mpeterse/runs/n
+  export n4=/lustre/scratch4/turquoise/mpeterse/runs/n
   export n5=/lustre/scratch5/turquoise/mpeterse/runs/n
   export r=/lustre/scratch4/turquoise/mpeterse/runs
   export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
@@ -310,6 +311,8 @@ alias cc='cd $HOMEDIR/repos/compass; dir'
 alias cm='cd $HOMEDIR/repos/compass/master; dir'
 alias cpr='cd $HOMEDIR/repos/compass/pr; dir'
 alias cmlg='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_gnu_mvapich.sh'
+alias lg='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_gnu_mvapich.sh'
+alias li='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_intel_impi.sh'
 alias cmli='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_intel_impi.sh'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
 alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
@@ -342,7 +345,7 @@ alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git rebase origin/master'; git rebase origin/master"
 alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
 alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
-alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL"'
+alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm"'
 alias gd="git diff"
 alias gds="git diff --stat"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
