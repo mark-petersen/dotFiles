@@ -122,8 +122,8 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch4/turquoise/mpeterse/E3SM/cases
   export ARCHIVE_ROOT=/lustre/scratch4/turquoise/mpeterse/E3SM/archive
-  alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
-  alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
+  alias in='cd /lustre/scratch4/turquoise/mpeterse/E3SM/input_data; pwd; ls'
+  alias inu='cd /lustre/scratch4/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
   TARFILE="/lustre/scratch4/turquoise/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
