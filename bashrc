@@ -287,6 +287,7 @@ elif [[ $HOST = compy* ]]; then
   PS1='\[\e[1;31m\]\W\$\[\e[0m\] ' # red
   alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
+  alias rr='cd /compyfs/pete011/e3sm_scratch; pwd;ls -tlFh | head'
   TARFILE='~/a/tar.tar'
   module load git
   module load python
