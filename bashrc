@@ -44,6 +44,7 @@ HOST=`hostname -s`
 # Default, unless replaced below: 
 umask 022
 alias ls='ls --color'
+function lsa { ls $1 | sed "s:^:`pwd`/: "; }
 alias dir='ls -tlFh | head'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
 export TARFILE="~/a/tar.tar"
@@ -73,6 +74,11 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   alias r='echo "cd ~/runs";cd ~/runs'
   alias b='vi ~/s/other/my_pubs.bib'
   alias a='vi ~/s/other/pa'
+  # Following lines are for zsh. 
+  # also add 'source .bashrc' to .zshrc
+  bindkey "^[[A" history-beginning-search-backward
+  bindkey "^[[B" history-beginning-search-forward
+  PROMPT='%F{115}%1~%f %# '
 
 ### LANL local unix box
 elif [[ $HOST = forest* ]]; then
