@@ -259,6 +259,8 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   PATH=$PATH:/usr/libexec/git-core
   alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_anvil.sh' 
   alias rrr='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+  alias in='cd /lcrc/group/acme/data/inputdata/ocn/mpas-o/; pwd; ls'
+  alias inn='cd /lcrc/group/e3sm/ac.mpetersen/scratch/E3SM/input_data; pwd; ls'
 
 ### PNNL: compy
 elif [[ $HOST = compy* ]]; then
