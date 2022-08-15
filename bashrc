@@ -110,7 +110,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
   alias rf='cd /lustre/scratch5/mpeterse/runs; pwd'
   alias nf='cd /lustre/scratch5/mpeterse/runs/n; pwd'
-  alias r='cd /lustre/scratch4/turquoise/mpeterse/runs; ls -tlFh | head'
+  alias r='cd /lustre/scratch5/turquoise/mpeterse/runs; ls -tlFh | head'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
@@ -353,7 +353,7 @@ alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git rebase origin/master'; git rebase origin/master"
 alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
 alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
-alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS; #src/ppr; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm"'
+alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS src/ppr; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/ppr"'
 alias gd="git diff"
 alias gds="git diff --stat"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
