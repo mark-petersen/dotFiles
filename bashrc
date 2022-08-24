@@ -54,6 +54,7 @@ alias py='echo "Load python for e3sm-unified"; module unload python; module use 
 alias ci='vi'
 alias ma='cd $HOMEDIR/repos/script_mpas_analysis/master; pwd; dir'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
+alias call='cal -y'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
