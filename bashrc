@@ -44,7 +44,7 @@ HOST=`hostname -s`
 # Default, unless replaced below: 
 umask 022
 alias ls='ls --color'
-function lsa { ls $1 | sed "s:^:`pwd`/: "; }
+function lss { ls $1 | sed "s:^:`pwd`/: "; }
 alias dir='ls -tlFh | head'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
 export TARFILE="~/a/tar.tar"
