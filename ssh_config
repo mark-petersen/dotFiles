@@ -1,0 +1,16 @@
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/connections/%h_%p_%r
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host *-fe*
+       PKCS11Provider /usr/lib/ssh-keychain.dylib
+
+Match Host wtrw*
+       PKCS11Provider /usr/lib/ssh-keychain.dylib
+
+Match Host *.lanl.gov
+       PKCS11Provider /usr/lib/ssh-keychain.dylib 
+# copy to ~/.ssh/config
