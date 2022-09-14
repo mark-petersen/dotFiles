@@ -404,7 +404,7 @@ alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl
 alias gr='ssh -t mpeterse@wtrw.lanl.gov ssh gr-fe'
 alias ba='ssh -t mpeterse@wtrw.lanl.gov ssh ba-fe'
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
-alias darwin='ssh darwin-fe.lanl.gov'
+alias darwin='ssh mpeterse@darwin-fe.lanl.gov'
 alias gpfs='ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
 alias ar='ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
