@@ -81,6 +81,10 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   bindkey "^[[B" history-beginning-search-forward
   PROMPT='%F{115}%1~%f %# '
 
+  if [[ $HOST = pn1707929 ]]; then
+    alias git=~/miniconda3/bin/git
+  fi
+
 ### LANL local unix box
 elif [[ $HOST = forest* ]]; then
   echo 'forest hostname: ' $HOST
