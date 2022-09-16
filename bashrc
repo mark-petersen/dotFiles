@@ -187,10 +187,9 @@ elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
-  module load git
 
   alias mlg='source ~/repos/dotFiles/modules_cori_gnu.sh'
-  alias mli='module purge; module load git; source ~/repos/dotFiles/modules_cori_intel.sh'
+  alias mli='module purge; source ~/repos/dotFiles/modules_cori_intel.sh'
 
   alias r='cd $SCRATCH/runs; pwd'
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
