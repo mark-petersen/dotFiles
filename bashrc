@@ -130,12 +130,12 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   export n=/lustre/scratch5/turquoise/mpeterse/runs/n
   export n4=/lustre/scratch4/turquoise/mpeterse/runs/n
   export n5=/lustre/scratch5/turquoise/mpeterse/runs/n
-  export r=/lustre/scratch4/turquoise/mpeterse/runs
+  export r=/lustre/scratch5/turquoise/mpeterse/runs
   export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
   module load git
 
   ### E3SM section ###
-  export RUN_ROOT=/lustre/scratch4/turquoise/mpeterse/E3SM/cases
+  export RUN_ROOT=/lustre/scratch5/turquoise/mpeterse/E3SM/cases
   export ARCHIVE_ROOT=/lustre/scratch4/turquoise/mpeterse/E3SM/archive
   alias in='cd /lustre/scratch4/turquoise/mpeterse/E3SM/input_data/ocn/mpas-o; pwd; ls'
   alias inu='cd /lustre/scratch4/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
@@ -346,6 +346,7 @@ alias gs='git status'
 alias gba='git branch --all'
 alias grv='git remote -v'
 alias g='git log --graph --oneline -n 12'
+alias gg='git log --graph --oneline'
 alias gitlp='git log --graph --oneline -n 12'
 alias glc='git log -n 1 |cut -c 5-200'
 alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
