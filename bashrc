@@ -85,11 +85,6 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
     alias git=~/miniconda3/bin/git
   fi
 
-### LANL local unix box
-elif [[ $HOST = forest* ]]; then
-  echo 'forest hostname: ' $HOST
-  PS1='\W$ '
-
 ### LANL ccs servers
 elif [[ $HOST = ccs* ]]; then
   echo 'ccs hostname: ' $HOST
@@ -298,6 +293,13 @@ elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
   alias py='conda activate e3sm-unified-mpich' # see instructions at e3sm unified conda
   TARFILE='/scratch/03443/mpeterse/trash/tar.tar'
   export QUEUETYPE=slurm
+
+### LANL darwin
+elif [[ $HOST = darwin* ]]; then
+  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
+  echo 'darwin hostname: ' $HOST
+  alias r='echo "cd /scratch/users/mpeterse/runs";cd /scratch/users/mpeterse/runs; pwd'
+
 fi
 
 
