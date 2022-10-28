@@ -106,8 +106,9 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   alias mlci='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_intel_impi.sh'
   alias cv='source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/base/etc/profile.d/conda.sh; conda activate test_compass_1.0'
   alias cmlg='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_gnu_mvapich.sh'
-  alias lg='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_gnu_mvapich.sh'
-  alias li='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_intel_impi.sh'
+  alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_gnu_mvapich.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+  alias lgqu="source /usr/projects/climate/mpeterse/repos/compass/add_QU_cases/load_dev_compass_1.2.0-alpha.1_badger_gnu_mvapich.sh;PS1='\[\e[1;32m\]\h:gQU:\W\$\[\e[0m\] '"
+  alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_intel_impi.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
   alias cmli='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_intel_impi.sh'
 
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
@@ -115,6 +116,7 @@ elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
   alias rf='cd /lustre/scratch5/mpeterse/runs; pwd'
   alias nf='cd /lustre/scratch5/mpeterse/runs/n; pwd'
   alias r='cd /lustre/scratch5/turquoise/mpeterse/runs; ls -tlFh | head'
+  alias s='cd /lustre/scratch5/turquoise/mpeterse/runs/s; ls'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
