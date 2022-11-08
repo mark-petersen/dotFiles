@@ -359,6 +359,7 @@ CASE_ROOT=$HOMEDIR/e3sm_cases
 alias gs='git status'
 alias gba='git branch --all'
 alias grv='git remote -v'
+alias gl='git log -n 1'
 alias g='git log --graph --oneline -n 12'
 alias gg='git log --graph --oneline'
 alias gitlp='git log --graph --oneline -n 12'
@@ -375,7 +376,7 @@ alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git rebase origin/master'; git rebase origin/master"
 alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
 alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
-alias gsuo='git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS src/ppr; echo "git submodule update --init src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/ppr"'
+alias gsuo='git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS src/ppr; echo "git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/ppr"'
 alias gd="git diff"
 alias gds="git diff --stat"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
@@ -391,6 +392,7 @@ alias gdhs="echo 'git diff HEAD~1 --stat'; git diff HEAD~1 --stat"
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
+alias q='cd $HOMEDIR/repos/quickviz; echo "cd to quickviz:" `pwd`; ls'
 alias ee='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`; ls -tlFh | head'
