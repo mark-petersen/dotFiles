@@ -92,8 +92,8 @@ elif [[ $HOST = ccs* ]]; then
   alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
 
-### LANL turquoise IC: grizzly and badger and chicoma
-elif [[ $HOST = gr* ]] || [[ $HOST = ba* ]] || [[ $HOST = ch-* ]]; then
+### LANL turquoise IC: chicoma
+elif [[ $HOST = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
@@ -405,12 +405,10 @@ alias toccs='scp ~/a/tar.tar mpeterse@ccscs1.lanl.gov:/home/mpeterse/a'
 alias tccs='scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
 alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
-alias tt="scp mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tt="scp mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias tch="scp mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
-alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ba-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
-alias gr='ssh -t mpeterse@wtrw.lanl.gov ssh gr-fe'
-alias ba='ssh -t mpeterse@wtrw.lanl.gov ssh ba-fe'
+alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
+alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias da='ssh mpeterse@darwin-fe.lanl.gov'
 alias toda='scp ~/a/tar.tar mpeterse@darwin-fe.lanl.gov:/vast/home/mpeterse/a'
