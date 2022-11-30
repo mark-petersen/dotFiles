@@ -228,23 +228,16 @@ elif [[ $HOST = theta* ]]; then
   alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate_2/mpas_analysis_html; pwd; ls'
   alias py='module unload python e3sm-unified; source /lus/theta-fs0/projects/ccsm/acme/tools/e3sm-unified/load_latest_e3sm_unified.sh'
 
-### Oak Ridge: titan and EOS
-elif [[ $HOST = titan* ]] || [[ $HOST = eos* ]] || [[ $HOST = rhea* ]]; then
+### Oak Ridge: summit
+elif [[ $HOST = login* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
-  export QUEUETYPE=pbs
-  PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
+  PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
-  alias anre='echo "cd to analysis repo"; cd /ccs/home/mpetersen/repos/analysis/develop_180430;pwd;ls'
-  alias ans='echo "cd to analysis results"; cd /lustre/atlas/scratch/mpetersen/cli127/analysis; pwd;ls'
-  alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas-analysis_html; pwd; ls'
   module load git
   module load python
-  alias anre='echo "cd to analysis repo"; cd /ccs/home/mpetersen/repos/analysis/develop_180424;pwd;ls'
-  alias ans='echo "cd to analysis results"; cd /lustre/atlas/scratch/mpetersen/cli127/analysis; pwd;ls'
-  alias anh='echo "cd to analysis html dir"; cd /lustre/atlas/scratch/mpetersen/cli127/mpas_analysis_html; pwd; ls'
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
 
 ### Oak Ridge chrysalis
@@ -294,7 +287,6 @@ elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias py='conda activate e3sm-unified-mpich' # see instructions at e3sm unified conda
   TARFILE='/scratch/03443/mpeterse/trash/tar.tar'
-  export QUEUETYPE=slurm
 
 ### LANL darwin
 elif [[ $HOST = darwin* ]]; then
