@@ -56,6 +56,10 @@ alias ma='cd $HOMEDIR/repos/script_mpas_analysis/master; pwd; dir'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias call='cal -y'
 
+
+alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   echo 'mac hostname: ' $HOST
@@ -243,13 +247,15 @@ elif [[ $HOST = login* ]]; then
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
-  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
+  PS1='\[\e[1;34m\]chr:\W\$\[\e[0m\] ' # blue
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
   TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
   export r=/lcrc/group/e3sm/ac.mpetersen/scratch/runs
   export n=/lcrc/group/e3sm/ac.mpetersen/scratch/runs/n
   alias r='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs; ls -tlFh | head'
   alias n='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs/n; ls -tlFh | head'
+  alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]chr:g:\W\$\[\e[0m\] '"
+  alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]chr:i:\W\$\[\e[0m\] '"
 
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
