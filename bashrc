@@ -254,8 +254,8 @@ elif [[ $HOST = chr* ]]; then
   export n=/lcrc/group/e3sm/ac.mpetersen/scratch/runs/n
   alias r='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs; ls -tlFh | head'
   alias n='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs/n; ls -tlFh | head'
-  alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]chr:g:\W\$\[\e[0m\] '"
-  alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]chr:i:\W\$\[\e[0m\] '"
+  alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;34m\]chr:g:\W\$\[\e[0m\] '"
+  alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;34m\]chr:i:\W\$\[\e[0m\] '"
 
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
