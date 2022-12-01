@@ -247,7 +247,7 @@ elif [[ $HOST = login* ]]; then
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
-  PS1='\[\e[1;34m\]chr:\W\$\[\e[0m\] ' # blue
+  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
   TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
   export r=/lcrc/group/e3sm/ac.mpetersen/scratch/runs
