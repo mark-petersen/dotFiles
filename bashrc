@@ -238,6 +238,7 @@ elif [[ $HOST = login* ]]; then
   PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
+  alias sa="echo 'bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
   TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   module load git
