@@ -238,7 +238,7 @@ elif [[ $HOST = login* ]]; then
   PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
-  alias sa="echo 'bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
+  alias sa="echo 'GPU options: https://github.com/olcf/NewUserQuickStart/tree/master/hands-on/jsrun_Job_Launcher bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
   TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   module load git
@@ -319,6 +319,10 @@ elif [[ $QUEUETYPE = pbs ]]; then
   alias canceljob='echo "pbs: qdel"; qdel '
   alias llogin='echo "pbs: qsub -I -t 1:00:00 -n 1 -q debug-flat-quad"; qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
   alias partitions='echo "pbs: qstat -Q"; qstat -Q'
+elif [[ $QUEUETYPE = LSF ]]; then
+  export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
+  alias j='echo "lsf: bjobs"; bjobs'
+  alias canceljob='echo "lsf: bkill"; bKill'
 fi
 
 # mrp 200923 turn off this path for python
