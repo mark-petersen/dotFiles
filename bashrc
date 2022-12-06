@@ -233,9 +233,13 @@ elif [[ $HOST = theta* ]]; then
   alias py='module unload python e3sm-unified; source /lus/theta-fs0/projects/ccsm/acme/tools/e3sm-unified/load_latest_e3sm_unified.sh'
 
 ### Oak Ridge: summit
-elif [[ $HOST = login* ]]; then
+elif [[ $HOST = login* ]] || [[ $HOST = batch* ]]; then
   echo 'Oak Ridge hostname: ' $HOST
-  PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
+  if [[ $HOST = login* ]]; then
+     PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
+  elif [[ $HOST = batch* ]]; then
+     PS1='\[\e[1;35m\]su\h:\W\$\[\e[0m\] ' # maroon
+  fi
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   alias sa="echo 'GPU options: https://github.com/olcf/NewUserQuickStart/tree/master/hands-on/jsrun_Job_Launcher bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
@@ -244,6 +248,7 @@ elif [[ $HOST = login* ]]; then
   module load git
   module load python
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
+  alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; ls -tlFh | head'
 
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
