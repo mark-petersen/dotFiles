@@ -419,6 +419,7 @@ alias tch="scp mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/
 alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
+alias summit='ssh mpetersen@summit.olcf.ornl.gov'
 alias da='ssh mpeterse@darwin-fe.lanl.gov'
 alias toda='scp ~/a/tar.tar mpeterse@darwin-fe.lanl.gov:/vast/home/mpeterse/a'
 alias tda='scp mpeterse@darwin.lanl.gov:/vast/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
