@@ -101,19 +101,8 @@ elif [[ $HOST = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   export HOMEDIR=/usr/projects/climate/mpeterse
-  alias mlba='module purge; module load git; source ~/repos/dotFiles/modules_badger_gnu.sh'
-  alias mli='module purge; module load git; source ~/repos/dotFiles/modules_grizzly_intel19.sh'
-  alias mlgr='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias mlgri='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; module load intel/17.0.1; module load openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2'
-  alias mlg='module purge; module load git; module use /usr/projects/climate/SHARED_CLIMATE/modulefiles/all/; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_compass.sh; module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias mlcg='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_gnu_mvapich.sh'
-  alias mlci='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_intel_impi.sh'
-  alias cv='source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/base/etc/profile.d/conda.sh; conda activate test_compass_1.0'
-  alias cmlg='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_gnu_mvapich.sh'
-  alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_gnu_mvapich.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
-  alias lgqu="source /usr/projects/climate/mpeterse/repos/compass/add_QU_cases/load_dev_compass_1.2.0-alpha.1_badger_gnu_mvapich.sh;PS1='\[\e[1;32m\]\h:gQU:\W\$\[\e[0m\] '"
-  alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*_badger_intel_impi.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
-  alias cmli='source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_1.0.0_grizzly_intel_impi.sh'
+  alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+  alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
@@ -375,6 +364,7 @@ alias gcm="echo 'git commit -am'; git commit -am"
 alias gca="echo 'git commit -a --amend'; git commit -a --amend"
 alias grom="echo 'git rebase origin/master'; git rebase origin/master"
 alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
+alias grhh="echo 'git reset --hard HEAD'; git reset --hard HEAD"
 alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
 alias gsuo='git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS src/ppr; echo "git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/ppr"'
 alias gd="git diff"
