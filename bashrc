@@ -232,7 +232,7 @@ elif [[ $HOST = login* ]] || [[ $HOST = batch* ]]; then
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
   alias sa="echo 'GPU options: https://github.com/olcf/NewUserQuickStart/tree/master/hands-on/jsrun_Job_Launcher bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
-  TARFILE="/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar"
+  TARFILE="/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   module load git
   module load python
