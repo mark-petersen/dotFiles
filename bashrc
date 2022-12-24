@@ -172,7 +172,7 @@ elif [[ $HOST = sn* ]]; then
   export no_proxy="localhost,127.0.0.1"
 
 ### nersc: cori
-elif [[ $HOST = ed* ]] || [[ $HOST = cori* ]] || [[ $HOST = nid* ]]; then
+elif [[ $HOME = '/global/homes/m/mpeterse' ]]; then
   echo 'NERSC hostname: ' $HOST
   PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
@@ -222,12 +222,8 @@ elif [[ $HOST = theta* ]]; then
   alias py='module unload python e3sm-unified; source /lus/theta-fs0/projects/ccsm/acme/tools/e3sm-unified/load_latest_e3sm_unified.sh'
 
 ### Oak Ridge: summit
-elif [[ $HOST = login* ]] || [[ $HOST = batch* ]]; then
-  if [[ $HOME = '/global/homes/m/mpeterse' ]]; then
-      echo 'perlmutter'
-  elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
-      echo 'Oak Ridge hostname: ' $HOST
-  fi
+elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
+  echo 'Oak Ridge hostname: ' $HOST
   if [[ $HOST = login* ]]; then
      PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
   elif [[ $HOST = batch* ]]; then
