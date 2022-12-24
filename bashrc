@@ -223,7 +223,11 @@ elif [[ $HOST = theta* ]]; then
 
 ### Oak Ridge: summit
 elif [[ $HOST = login* ]] || [[ $HOST = batch* ]]; then
-  echo 'Oak Ridge hostname: ' $HOST
+  if [[ $HOME = '/global/homes/m/mpeterse' ]]; then
+      echo 'perlmutter'
+  elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
+      echo 'Oak Ridge hostname: ' $HOST
+  fi
   if [[ $HOST = login* ]]; then
      PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
   elif [[ $HOST = batch* ]]; then
