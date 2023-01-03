@@ -447,7 +447,7 @@ alias gpfs='ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
 alias ar='ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
 # NERSC
-alias cori='ssh -Y mpeterse@cori.nersc.gov'
+alias cori='ssh mpeterse@cori.nersc.gov'
 alias tcori='scp mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tocori='scp ~/a/tar.tar mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
 alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
