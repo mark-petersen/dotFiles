@@ -173,8 +173,12 @@ elif [[ $HOST = sn* ]]; then
 
 ### nersc: cori
 elif [[ $HOME = '/global/homes/m/mpeterse' ]]; then
+  if [[ $HOST = login* ]]; then
+     PS1='\[\e[1;35m\]pm:\W\$\[\e[0m\] ' # maroon
+  elif [[ $HOST = cori* ]]; then
+     PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
+  fi
   echo 'NERSC hostname: ' $HOST
-  PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
@@ -225,17 +229,38 @@ elif [[ $HOST = theta* ]]; then
 elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   if [[ $HOST = login* ]]; then
-     PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
-  elif [[ $HOST = batch* ]]; then
-     PS1='\[\e[1;35m\]su\h:\W\$\[\e[0m\] ' # maroon
+     if [[ $LMOD_SYSTEM_NAME = summit ]]; then
+        PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
+        module load python
+        alias sa="echo 'bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
+     elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
+        PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
+     elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
+        PS1='\[\e[1;35m\]cr:\W\$\[\e[0m\] ' # maroon
+        alias sa="echo 'salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2'; salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2"
+        module load cray-python
+     else
+        PS1='\[\e[1;35m\]\h\W\$\[\e[0m\] ' # maroon
+     fi
+  elif [[ $HOST = batch* ]]||[[ $HOST = crusher* ]]; then
+     alias sa="echo 'already on compute node'"
+     if [[ $LMOD_SYSTEM_NAME = summit ]]; then
+        PS1='\[\e[1;31m\]su:\h:\W\$\[\e[0m\] ' # maroon
+        module load python
+     elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
+        PS1='\[\e[1;31m\]fr:\h:\W\$\[\e[0m\] ' # maroon
+     elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
+        PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # maroon
+        module load cray-python
+     else
+        PS1='\[\e[1;31m\]\h\W\$\[\e[0m\] ' # maroon
+     fi
   fi
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
-  alias sa="echo 'GPU options: https://github.com/olcf/NewUserQuickStart/tree/master/hands-on/jsrun_Job_Launcher bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
   TARFILE="/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   module load git
-  module load python
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
   alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; ls -tlFh | head'
 
@@ -413,6 +438,8 @@ alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.
 alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
+alias frontier='ssh mpetersen@frontier.olcf.ornl.gov'
+alias crusher='ssh mpetersen@crusher.olcf.ornl.gov'
 alias da='ssh mpeterse@darwin-fe.lanl.gov'
 alias toda='scp ~/a/tar.tar mpeterse@darwin-fe.lanl.gov:/vast/home/mpeterse/a'
 alias tda='scp mpeterse@darwin.lanl.gov:/vast/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
