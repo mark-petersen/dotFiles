@@ -99,7 +99,8 @@ elif [[ $HOST = ccs* ]]; then
 ### LANL turquoise IC: chicoma
 elif [[ $HOST = ch-* ]]; then
   echo 'IC hostname: ' $HOST
-  PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
+  #PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
+  PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   export HOMEDIR=/usr/projects/climate/mpeterse
   alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
   alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
@@ -437,6 +438,7 @@ alias tch="scp mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/
 alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
+alias sn='ssh mpeterse@sn-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
 alias frontier='ssh mpetersen@frontier.olcf.ornl.gov'
 alias crusher='ssh mpetersen@crusher.olcf.ornl.gov'
