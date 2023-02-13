@@ -150,10 +150,10 @@ elif [[ $HOST = sn* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export HOMEDIR=/users/mpeterse
+  alias r='cd /lustre/scratch4/yellow/mpeterse/runs/; pwd'
+  alias rt='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
   alias ml='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias mli='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias r='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
-  alias r2='cd /lustre/scratch2/turquoise/mpeterse/runs; pwd'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
   
   ### E3SM section ###
@@ -436,6 +436,7 @@ alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 alias tt="scp mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias tch="scp mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
+alias toy=" echo 'sending tar.tar to yellow'; scp $TARFILE mpeterse@wtrw.lanl.gov:sn-rfe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch4/turquoise/mpeterse/trash/tar.tar;"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias sn='ssh mpeterse@sn-rfe.lanl.gov'
