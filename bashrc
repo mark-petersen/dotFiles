@@ -150,6 +150,8 @@ elif [[ $HOST = sn* ]]; then
   echo 'IC hostname: ' $HOST
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export HOMEDIR=/users/mpeterse
+  export n=/lustre/scratch4/yellow/mpeterse/runs/n
+  export r=/lustre/scratch4/yellow/mpeterse/runs
   alias sa='salloc -N 1 -t 2:0:0 --qos=interactive'
   alias r='cd /lustre/scratch4/yellow/mpeterse/runs/; pwd'
   alias rt='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
