@@ -105,32 +105,32 @@ elif [[ $HOST = ch-* ]]; then
   alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
   alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
-  alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
-  alias r4='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
+  alias r3='cd /lustre/scratch3/mpeterse/runs; pwd'
+  alias r4='cd /lustre/scratch4/mpeterse/runs; pwd'
   alias rf='cd /lustre/scratch5/mpeterse/runs; pwd'
   alias nf='cd /lustre/scratch5/mpeterse/runs/n; pwd'
-  alias r='cd /lustre/scratch5/turquoise/mpeterse/runs; ls -tlFh | head'
-  alias s='cd /lustre/scratch5/turquoise/mpeterse/runs/s; ls'
+  alias r='cd /lustre/scratch5/mpeterse/runs; ls -tlFh | head'
+  alias s='cd /lustre/scratch5/mpeterse/runs/s; ls'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
-  alias vtk='python /turquoise/usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  alias vtk='python /usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   alias sb="cp /usr/projects/climate/mpeterse/repos/dotFiles/sbatch_LANL_IC sbatch_script"
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t23_coastal_ocean'
   export b=/usr/projects/climate/mpeterse/repos/model
-  export n=/lustre/scratch5/turquoise/mpeterse/runs/n
-  export n4=/lustre/scratch4/turquoise/mpeterse/runs/n
-  export n5=/lustre/scratch5/turquoise/mpeterse/runs/n
-  export r=/lustre/scratch5/turquoise/mpeterse/runs
-  export e=/turquoise/usr/projects/climate/mpeterse/repos/E3SM
+  export n=/lustre/scratch5/mpeterse/runs/n
+  export n4=/lustre/scratch4/mpeterse/runs/n
+  export n5=/lustre/scratch5/mpeterse/runs/n
+  export r=/lustre/scratch5/mpeterse/runs
+  export e=/usr/projects/climate/mpeterse/repos/E3SM
   module load git
 
   ### E3SM section ###
-  export RUN_ROOT=/lustre/scratch5/turquoise/mpeterse/E3SM/cases
-  export ARCHIVE_ROOT=/lustre/scratch4/turquoise/mpeterse/E3SM/archive
-  alias in='cd /lustre/scratch4/turquoise/mpeterse/E3SM/input_data/ocn/mpas-o; pwd; ls'
-  alias inu='cd /lustre/scratch4/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
-  TARFILE="/lustre/scratch4/turquoise/mpeterse/trash/tar.tar"
+  export RUN_ROOT=/lustre/scratch5/mpeterse/E3SM/cases
+  export ARCHIVE_ROOT=/lustre/scratch4/mpeterse/E3SM/archive
+  alias in='cd /lustre/scratch4/mpeterse/E3SM/input_data/ocn/mpas-o; pwd; ls'
+  alias inu='cd /lustre/scratch4/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
+  TARFILE="/lustre/scratch4/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
   export http_proxy="http://proxyout.lanl.gov:8080"
