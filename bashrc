@@ -102,7 +102,7 @@ elif [[ $HOST = ch-* ]]; then
   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
   #PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   export HOMEDIR=/usr/projects/climate/mpeterse
-  alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+  alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
   alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
   alias r3='cd /lustre/scratch3/turquoise/mpeterse/runs; pwd'
