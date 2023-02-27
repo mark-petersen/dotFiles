@@ -102,11 +102,11 @@ elif [[ $HOST = ch-* ]]; then
   if [[ $HOST = ch-fe* ]]; then
     PS1='\[\e[1;32m\]ch:\W\$\[\e[0m\] ' # login: green
     alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   else
     PS1='\[\e[1;31m\]\h:\[\e[1;34m\]\W\$\[\e[0m\] ' # compute: red and blue
     alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]\h:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   fi
   export HOMEDIR=/usr/projects/climate/mpeterse
 
@@ -153,7 +153,11 @@ elif [[ $HOST = ch-* ]]; then
 ### LANL yellow IC: snow
 elif [[ $HOST = sn* ]]; then
   echo 'IC hostname: ' $HOST
-  PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
+  if [[ $HOST = sn-rfe* ]]; then
+    PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # login: yellow
+  else
+    PS1='\[\e[1;31m\]\h:\[\e[1;33m\]\W\$\[\e[0m\] ' # compute: red and blue
+  fi
   export HOMEDIR=/users/mpeterse
   export n=/lustre/scratch4/yellow/mpeterse/runs/n
   export r=/lustre/scratch4/yellow/mpeterse/runs
