@@ -99,11 +99,16 @@ elif [[ $HOST = ccs* ]]; then
 ### LANL turquoise IC: chicoma
 elif [[ $HOST = ch-* ]]; then
   echo 'IC hostname: ' $HOST
-  PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
-  #PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
+  if [[ $HOST = ch-fe* ]]; then
+    PS1='\[\e[1;32m\]ch:\W\$\[\e[0m\] ' # login: green
+    alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+  else
+    PS1='\[\e[1;31m\]\h:\[\e[1;34m\]\W\$\[\e[0m\] ' # compute: red and blue
+    alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]\h:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+  fi
   export HOMEDIR=/usr/projects/climate/mpeterse
-  alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
-  alias li="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
   alias r3='cd /lustre/scratch3/mpeterse/runs; pwd'
   alias r4='cd /lustre/scratch4/mpeterse/runs; pwd'
