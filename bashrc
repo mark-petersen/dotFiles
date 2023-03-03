@@ -277,6 +277,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   module load git
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
   alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; ls -tlFh | head'
+  alias cppm='cd /ccs/home/mpetersen/repos/beginning-cpp20/mark_exercises; pwd; ls'
 
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
