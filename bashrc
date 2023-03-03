@@ -1,5 +1,15 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+# ** bash colors **
+# Black        0;30     Dark Gray     1;30
+# Red          0;31     Light Red     1;31
+# Green        0;32     Light Green   1;32
+# Brown/Orange 0;33     Yellow        1;33
+# Blue         0;34     Light Blue    1;34
+# Purple       0;35     Light Purple  1;35
+# Cyan         0;36     Light Cyan    1;36
+# Light Gray   0;37     White         1;37
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -259,7 +269,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   elif [[ $HOST = batch* ]]||[[ $HOST = crusher* ]]; then
      alias sa="echo 'already on compute node'"
      if [[ $LMOD_SYSTEM_NAME = summit ]]; then
-        PS1='\[\e[1;31m\]su:\h:\W\$\[\e[0m\] ' # maroon
+        PS1='\[\e[1;31m\]su:\[\e[1;35m\]\W\$\[\e[0m\] ' # compute: red and blue
         module load python
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;31m\]fr:\h:\W\$\[\e[0m\] ' # maroon
