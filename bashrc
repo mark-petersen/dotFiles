@@ -9,6 +9,18 @@
 # Purple       0;35     Light Purple  1;35
 # Cyan         0;36     Light Cyan    1;36
 # Light Gray   0;37     White         1;37
+# Reset
+Color_Off='\033[0m'       # Text Reset
+
+# Regular Colors
+Black='\033[0;30m'        # Black
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -69,6 +81,10 @@ alias call='cal -y'
 
 alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
 alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+
+# directory aliases. May be reset below for each machine.
+alias n='cd $n; ls -tlFh | head'
+alias nn='cd $n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
 
 ### Local laptops
 if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
@@ -196,13 +212,26 @@ elif [[ $HOST = sn* ]]; then
   export no_proxy="localhost,127.0.0.1"
 
 ### nersc: cori
-elif [[ $HOME = '/global/homes/m/mpeterse' ]]; then
-  if [[ $HOST = login* ]]; then
-     PS1='\[\e[1;36m\]pm:\W\$\[\e[0m\] ' # bright blue
-  elif [[ $HOST = cori* ]]; then
-     PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
+elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
+  echo 'Compute facility is nersc'
+  echo "machine is $NERSC_HOST"
+  echo "host is $HOST"
+  Cyan='\[\e[1;36m\]'
+  Normal='\[\e[1;0m\]'
+  MachineColor=$Cyan
+  HostColor=$Cyan
+  if [[ $NERSC_HOST = perlmutter ]]; then
+     MachineName='pm'
+     alias sa='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=e3sm'
+     alias sag='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=e3sm'
+     if [[ $HOST = nid* ]]; then
+        HostColor='\[\e[1;31m\]'
+     fi
+  elif [[ $NERSC_HOST = cori ]]; then
+     MachineName='cori'
+     alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
   fi
-  echo 'NERSC hostname: ' $HOST
+  PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
@@ -210,6 +239,10 @@ elif [[ $HOME = '/global/homes/m/mpeterse' ]]; then
   alias mli='module purge; source ~/repos/dotFiles/modules_cori_intel.sh'
 
   alias r='cd $SCRATCH/runs; pwd'
+  alias n='cd $SCRATCH/runs/n; pwd'
+  alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+  r='$SCRATCH/runs'
+  n='$SCRATCH/runs/n'
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-haswell
@@ -219,7 +252,6 @@ elif [[ $HOME = '/global/homes/m/mpeterse' ]]; then
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias se='cd /global/cscratch1/sd/mpeterse/repos/e3sm; pwd; ls'
-  alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
   alias py='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
   alias pyh='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
   alias pyk='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-knl.sh'
@@ -232,7 +264,6 @@ elif [[ $HOME = '/global/homes/m/mpeterse' ]]; then
   alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/global/homes/m/mpeterse/repos/model
   export e=/global/homes/m/mpeterse/repos/E3SM
-  export n=/global/cscratch1/sd/mpeterse/runs/n
   alias ma='cd /global/homes/m/mpeterse/repos/scripts_mpas_analysis/master/cori; pwd; dir'
 
 ### Argonne: theta
@@ -431,10 +462,6 @@ alias gdos="echo 'git diff origin/master'; git diff origin/master --stat"
 alias ggin="echo 'git grep -in '; git grep -in "
 alias gdh="echo 'git diff HEAD~1'; git diff HEAD~1"
 alias gdhs="echo 'git diff HEAD~1 --stat'; git diff HEAD~1 --stat"
-
-# directory aliases
-  alias n='cd $n; ls -tlFh | head'
-  alias nn='cd $n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
