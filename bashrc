@@ -198,7 +198,7 @@ elif [[ $HOST = sn* ]]; then
 ### nersc: cori
 elif [[ $HOME = '/global/homes/m/mpeterse' ]]; then
   if [[ $HOST = login* ]]; then
-     PS1='\[\e[1;35m\]pm:\W\$\[\e[0m\] ' # maroon
+     PS1='\[\e[1;36m\]pm:\W\$\[\e[0m\] ' # bright blue
   elif [[ $HOST = cori* ]]; then
      PS1='\[\e[1;36m\]\h:\W\$\[\e[0m\] ' # bright blue
   fi
