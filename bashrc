@@ -227,9 +227,13 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
      fi
+     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_gnu_*.sh;PS1='\[\e[1;36m\]\h:g:\W\$\[\e[0m\] '"
+     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_intel_*.sh;PS1='\[\e[1;36m\]\h:i:\W\$\[\e[0m\] '"
   elif [[ $NERSC_HOST = cori ]]; then
      MachineName='cori'
      alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
+     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*cori-haswell_gnu_*.sh;PS1='\[\e[1;36m\]\h:g:\W\$\[\e[0m\] '"
+     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_intel_*.sh;PS1='\[\e[1;36m\]\h:i:\W\$\[\e[0m\] '"
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
@@ -255,8 +259,6 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias py='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
   alias pyh='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
   alias pyk='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-knl.sh'
-  alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;36m\]\h:g:\W\$\[\e[0m\] '"
-  alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;36m\]\h:i:\W\$\[\e[0m\] '"
 
   alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
   alias ec='cd /global/cscratch1/sd/mpeterse/repos/E3SM/pr; pwd'
