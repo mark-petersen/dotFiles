@@ -224,16 +224,23 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      MachineName='pm'
      alias sa='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=e3sm'
      alias sag='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=e3sm'
+     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_gnu_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_intel_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
+        alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
-     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_gnu_*.sh;PS1='\[\e[1;36m\]\h:g:\W\$\[\e[0m\] '"
-     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_intel_*.sh;PS1='\[\e[1;36m\]\h:i:\W\$\[\e[0m\] '"
   elif [[ $NERSC_HOST = cori ]]; then
      MachineName='cori'
      alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
-     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*cori-haswell_gnu_*.sh;PS1='\[\e[1;36m\]\h:g:\W\$\[\e[0m\] '"
-     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_intel_*.sh;PS1='\[\e[1;36m\]\h:i:\W\$\[\e[0m\] '"
+     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*cori-haswell_gnu_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_intel_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     if [[ $HOST = nid* ]]; then
+        HostColor='\[\e[1;31m\]'
+        alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_gnu_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswellcori_intel_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     fi
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
