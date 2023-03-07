@@ -231,8 +231,8 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
         alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
         alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
-     alias r='cd $SCRATCH/runs; pwd'
-     alias n='cd $SCRATCH/runs/n; pwd'
+     alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
+     alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
      alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
      export r='$SCRATCH/runs'
      export n='$SCRATCH/runs/n'
@@ -246,8 +246,8 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
         alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_gnu_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
         alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswellcori_intel_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
-     alias r='cd /global/cscratch1/sd/mpeterse/runs; pwd'
-     alias n='cd /global/cscratch1/sd/mpeterse/runs/n; pwd'
+     alias r='cd /global/cscratch1/sd/mpeterse/runs; pwd; ls -tlFh | head'
+     alias n='cd /global/cscratch1/sd/mpeterse/runs/n; pwd; ls -tlFh | head'
      alias nn='cd /global/cscratch1/sd/mpeterse/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
      export r='/global/cscratch1/sd/mpeterse/runs'
      export n='/global/cscratch1/sd/mpeterse/runs/n'
