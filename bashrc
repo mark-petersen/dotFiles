@@ -231,6 +231,11 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
         alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
         alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
+     alias r='cd $SCRATCH/runs; pwd'
+     alias n='cd $SCRATCH/runs/n; pwd'
+     alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+     export r='$SCRATCH/runs'
+     export n='$SCRATCH/runs/n'
   elif [[ $NERSC_HOST = cori ]]; then
      MachineName='cori'
      alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
@@ -241,6 +246,11 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
         alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_gnu_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
         alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswellcori_intel_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
+     alias r='cd /global/cscratch1/sd/mpeterse/runs; pwd'
+     alias n='cd /global/cscratch1/sd/mpeterse/runs/n; pwd'
+     alias nn='cd /global/cscratch1/sd/mpeterse/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+     export r='/global/cscratch1/sd/mpeterse/runs'
+     export n='/global/cscratch1/sd/mpeterse/runs/n'
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
@@ -249,11 +259,6 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias mlg='source ~/repos/dotFiles/modules_cori_gnu.sh'
   alias mli='module purge; source ~/repos/dotFiles/modules_cori_intel.sh'
 
-  alias r='cd $SCRATCH/runs; pwd'
-  alias n='cd $SCRATCH/runs/n; pwd'
-  alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-  r='$SCRATCH/runs'
-  n='$SCRATCH/runs/n'
   alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-haswell
