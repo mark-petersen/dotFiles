@@ -236,6 +236,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
      export r='$SCRATCH/runs'
      export n='$SCRATCH/runs/n'
+     TARFILE='$SCRATCH/trash/tar.tar'
   elif [[ $NERSC_HOST = cori ]]; then
      MachineName='cori'
      alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
@@ -251,9 +252,9 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias nn='cd /global/cscratch1/sd/mpeterse/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
      export r='/global/cscratch1/sd/mpeterse/runs'
      export n='/global/cscratch1/sd/mpeterse/runs/n'
+     TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
-  TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
   alias mlg='source ~/repos/dotFiles/modules_cori_gnu.sh'
