@@ -515,6 +515,7 @@ alias toch=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias sn='ssh mpeterse@sn-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
+alias su='ssh mpetersen@summit.olcf.ornl.gov'
 alias frontier='ssh mpetersen@frontier.olcf.ornl.gov'
 alias crusher='ssh mpetersen@crusher.olcf.ornl.gov'
 alias da='ssh mpeterse@darwin-fe.lanl.gov'
