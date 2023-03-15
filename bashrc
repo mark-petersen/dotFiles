@@ -280,6 +280,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   export b=/global/homes/m/mpeterse/repos/model
   export e=/global/homes/m/mpeterse/repos/E3SM
   alias ma='cd /global/homes/m/mpeterse/repos/scripts_mpas_analysis/master/cori; pwd; dir'
+  alias mini='cd /global/homes/m/mpeterse/repos/miniWeather; pwd; ls'
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
