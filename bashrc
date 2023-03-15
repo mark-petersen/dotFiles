@@ -334,7 +334,6 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
   alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
   alias n='cd /gpfs/alpine/cli115/scratch/mpetersen/runs/n; pwd; ls -tlFh | head'
-  alias cppm='cd /ccs/home/mpetersen/repos/beginning-cpp20/mark_exercises; pwd; ls'
 
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
@@ -571,4 +570,4 @@ alias co='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 alias cr='compass run'
 alias cs='cd cime/scripts'
 alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
-
+alias cppm='cd ~/repos/beginning-cpp20/mark_exercises; pwd; ls'
