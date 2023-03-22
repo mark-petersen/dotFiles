@@ -161,7 +161,7 @@ elif [[ $HOST = ch-* ]]; then
   export ARCHIVE_ROOT=/lustre/scratch4/mpeterse/E3SM/archive
   alias in='cd /lustre/scratch4/mpeterse/E3SM/input_data/ocn/mpas-o; pwd; ls'
   alias inu='cd /lustre/scratch4/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
-  TARFILE="/lustre/scratch5/mpeterse/trash/tar.tar"
+  export TARFILE="/lustre/scratch5/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
   export http_proxy="http://proxyout.lanl.gov:8080"
@@ -337,7 +337,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   alias n='cd /gpfs/alpine/cli115/scratch/mpetersen/runs/n; pwd; ls -tlFh | head'
 
 ### Oak Ridge chrysalis
-elif [[ $HOST = chr* ]]; then
+elif [[ $HOST = chr* ]]|[[ $HOST = nid* ]]; then
   echo 'chrysalis hostname: ' $HOST
   if [[ $HOST = chrlogin* ]]; then
     PS1='\[\e[1;34m\]chr:\W\$\[\e[0m\] ' # login: blue
