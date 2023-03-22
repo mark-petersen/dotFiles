@@ -234,9 +234,9 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
      alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-     export r='$SCRATCH/runs'
-     export n='$SCRATCH/runs/n'
-     TARFILE='$SCRATCH/trash/tar.tar'
+     export r='/pscratch/sd/m/mpeterse/runs'
+     export n='/pscratch/sd/m/mpeterse/runs/n'
+     TARFILE='/pscratch/sd/m/mpeterse/trash/tar.tar'
   elif [[ $NERSC_HOST = cori ]]; then
      MachineName='cori'
      alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
