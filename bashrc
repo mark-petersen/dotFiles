@@ -480,11 +480,11 @@ alias ggin="echo 'git grep -in '; git grep -in "
 alias gdh="echo 'git diff HEAD~1'; git diff HEAD~1"
 alias gdhs="echo 'git diff HEAD~1 --stat'; git diff HEAD~1 --stat"
 alias gdh2="echo 'git diff HEAD~2'; git diff HEAD~2"
-alias gdh2s="echo 'git diff HEAD~2 --stat'; git diff HEAD~2 --stat"
+alias gdhs2="echo 'git diff HEAD~2 --stat'; git diff HEAD~2 --stat"
 alias gdh3="echo 'git diff HEAD~3'; git diff HEAD~3"
-alias gdh3s="echo 'git diff HEAD~3 --stat'; git diff HEAD~3 --stat"
+alias gdhs3="echo 'git diff HEAD~3 --stat'; git diff HEAD~3 --stat"
 alias gdh4="echo 'git diff HEAD~4'; git diff HEAD~4"
-alias gdh4s="echo 'git diff HEAD~4 --stat'; git diff HEAD~4 --stat"
+alias gdhs4="echo 'git diff HEAD~4 --stat'; git diff HEAD~4 --stat"
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
