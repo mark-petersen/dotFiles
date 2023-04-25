@@ -196,7 +196,7 @@ elif [[ $HOST = sn* ]]; then
   alias jj='cd /users/mpeterse/repos/jayenne'
   
   ### E3SM section ###
-  export RUN_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/cases
+  export RUN_ROOT=/users/mpeterse/jayenne_build/jayenne/src/mcgrid/test/phys_verification
   export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/archive
   alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
