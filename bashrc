@@ -123,16 +123,16 @@ elif [[ $HOST = ccs* ]]; then
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
 
 ### LANL turquoise IC: chicoma
-elif [[ $HOST = ch-* ]]; then
+elif [[ $HOSTNAME = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   if [[ $HOST = ch-fe* ]]; then
     PS1='\[\e[1;32m\]ch:\W\$\[\e[0m\] ' # login: green
     alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
     alias li="echo 'intel not available'" #source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   else
-    PS1='\[\e[1;31m\]\h:\[\e[1;34m\]\W\$\[\e[0m\] ' # compute: red and blue
-    alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]\h:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    PS1='\[\e[1;31m\]ch:\[\e[1;32m\]\W\$\[\e[0m\] ' # compute: red and green
+    alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   fi
   export HOMEDIR=/usr/projects/climate/mpeterse
 
@@ -201,7 +201,7 @@ elif [[ $HOST = sn* ]]; then
   export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/archive
   alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
   alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
-  TARFILE="/lustre/scratch4/yellow/mpeterse/trash/tar.tar"
+  export TARFILE="/lustre/scratch4/yellow/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/software/software-guides/proxy-setup.html
   export http_proxy="http://proxyout.lanl.gov:8080"
@@ -253,7 +253,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias nn='cd /global/cscratch1/sd/mpeterse/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
      export r='/global/cscratch1/sd/mpeterse/runs'
      export n='/global/cscratch1/sd/mpeterse/runs/n'
-     TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
+     export TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
@@ -288,7 +288,7 @@ elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
   export RUN_ROOT=/projects/OceanClimate_2/mpeterse
-  TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
+  export TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
   MODULEFILES='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
   alias in='cd /projects/OceanClimate_2/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT; pwd'
@@ -330,7 +330,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   fi
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
-  TARFILE="/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar"
+  export TARFILE="/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   module load git
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
@@ -338,7 +338,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   alias n='cd /gpfs/alpine/cli115/scratch/mpetersen/runs/n; pwd; ls -tlFh | head'
 
 ### Oak Ridge chrysalis
-elif [[ $HOST = chr* ]]|[[ $HOST = nid* ]]; then
+elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
   if [[ $HOST = chrlogin* ]]; then
     PS1='\[\e[1;34m\]chr:\W\$\[\e[0m\] ' # login: blue
@@ -350,7 +350,7 @@ elif [[ $HOST = chr* ]]|[[ $HOST = nid* ]]; then
     alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   fi
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
-  TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
+  export TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
   export r=/lcrc/group/e3sm/ac.mpetersen/scratch/runs
   export n=/lcrc/group/e3sm/ac.mpetersen/scratch/runs/n
   alias r='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs; ls -tlFh | head'
@@ -361,7 +361,7 @@ elif [[ $HOST = chr* ]]|[[ $HOST = nid* ]]; then
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   echo 'Argonne hostname: ' $HOST
   export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/anvil
-  TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
+  export TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
   # old export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
   alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate /lcrc/soft/climate/e3sm-unified/base/envs/e3sm_unified_1.5.0rc7_nompi; unset LD_LIBRARY_PATH'
@@ -381,7 +381,7 @@ elif [[ $HOST = compy* ]]; then
   alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
   alias rr='cd /compyfs/pete011/e3sm_scratch; pwd;ls -tlFh | head'
-  TARFILE='~/a/tar.tar'
+  export TARFILE='~/a/tar.tar'
   module load git
   module load python
   export PROJECT=e3sm
@@ -393,7 +393,7 @@ elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias py='conda activate e3sm-unified-mpich' # see instructions at e3sm unified conda
-  TARFILE='/scratch/03443/mpeterse/trash/tar.tar'
+  export TARFILE='/scratch/03443/mpeterse/trash/tar.tar'
 
 ### LANL darwin
 elif [[ $HOST = darwin* ]]; then
