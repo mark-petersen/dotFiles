@@ -194,6 +194,7 @@ elif [[ $HOST = sn* ]]; then
   alias mli='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
   alias jj='cd /users/mpeterse/repos/jayenne; pwd'
+  alias jd='cd /users/mpeterse/repos/jayenne/develop; pwd'
   alias jb='cd /usr/projects/jayenne/devs/mpeterse/jayenne_build/; pwd; ls'
   alias sm='echo "cd src/mcgrid/test/phys_verification/"; cd src/mcgrid/test/phys_verification/; ls *py *test'
   alias jm='cd /users/mpeterse/repos/jayenne/develop/src/mcgrid/test/phys_verification; pwd'
