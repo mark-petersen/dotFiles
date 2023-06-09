@@ -195,6 +195,7 @@ elif [[ $HOST = sn* ]]; then
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
   alias jj='cd /users/mpeterse/jayenne_build/jayenne; pwd'
   alias jb='cd /usr/projects/jayenne/devs/mpeterse/jayenne_build/; pwd; ls'
+  alias cdsm='cd src/mcgrid/test/phys_verification/; ls'
   alias jm='cd /users/mpeterse/repos/jayenne/develop/src/mcgrid/test/phys_verification; pwd'
   
   ### E3SM section ###
