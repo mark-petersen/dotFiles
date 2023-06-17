@@ -196,7 +196,7 @@ elif [[ $HOST = sn* ]]; then
   alias jj='cd /users/mpeterse/repos/jayenne; pwd; ls'
   alias jd='cd /users/mpeterse/repos/jayenne/develop; pwd'
   alias jb='cd /usr/projects/jayenne/devs/mpeterse/jayenne_build/; pwd; ls'
-  alias sm='echo "cd src/mcgrid/test/phys_verification/"; cd src/mcgrid/test/phys_verification/; ls|grep py; ls |grep test\$'
+  alias sm='echo "cd src/mcgrid/test/phys_verification/"; cd src/mcgrid/test/phys_verification/; ls -l|grep py; ls -l |grep test\$'
   alias jm='cd /users/mpeterse/repos/jayenne/develop/src/mcgrid/test/phys_verification; pwd'
   
   ### E3SM section ###
@@ -521,9 +521,9 @@ alias tccs='scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar
 alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
 alias tt="scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias tot=" echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
-alias toy=" echo 'sending tar.tar to yellow'; scp $TARFILE mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar;"
-alias ty="scp mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
+alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar;"
+alias ty="scp -O mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias sn='ssh mpeterse@sn-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
