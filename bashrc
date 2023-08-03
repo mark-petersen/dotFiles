@@ -158,9 +158,9 @@ elif [[ $HOSTNAME = ch-* ]]; then
 
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch5/mpeterse/E3SM/cases
-  export ARCHIVE_ROOT=/lustre/scratch4/mpeterse/E3SM/archive
-  alias in='cd /lustre/scratch4/mpeterse/E3SM/input_data/ocn/mpas-o; pwd; ls'
-  alias inu='cd /lustre/scratch4/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
+  export ARCHIVE_ROOT=/lustre/scratch5/mpeterse/E3SM/archive
+  alias in='cd /lustre/scratch5/mpeterse/E3SM/inputdata/ocn/mpas-o; pwd; ls'
+  alias inu='cd /lustre/scratch5/mpeterse/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
   export TARFILE="/lustre/scratch5/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
@@ -202,8 +202,8 @@ elif [[ $HOST = sn* ]]; then
   ### E3SM section ###
   export RUN_ROOT=/users/mpeterse/jayenne_build/jayenne/src/mcgrid/test/phys_verification
   export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/archive
-  alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
-  alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
+  alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/inputdata; pwd; ls'
+  alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
   export TARFILE="/lustre/scratch4/yellow/mpeterse/trash/tar.tar"
 
   # see https://hpc.lanl.gov/software/software-guides/proxy-setup.html
@@ -264,7 +264,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias mlg='source ~/repos/dotFiles/modules_cori_gnu.sh'
   alias mli='module purge; source ~/repos/dotFiles/modules_cori_intel.sh'
 
-  alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/input_data_for_upload_171113/acme/inputdata; pwd; ls'
+  alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/inputdata_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-haswell
   export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/E3SM/archive
@@ -332,7 +332,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
      fi
   fi
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
-  alias inu='cd /ccs/home/mpetersen/input_data_for_uploading; pwd; ls'
+  alias inu='cd /ccs/home/mpetersen/inputdata_for_uploading; pwd; ls'
   export TARFILE="/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   module load git
@@ -376,7 +376,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_anvil.sh' 
   alias rrr='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
   alias in='cd /lcrc/group/acme/data/inputdata/ocn/mpas-o/; pwd; ls'
-  alias inn='cd /lcrc/group/e3sm/ac.mpetersen/scratch/E3SM/input_data; pwd; ls'
+  alias inn='cd /lcrc/group/e3sm/ac.mpetersen/scratch/E3SM/inputdata; pwd; ls'
 
 ### PNNL: compy
 elif [[ $HOST = compy* ]]; then
