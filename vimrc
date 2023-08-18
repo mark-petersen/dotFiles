@@ -18,3 +18,7 @@ set formatoptions-=tc " prevent auto carriage return while typing
 
 let b:fortran_fixed_source=0
 set syntax=fortran
+
+" move among buffers with CTRL
+map <C-J> :bnext<CR>
+map <C-K> :bprev<CR>
