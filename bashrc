@@ -66,6 +66,7 @@ HOST=`hostname -s`
 # Default, unless replaced below: 
 umask 022
 alias ls='ls --color'
+alias ls1='ls -1 --color' # one file name per line
 function lss { ls $1 | sed "s:^:`pwd`/: "; }
 alias dir='ls -tlFh | head'
 alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
@@ -105,6 +106,7 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   alias r='echo "cd ~/runs";cd ~/runs'
   alias b='vi ~/s/other/my_pubs.bib'
   alias a='vi ~/s/other/pa'
+  alias mu='cd ~/s/m/forever/hillstompers/music; pwd; ls'
   # Following lines are for zsh. 
   # also add 'source .bashrc' to .zshrc
   bindkey "^[[A" history-beginning-search-backward
@@ -566,6 +568,7 @@ alias chr='ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
 # old alias ch='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
 alias tbl='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tch='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias toch=" echo 'sending tar.tar to chyrsalis'; scp -i ~/.ssh/id_rsa_blues $TARFILE ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
 alias tobl='scp -i ~/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar'
 
 # taring aliases
