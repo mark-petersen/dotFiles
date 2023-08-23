@@ -382,17 +382,17 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   alias in='cd /lcrc/group/acme/data/inputdata/ocn/mpas-o/; pwd; ls'
   alias inn='cd /lcrc/group/e3sm/ac.mpetersen/scratch/E3SM/inputdata; pwd; ls'
 
-### PNNL: compy
-elif [[ $HOST = compy* ]]; then
-  PS1='\[\e[1;31m\]\W\$\[\e[0m\] ' # red
-  alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
-  alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
-  alias rr='cd /compyfs/pete011/e3sm_scratch; pwd;ls -tlFh | head'
-  export TARFILE='~/a/tar.tar'
-  module load git
-  module load python
-  export PROJECT=e3sm
-  alias py='echo "Load python for e3sm-unified"; module unload python; source /share/apps/E3SM/conda_envs/load_latest_e3sm_unified_compy.sh'
+### PNNL: compy I did not renew compy!
+#elif [[ $HOST = compy* ]]; then
+#  PS1='\[\e[1;31m\]\W\$\[\e[0m\] ' # red
+#  alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
+#  alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
+#  alias rr='cd /compyfs/pete011/e3sm_scratch; pwd;ls -tlFh | head'
+#  TARFILE='~/a/tar.tar'
+#  module load git
+#  module load python
+#  export PROJECT=e3sm
+#  alias py='echo "Load python for e3sm-unified"; module unload python; source /share/apps/E3SM/conda_envs/load_latest_e3sm_unified_compy.sh'
 
 ### TACC: stampede2 
 elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
@@ -546,9 +546,9 @@ alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
 alias tpm='scp mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias topm='scp ~/a/tar.tar mpeterse@perlmutter-p1.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
 # PNNL
-alias compy='ssh pete011@compy.pnl.gov'
-alias tcompy='scp pete011@compy.pnl.gov:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
-alias tocompy='scp ~/a/tar.tar pete011@compy.pnl.gov:~/a/tar.tar'
+alias compy='echo "Did not renew compy' #ssh pete011@compy.pnl.gov'
+#alias tcompy='scp pete011@compy.pnl.gov:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
+#alias tocompy='scp ~/a/tar.tar pete011@compy.pnl.gov:~/a/tar.tar'
 # Oak Ridge
 alias eos='ssh mpetersen@eos.ccs.ornl.gov'
 alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
