@@ -360,6 +360,7 @@ elif [[ $HOST = chr* ]]; then
   export TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
   export r=/lcrc/group/e3sm/ac.mpetersen/scratch/runs
   export n=/lcrc/group/e3sm/ac.mpetersen/scratch/runs/n
+  export bo=/lcrc/group/e3sm/ac.mpetersen/scratch/by_others/
   alias r='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs; ls -tlFh | head'
   alias n='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs/n; ls -tlFh | head'
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
@@ -567,8 +568,8 @@ alias bl='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues blues.lcrc.anl.gov'
 alias chr='ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
 # old alias ch='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
 alias tbl='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias tch='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias toch=" echo 'sending tar.tar to chyrsalis'; scp -i ~/.ssh/id_rsa_blues $TARFILE ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
+alias tchr='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tochr=" echo 'sending tar.tar to chyrsalis'; scp -i ~/.ssh/id_rsa_blues $TARFILE ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
 alias tobl='scp -i ~/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar'
 
 # taring aliases
