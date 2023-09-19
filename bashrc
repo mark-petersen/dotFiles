@@ -333,6 +333,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
         PS1='\[\e[1;31m\]\h\W\$\[\e[0m\] ' # maroon
      fi
   fi
+  PATH=$PATH:/ccs/home/mpetersen/.local/summit/anaconda3/2020.07/3.8/bin
   export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
   alias inu='cd /ccs/home/mpetersen/inputdata_for_uploading; pwd; ls'
   export TARFILE="/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar"
