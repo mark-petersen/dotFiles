@@ -20,5 +20,8 @@ let b:fortran_fixed_source=0
 set syntax=fortran
 
 " move among buffers with CTRL
-map <C-K> :tabnext<CR>
-map <C-J> :tabprevious<CR>
+map <C-J> :bnext<CR>
+map <C-K> :bprev<CR>
+
+" ctrl-N twice toggles :set number and :set nonumber
+nmap <C-N><C-N> :set invnumber<CR>
