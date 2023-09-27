@@ -275,9 +275,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
   alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias se='cd /global/cscratch1/sd/mpeterse/repos/e3sm; pwd; ls'
-  alias py='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
-  alias pyh='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-haswell.sh'
-  alias pyk='echo "for cori, knl and haswell are available! Load python for e3sm-unified"; module unload python; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_cori-knl.sh'
+  alias py='echo "perlmutter: Load python for e3sm-unified"; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_pm-cpu.sh'
 
   alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
   alias ec='cd /global/cscratch1/sd/mpeterse/repos/E3SM/pr; pwd'
