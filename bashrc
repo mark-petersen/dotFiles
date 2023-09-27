@@ -344,6 +344,7 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
   alias n='cd /gpfs/alpine/cli115/scratch/mpetersen/runs/n; pwd; ls -tlFh | head'
   alias cppm='cd /ccs/home/mpetersen/repos/beginning-cpp20/mark_exercises; pwd; ls'
   alias mini='cd /gpfs/alpine/cli115/scratch/mpetersen/repos/miniWeather/simple_yakl_tests/cpp; pwd; ls'
+  alias vip='vim -p main* timestep.cpp tendencies.cpp Config.cpp Mesh.cpp State.cpp Tend.cpp Diag.cpp io.cpp'
 
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
@@ -473,7 +474,7 @@ alias gfa="echo 'git fetch --prune --all'; git fetch --prune --all"
 alias gfme="echo 'git fetch --prune me'; git fetch --prune me"
 alias gfx="echo 'git fetch --prune xylar'; git fetch --prune xylar"
 alias gfv="echo 'git fetch --prune vanroekel'; git fetch --prune vanroekel"
-alias gp="echo 'git push origin master'; git push origin master"
+alias gp="echo 'git push origin master'; git push origin master; git push origin main"
 alias gc="echo 'git commit -a'; git commit -a"
 alias gcm="echo 'git commit -am'; git commit -am"
 alias gca="echo 'git commit -a --amend'; git commit -a --amend"
