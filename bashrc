@@ -571,6 +571,9 @@ alias tbl='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/grou
 alias tchr='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tochr=" echo 'sending tar.tar to chyrsalis'; scp -i ~/.ssh/id_rsa_blues $TARFILE ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
 alias tobl='scp -i ~/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar'
+alias su='ssh mpetersen@summit.olcf.ornl.gov'
+alias tsu='scp mpetersen@summit.olcf.ornl.gov:/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tosu='scp ~/a/tar.tar mpetersen@summit.olcf.ornl.gov:/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar'
 
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
