@@ -415,22 +415,22 @@ fi
 
 
 if [[ $QUEUETYPE = slurm ]]; then
-  alias j='echo "slurm: squeue -u $USER"; squeue -u $USER -l'
-  alias ja='echo "slurm: squeue"; squeue -l'
+  alias j='echo "slurm: squeue -u $USER"; squeue -u $USER -l|cut -c1-120'
+  alias ja='echo "slurm: squeue"; squeue -l|cut -c1-120'
   alias canceljob='echo "slurm: scancel"; scancel '
   alias llogin='echo "slurm: salloc --qos=interactive -t 4:0:0 -N 1"; salloc --qos=interactive -t 4:0:0 -N 1'
   # for cori: salloc --partition=debug --nodes=32 --time=30:00 -C knl
   alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
 elif [[ $QUEUETYPE = pbs ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
-  alias j='echo "pbs: qstat -u $USER"; qstat -u ${USER}; qstat -u ${USER}'
+  alias j='echo "pbs: qstat -u $USER"; qstat -u ${USER}; qstat -u ${USER}|cut -c1-120'
   alias ja='echo "pbs: qstat"; qstat |cut -c1-100'
   alias canceljob='echo "pbs: qdel"; qdel '
   alias llogin='echo "pbs: qsub -I -t 1:00:00 -n 1 -q debug-flat-quad"; qsub -I -t 1:00:00 -n 1 -q debug-flat-quad'
   alias partitions='echo "pbs: qstat -Q"; qstat -Q'
 elif [[ $QUEUETYPE = LSF ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
-  alias j='echo "lsf: bjobs"; bjobs'
+  alias j='echo "lsf: bjobs"; bjobs|cut -c1-120'
   alias canceljob='echo "lsf: bkill"; bKill'
 fi
 
