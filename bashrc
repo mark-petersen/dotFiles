@@ -79,6 +79,7 @@ alias ma='cd $HOMEDIR/repos/script_mpas_analysis/master; pwd; dir'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias call='cal -y'
 alias vit='vi `ls -tr |tail -n 1`'
+alias tit='tail -f `ls -tr |tail -n 1`'
 alias cdt='cd `ls -d1tr */ |tail -n 1`'
 
 alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
