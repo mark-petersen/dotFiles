@@ -79,6 +79,7 @@ alias ma='cd $HOMEDIR/repos/script_mpas_analysis/master; pwd; dir'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias call='cal -y'
 alias vit='vi `ls -tr |tail -n 1`'
+alias cdt='cd `ls -d1tr */ |tail -n 1`'
 
 alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
 alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
@@ -531,7 +532,7 @@ alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias sn='ssh mpeterse@sn-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
 alias su='ssh mpetersen@summit.olcf.ornl.gov'
-alias frontier='ssh mpetersen@frontier.olcf.ornl.gov'
+alias fr='ssh mpetersen@frontier.olcf.ornl.gov'
 alias crusher='ssh mpetersen@crusher.olcf.ornl.gov'
 alias da='ssh mpeterse@darwin-fe.lanl.gov'
 alias toda='scp ~/a/tar.tar mpeterse@darwin-fe.lanl.gov:/vast/home/mpeterse/a'
