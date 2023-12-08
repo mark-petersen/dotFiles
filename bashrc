@@ -123,49 +123,49 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
 elif [[ $HOST = ccs* ]]; then
   echo 'ccs hostname: ' $HOST
   PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # red
-  alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
-  alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
+  alias sc='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
+  alias r='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
 
 ### LANL turquoise IC: chicoma
 elif [[ $HOSTNAME = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   if [[ $HOST = ch-fe* ]]; then
     PS1='\[\e[1;32m\]ch:\W\$\[\e[0m\] ' # login: green
-    alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias lg="source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   else
     PS1='\[\e[1;31m\]ch:\[\e[1;32m\]\W\$\[\e[0m\] ' # compute: red and green
-    alias lg="source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/mpeterse/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias lg="source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   fi
-  export HOMEDIR=/usr/projects/climate/mpeterse
+  export HOMEDIR=/usr/projects/climate/$USER
 
-  alias r3='cd /lustre/scratch3/mpeterse/runs; pwd'
-  alias r4='cd /lustre/scratch4/mpeterse/runs; pwd'
-  alias rf='cd /lustre/scratch5/mpeterse/runs; pwd'
-  alias nf='cd /lustre/scratch5/mpeterse/runs/n; pwd'
-  alias r='cd /lustre/scratch5/mpeterse/runs; ls -tlFh | head'
-  alias s='cd /lustre/scratch5/mpeterse/runs/s; ls'
+  alias r3='cd /lustre/scratch3/$USER/runs; pwd'
+  alias r4='cd /lustre/scratch4/$USER/runs; pwd'
+  alias rf='cd /lustre/scratch5/$USER/runs; pwd'
+  alias nf='cd /lustre/scratch5/$USER/runs/n; pwd'
+  alias r='cd /lustre/scratch5/$USER/runs; ls -tlFh | head'
+  alias s='cd /lustre/scratch5/$USER/runs/s; ls'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
-  alias vtk='python /usr/projects/climate/mpeterse/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  alias vtk='python /usr/projects/climate/$USER/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
-  alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
-  alias sb="cp /usr/projects/climate/mpeterse/repos/dotFiles/sbatch_LANL_IC sbatch_script"
+  alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
+  alias sb="cp /usr/projects/climate/$USER/repos/dotFiles/sbatch_LANL_IC sbatch_script"
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t23_coastal_ocean'
-  export b=/usr/projects/climate/mpeterse/repos/model
-  export n=/lustre/scratch5/mpeterse/runs/n
-  export n4=/lustre/scratch4/mpeterse/runs/n
-  export n5=/lustre/scratch5/mpeterse/runs/n
-  export r=/lustre/scratch5/mpeterse/runs
-  export e=/usr/projects/climate/mpeterse/repos/E3SM
+  export b=/usr/projects/climate/$USER/repos/model
+  export n=/lustre/scratch5/$USER/runs/n
+  export n4=/lustre/scratch4/$USER/runs/n
+  export n5=/lustre/scratch5/$USER/runs/n
+  export r=/lustre/scratch5/$USER/runs
+  export e=/usr/projects/climate/$USER/repos/E3SM
   module load git
 
   ### E3SM section ###
-  export RUN_ROOT=/lustre/scratch5/mpeterse/E3SM/cases
-  export ARCHIVE_ROOT=/lustre/scratch5/mpeterse/E3SM/archive
-  alias in='cd /lustre/scratch5/mpeterse/E3SM/inputdata/ocn/mpas-o; pwd; ls'
-  alias inu='cd /lustre/scratch5/mpeterse/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
-  export TARFILE="/lustre/scratch5/mpeterse/trash/tar.tar"
+  export RUN_ROOT=/lustre/scratch5/$USER/E3SM/cases
+  export ARCHIVE_ROOT=/lustre/scratch5/$USER/E3SM/archive
+  alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
+  alias inu='cd /lustre/scratch5/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
+  export TARFILE="/lustre/scratch5/$USER/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
   export http_proxy="http://proxyout.lanl.gov:8080"
@@ -177,8 +177,8 @@ elif [[ $HOSTNAME = ch-* ]]; then
   export no_proxy="localhost,127.0.0.1"
 
   # added by Miniconda2 installer
-  # export PATH="/usr/projects/climate/mpeterse/software/miniconda2/bin:$PATH"
-  #. /usr/projects/climate/mpeterse/software/miniconda2/etc/profile.d/conda.sh
+  # export PATH="/usr/projects/climate/$USER/software/miniconda2/bin:$PATH"
+  #. /usr/projects/climate/$USER/software/miniconda2/etc/profile.d/conda.sh
 
 ### LANL yellow IC: snow
 elif [[ $HOST = sn* ]]; then
@@ -188,27 +188,27 @@ elif [[ $HOST = sn* ]]; then
   else
     PS1='\[\e[1;31m\]\h:\[\e[1;33m\]\W\$\[\e[0m\] ' # compute: red and blue
   fi
-  export HOMEDIR=/users/mpeterse
-  export n=/lustre/scratch4/yellow/mpeterse/runs/n
-  export r=/lustre/scratch4/yellow/mpeterse/runs
+  export HOMEDIR=/users/$USER
+  export n=/lustre/scratch4/yellow/$USER/runs/n
+  export r=/lustre/scratch4/yellow/$USER/runs
   alias sa='salloc -N 1 -t 2:0:0 --qos=interactive'
-  alias r='cd /lustre/scratch4/yellow/mpeterse/runs/; pwd'
-  alias rt='cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
-  alias ml='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias mli='module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
+  alias r='cd /lustre/scratch4/yellow/$USER/runs/; pwd'
+  alias rt='cd /lustre/scratch4/turquoise/$USER/runs; pwd'
+  alias ml='module purge; module load git; module use /users/$USER/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
+  alias mli='module purge; module load git; module use /users/$USER/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
-  alias jj='cd /users/mpeterse/repos/jayenne; pwd; ls'
-  alias jd='cd /users/mpeterse/repos/jayenne/develop; pwd'
-  alias jb='cd /usr/projects/jayenne/devs/mpeterse/jayenne_build/; pwd; ls'
+  alias jj='cd /users/$USER/repos/jayenne; pwd; ls'
+  alias jd='cd /users/$USER/repos/jayenne/develop; pwd'
+  alias jb='cd /usr/projects/jayenne/devs/$USER/jayenne_build/; pwd; ls'
   alias sm='echo "cd src/mcgrid/test/phys_verification/"; cd src/mcgrid/test/phys_verification/; ls -l|grep py; ls -l |grep test\$'
-  alias jm='cd /users/mpeterse/repos/jayenne/develop/src/mcgrid/test/phys_verification; pwd'
+  alias jm='cd /users/$USER/repos/jayenne/develop/src/mcgrid/test/phys_verification; pwd'
   
   ### E3SM section ###
-  export RUN_ROOT=/users/mpeterse/jayenne_build/jayenne/src/mcgrid/test/phys_verification
-  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/mpeterse/E3SM/archive
-  alias in='cd /lustre/scratch3/turquoise/mpeterse/E3SM/inputdata; pwd; ls'
-  alias inu='cd /lustre/scratch3/turquoise/mpeterse/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
-  export TARFILE="/lustre/scratch4/yellow/mpeterse/trash/tar.tar"
+  export RUN_ROOT=/users/$USER/jayenne_build/jayenne/src/mcgrid/test/phys_verification
+  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/$USER/E3SM/archive
+  alias in='cd /lustre/scratch3/turquoise/$USER/E3SM/inputdata; pwd; ls'
+  alias inu='cd /lustre/scratch3/turquoise/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
+  export TARFILE="/lustre/scratch4/yellow/$USER/trash/tar.tar"
 
   # see https://hpc.lanl.gov/software/software-guides/proxy-setup.html
   export http_proxy="http://proxyout.lanl.gov:8080"
@@ -232,35 +232,35 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      MachineName='pm'
      alias sa='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=e3sm'
      alias sag='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=e3sm'
-     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
-        alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
      alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-     export r='/pscratch/sd/m/mpeterse/runs'
-     export n='/pscratch/sd/m/mpeterse/runs/n'
-     TARFILE='/pscratch/sd/m/mpeterse/trash/tar.tar'
+     export r='/pscratch/sd/m/$USER/runs'
+     export n='/pscratch/sd/m/$USER/runs/n'
+     TARFILE='/pscratch/sd/m/$USER/trash/tar.tar'
   elif [[ $NERSC_HOST = cori ]]; then
      MachineName='cori'
      alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
-     alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*cori-haswell_gnu_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_intel_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*cori-haswell_gnu_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_cori-haswell_intel_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
-        alias lg="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswell_gnu_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source /global/homes/m/mpeterse/repos/compass/master/load_dev_compass_*_cori-haswellcori_intel_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_cori-haswell_gnu_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_cori-haswellcori_intel_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
-     alias r='cd /global/cscratch1/sd/mpeterse/runs; pwd; ls -tlFh | head'
-     alias n='cd /global/cscratch1/sd/mpeterse/runs/n; pwd; ls -tlFh | head'
-     alias nn='cd /global/cscratch1/sd/mpeterse/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-     export r='/global/cscratch1/sd/mpeterse/runs'
-     export n='/global/cscratch1/sd/mpeterse/runs/n'
-     export TARFILE='/global/cscratch1/sd/mpeterse/trash/tar.tar'
+     alias r='cd /global/cscratch1/sd/$USER/runs; pwd; ls -tlFh | head'
+     alias n='cd /global/cscratch1/sd/$USER/runs/n; pwd; ls -tlFh | head'
+     alias nn='cd /global/cscratch1/sd/$USER/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+     export r='/global/cscratch1/sd/$USER/runs'
+     export n='/global/cscratch1/sd/$USER/runs/n'
+     export TARFILE='/global/cscratch1/sd/$USER/trash/tar.tar'
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
@@ -268,42 +268,42 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias mlg='source ~/repos/dotFiles/modules_cori_gnu.sh'
   alias mli='module purge; source ~/repos/dotFiles/modules_cori_intel.sh'
 
-  alias inu='cd /global/cscratch1/sd/mpeterse/acme_scratch/inputdata_for_upload_171113/acme/inputdata; pwd; ls'
+  alias inu='cd /global/cscratch1/sd/$USER/acme_scratch/inputdata_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
-  export RUN_ROOT=/global/cscratch1/sd/mpeterse/e3sm_scratch/cori-haswell
-  export ARCHIVE_ROOT=/scratch1/scratchdirs/mpeterse/E3SM/archive
-  alias anre='echo "cd to analysis repo"; cd /global/homes/m/mpeterse/repos/analysis/develop_180430;pwd;ls'
-  alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/mpeterse/analysis/; pwd;ls'
+  export RUN_ROOT=/global/cscratch1/sd/$USER/e3sm_scratch/cori-haswell
+  export ARCHIVE_ROOT=/scratch1/scratchdirs/$USER/E3SM/archive
+  alias anre='echo "cd to analysis repo"; cd /global/homes/m/$USER/repos/analysis/develop_180430;pwd;ls'
+  alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/$USER/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
-  alias vtk='python /global/homes/m/mpeterse/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
-  alias se='cd /global/cscratch1/sd/mpeterse/repos/e3sm; pwd; ls'
+  alias vtk='python /global/homes/m/$USER/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  alias se='cd /global/cscratch1/sd/$USER/repos/e3sm; pwd; ls'
   alias py='echo "perlmutter: Load python for e3sm-unified"; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_pm-cpu.sh'
 
   alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
-  alias ec='cd /global/cscratch1/sd/mpeterse/repos/E3SM/pr; pwd'
-  alias ecm='cd /global/homes/m/mpeterse/repos/E3SM_current/master; pwd; dir'
-  alias sedc="cp /usr/projects/climate/mpeterse/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
-  export b=/global/homes/m/mpeterse/repos/model
-  export e=/global/homes/m/mpeterse/repos/E3SM
-  alias ma='cd /global/homes/m/mpeterse/repos/scripts_mpas_analysis/master/cori; pwd; dir'
-  alias mini='cd /global/homes/m/mpeterse/repos/miniWeather; pwd; ls'
+  alias ec='cd /global/cscratch1/sd/$USER/repos/E3SM/pr; pwd'
+  alias ecm='cd /global/homes/m/$USER/repos/E3SM_current/master; pwd; dir'
+  alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
+  export b=/global/homes/m/$USER/repos/model
+  export e=/global/homes/m/$USER/repos/E3SM
+  alias ma='cd /global/homes/m/$USER/repos/scripts_mpas_analysis/master/cori; pwd; dir'
+  alias mini='cd /global/homes/m/$USER/repos/miniWeather; pwd; ls'
 
 ### Argonne: theta
 elif [[ $HOST = theta* ]]; then
   echo 'theta hostname: ' $HOST
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
-  export RUN_ROOT=/projects/OceanClimate_2/mpeterse
-  export TARFILE='/projects/OceanClimate_2/mpeterse/trash/tar.tar'
+  export RUN_ROOT=/projects/OceanClimate_2/$USER
+  export TARFILE='/projects/OceanClimate_2/$USER/trash/tar.tar'
   MODULEFILES='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
   alias in='cd /projects/OceanClimate_2/acme/inputdata; pwd; ls'
   alias r='cd $RUN_ROOT; pwd'
-  alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430;pwd;ls'
+  alias anre='echo "cd to analysis repo"; cd /home/$USER/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /projects/OceanClimate_2/mpas_analysis_output; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate_2/mpas_analysis_html; pwd; ls'
   alias py='module unload python e3sm-unified; source /lus/theta-fs0/projects/ccsm/acme/tools/e3sm-unified/load_latest_e3sm_unified.sh'
 
 ### Oak Ridge: summit
-elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
+elif [[ $HOME = '/ccs/home/$USER' ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   if [[ $HOST = login* ]]; then
      if [[ $LMOD_SYSTEM_NAME = summit ]]; then
@@ -333,17 +333,17 @@ elif [[ $HOME = '/ccs/home/mpetersen' ]]; then
         PS1='\[\e[1;31m\]\h\W\$\[\e[0m\] ' # maroon
      fi
   fi
-  PATH=$PATH:/ccs/home/mpetersen/.local/summit/anaconda3/2020.07/3.8/bin
-  export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
-  alias inu='cd /ccs/home/mpetersen/inputdata_for_uploading; pwd; ls'
-  export TARFILE="/gpfs/alpine/cli115/scratch/mpetersen/trash/tar.tar"
+  PATH=$PATH:/ccs/home/$USER/.local/summit/anaconda3/2020.07/3.8/bin
+  export RUN_ROOT=/lustre/atlas/scratch/$USER/cli127
+  alias inu='cd /ccs/home/$USER/inputdata_for_uploading; pwd; ls'
+  export TARFILE="/gpfs/alpine/cli115/scratch/$USER/trash/tar.tar"
   MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
   module load git
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
-  alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
-  alias n='cd /gpfs/alpine/cli115/scratch/mpetersen/runs/n; pwd; ls -tlFh | head'
-  alias cppm='cd /ccs/home/mpetersen/repos/beginning-cpp20/mark_exercises; pwd; ls'
-  alias mini='cd /gpfs/alpine/cli115/scratch/mpetersen/repos/miniWeather/simple_yakl_tests/cpp; pwd; ls'
+  alias r='cd /gpfs/alpine/cli115/scratch/$USER/runs; pwd; ls -tlFh | head'
+  alias n='cd /gpfs/alpine/cli115/scratch/$USER/runs/n; pwd; ls -tlFh | head'
+  alias cppm='cd /ccs/home/$USER/repos/beginning-cpp20/mark_exercises; pwd; ls'
+  alias mini='cd /gpfs/alpine/cli115/scratch/$USER/repos/miniWeather/simple_yakl_tests/cpp; pwd; ls'
   alias vip='vim -p main* timestep.cpp tendencies.cpp Config.cpp Mesh.cpp State.cpp Tend.cpp Diag.cpp io.cpp'
 
 ### Oak Ridge chrysalis
@@ -358,38 +358,38 @@ elif [[ $HOST = chr* ]]; then
     alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
     alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   fi
-  export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/chrys
-  export TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
-  export r=/lcrc/group/e3sm/ac.mpetersen/scratch/runs
-  export n=/lcrc/group/e3sm/ac.mpetersen/scratch/runs/n
-  export bo=/lcrc/group/e3sm/ac.mpetersen/scratch/by_others/
-  alias r='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs; ls -tlFh | head'
-  alias n='cd /lcrc/group/e3sm/ac.mpetersen/scratch/runs/n; ls -tlFh | head'
+  export RUN_ROOT=/lcrc/group/e3sm/$USER/scratch/chrys
+  export TARFILE="/lcrc/group/e3sm/$USER/scratch/trash/tar.tar"
+  export r=/lcrc/group/e3sm/$USER/scratch/runs
+  export n=/lcrc/group/e3sm/$USER/scratch/runs/n
+  export bo=/lcrc/group/e3sm/$USER/scratch/by_others/
+  alias r='cd /lcrc/group/e3sm/$USER/scratch/runs; ls -tlFh | head'
+  alias n='cd /lcrc/group/e3sm/$USER/scratch/runs/n; ls -tlFh | head'
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
 
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   echo 'Argonne hostname: ' $HOST
-  export RUN_ROOT=/lcrc/group/e3sm/ac.mpetersen/scratch/anvil
-  export TARFILE="/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
+  export RUN_ROOT=/lcrc/group/e3sm/$USER/scratch/anvil
+  export TARFILE="/lcrc/group/e3sm/$USER/scratch/trash/tar.tar"
   PS1='\[\e[1;35m\]\h:\W\$\[\e[0m\] ' # maroon
-  # old export RUN_ROOT=/lcrc/group/acme/mpeterse/acme_scratch/
+  # old export RUN_ROOT=/lcrc/group/acme/$USER/acme_scratch/
   alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/base/etc/profile.d/conda.sh; conda activate /lcrc/soft/climate/e3sm-unified/base/envs/e3sm_unified_1.5.0rc7_nompi; unset LD_LIBRARY_PATH'
-  alias anre='echo "cd to analysis repo"; cd /home/mpeterse/repos/analysis/develop_180430; pwd; ls'
-  alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/mpeterse/analysis; pwd; ls'
-  alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/mpeterse/mpas_analysis_html; pwd; ls'
+  alias anre='echo "cd to analysis repo"; cd /home/$USER/repos/analysis/develop_180430; pwd; ls'
+  alias ans='echo "cd to analysis results"; cd /lcrc/group/acme/$USER/analysis; pwd; ls'
+  alias anh='echo "cd to analysis html dir"; cd /lcrc/group/acme/$USER/mpas_analysis_html; pwd; ls'
   module load git
   PATH=$PATH:/usr/libexec/git-core
   alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_anvil.sh' 
   alias rrr='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
   alias in='cd /lcrc/group/acme/data/inputdata/ocn/mpas-o/; pwd; ls'
-  alias inn='cd /lcrc/group/e3sm/ac.mpetersen/scratch/E3SM/inputdata; pwd; ls'
+  alias inn='cd /lcrc/group/e3sm/$USER/scratch/E3SM/inputdata; pwd; ls'
 
 ### PNNL: compy I did not renew compy!
 #elif [[ $HOST = compy* ]]; then
 #  PS1='\[\e[1;31m\]\W\$\[\e[0m\] ' # red
-#  alias sc='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
-#  alias r='echo "cd /scratch/mpeterse";cd /scratch/mpeterse; pwd'
+#  alias sc='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
+#  alias r='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
 #  alias rr='cd /compyfs/pete011/e3sm_scratch; pwd;ls -tlFh | head'
 #  TARFILE='~/a/tar.tar'
 #  module load git
@@ -401,15 +401,15 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
 elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
   echo 'TACC hostname: ' $HOST
   PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # yellow
-  export RUN_ROOT=/lustre/atlas/scratch/mpetersen/cli127
+  export RUN_ROOT=/lustre/atlas/scratch/$USER/cli127
   alias py='conda activate e3sm-unified-mpich' # see instructions at e3sm unified conda
-  export TARFILE='/scratch/03443/mpeterse/trash/tar.tar'
+  export TARFILE='/scratch/03443/$USER/trash/tar.tar'
 
 ### LANL darwin
 elif [[ $HOST = darwin* ]]; then
   PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
   echo 'darwin hostname: ' $HOST
-  alias r='echo "cd /scratch/users/mpeterse/runs";cd /scratch/users/mpeterse/runs; pwd'
+  alias r='echo "cd /scratch/users/$USER/runs";cd /scratch/users/$USER/runs; pwd'
 
 fi
 
