@@ -75,15 +75,14 @@ export HOMEDIR=~
 export QUEUETYPE=slurm
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
 alias ci='vi'
-alias ma='cd $HOMEDIR/repos/script_mpas_analysis/master; pwd; dir'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
 alias call='cal -y'
 alias vit='vi `ls -tr |tail -n 1`'
 alias tit='tail -f `ls -tr |tail -n 1`'
 alias cdt='cd `ls -d1tr */ |tail -n 1`'
 
-alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
-alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+alias lg="source ~/repos/compass/ma*/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+alias li="source ~/repos/compass/ma*/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
 # directory aliases. May be reset below for each machine.
 alias n='cd $n; ls -tlFh | head'
@@ -131,12 +130,12 @@ elif [[ $HOSTNAME = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   if [[ $HOST = ch-fe* ]]; then
     PS1='\[\e[1;32m\]ch:\W\$\[\e[0m\] ' # login: green
-    alias lg="source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias lg="source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   else
     PS1='\[\e[1;31m\]ch:\[\e[1;32m\]\W\$\[\e[0m\] ' # compute: red and green
-    alias lg="source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/master/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias lg="source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   fi
   export HOMEDIR=/usr/projects/climate/$USER
 
@@ -147,7 +146,7 @@ elif [[ $HOSTNAME = ch-* ]]; then
   alias r='cd /lustre/scratch5/$USER/runs; ls -tlFh | head'
   alias s='cd /lustre/scratch5/$USER/runs/s; ls'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
-  alias vtk='python /usr/projects/climate/$USER/repos/MPAS-Tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  alias vtk='python /usr/projects/climate/$USER/repos/MPAS-Tools/ma*/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
   alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   alias sb="cp /usr/projects/climate/$USER/repos/dotFiles/sbatch_LANL_IC sbatch_script"
@@ -232,12 +231,12 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      MachineName='pm'
      alias sa='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=e3sm'
      alias sag='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=e3sm'
-     alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lg="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
-        alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lg="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
@@ -262,7 +261,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
 
   alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
   alias ec='cd /global/cscratch1/sd/$USER/repos/E3SM/pr; pwd'
-  alias ecm='cd /global/homes/m/$USER/repos/E3SM_current/master; pwd; dir'
+  alias ecm='cd /global/homes/m/$USER/repos/E3SM_current/ma*; pwd; dir'
   alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/global/homes/m/$USER/repos/model
   export e=/global/homes/m/$USER/repos/E3SM
@@ -331,12 +330,12 @@ elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
   if [[ $HOST = chrlogin* ]]; then
     PS1='\[\e[1;34m\]chr:\W\$\[\e[0m\] ' # login: blue
-    alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
-    alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias lg="source ~/repos/compass/ma*/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias li="source ~/repos/compass/ma*/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   elif [[ $HOST = chr-* ]]; then
     PS1='\[\e[1;31m\]\h:\[\e[1;34m\]\W\$\[\e[0m\] ' # compute: red and blue
-    alias lg="source ~/repos/compass/master/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
-    alias li="source ~/repos/compass/master/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias lg="source ~/repos/compass/ma*/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias li="source ~/repos/compass/ma*/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   fi
   export RUN_ROOT=/lcrc/group/e3sm/$USER/scratch/chrys
   export TARFILE="/lcrc/group/e3sm/$USER/scratch/trash/tar.tar"
@@ -423,17 +422,16 @@ alias re='cd $HOMEDIR/repos; pwd; ls'
 alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
 alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
 alias cc='cd $HOMEDIR/repos/compass; dir'
-alias cm='cd $HOMEDIR/repos/compass/master; dir'
+alias cm='cd $HOMEDIR/repos/compass/ma*; dir'
 alias cpr='cd $HOMEDIR/repos/compass/pr; dir'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
-alias mtm='cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
+alias mtm='cd $HOMEDIR/repos/tools/ma*/grid_gen/mesh_conversion_tools; pwd; dir'
 alias md='cd $HOMEDIR/repos/documents; pwd; dir'
 alias mq='cd $HOMEDIR/repos/quickviz; pwd; dir'
 alias dot='cd $HOMEDIR/repos/dotFiles; pwd'
 alias sdot='source $HOMEDIR/repos/dotFiles/bashrc'
 alias sd='source $HOMEDIR/repos/dotFiles/bashrc'
-alias linter='$HOMEDIR/repos/tools/master/source_code_processing/mpas_source_linter/mpas_source_linter.py'
-alias vtk='python ${HOMEDIR}/repos/tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+alias vtk='python ${HOMEDIR}/repos/tools/ma*/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
 alias cs='cd cime/scripts'
 
 E3SM_ROOT=$HOMEDIR/repos/E3SM
@@ -452,7 +450,6 @@ alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
 alias gfa="echo 'git fetch --prune --all'; git fetch --prune --all"
 alias gfme="echo 'git fetch --prune me'; git fetch --prune me"
 alias gfx="echo 'git fetch --prune xylar'; git fetch --prune xylar"
-alias gfv="echo 'git fetch --prune vanroekel'; git fetch --prune vanroekel"
 alias gp="echo 'git push origin master'; git push origin master; git push origin main"
 alias gc="echo 'git commit -a'; git commit -a"
 alias gcm="echo 'git commit -am'; git commit -am"
@@ -498,7 +495,6 @@ alias space='du -m | sort -n'
 alias grep='grep -d skip --color=always'
 
 # login and tar aliases
-alias oceans11="ssh mpetersen@oceans11-insider.lanl.gov; echo 'ssh mpetersen@oceans11-insider.lanl.gov then cd /raid/mpas_data/initial_condition_database'"
 # CCS server
 alias toccs='scp ~/a/tar.tar mpeterse@ccscs1.lanl.gov:/home/mpeterse/a'
 alias tccs='scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
