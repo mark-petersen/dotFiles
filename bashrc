@@ -229,14 +229,15 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   HostColor=$Cyan
   if [[ $NERSC_HOST = perlmutter ]]; then
      MachineName='pm'
-     alias sa='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=e3sm'
-     alias sag='salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=e3sm'
-     alias lg="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     ACCOUNT='e3sm'
+     alias sa="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=$ACCOUNT"
+     alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
+     alias lg="source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
-        alias lg="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source /global/homes/m/$USER/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lg="source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
@@ -252,18 +253,17 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
   export RUN_ROOT=/global/cscratch1/sd/$USER/e3sm_scratch/cori-haswell
   export ARCHIVE_ROOT=/scratch1/scratchdirs/$USER/E3SM/archive
-  alias anre='echo "cd to analysis repo"; cd /global/homes/m/$USER/repos/analysis/develop_180430;pwd;ls'
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/$USER/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
-  alias vtk='python /global/homes/m/$USER/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+  alias vtk='python ~/repos/MPAS-Tools/MPAS-Tools/python_scripts/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias se='cd /global/cscratch1/sd/$USER/repos/e3sm; pwd; ls'
   alias py='echo "perlmutter: Load python for e3sm-unified"; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_pm-cpu.sh'
 
   alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
   alias ec='cd /global/cscratch1/sd/$USER/repos/E3SM/pr; pwd'
-  alias ecm='cd /global/homes/m/$USER/repos/E3SM_current/ma*; pwd; dir'
+  alias ecm='cd ~/repos/E3SM_current/ma*; pwd; dir'
   alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
-  export b=/global/homes/m/$USER/repos/model
+  export b=~/repos/model
   export e=/global/homes/m/$USER/repos/E3SM
   alias mini='cd /global/homes/m/$USER/repos/miniWeather; pwd; ls'
 
