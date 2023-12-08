@@ -219,7 +219,7 @@ elif [[ $HOST = sn* ]]; then
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
 
-### nersc: cori
+### nersc
 elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   echo 'Compute facility is nersc'
   echo "machine is $NERSC_HOST"
@@ -245,28 +245,9 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      export r='/pscratch/sd/m/$USER/runs'
      export n='/pscratch/sd/m/$USER/runs/n'
      TARFILE='/pscratch/sd/m/$USER/trash/tar.tar'
-  elif [[ $NERSC_HOST = cori ]]; then
-     MachineName='cori'
-     alias sa='salloc -N 1  -t 30:00 --account=e3sm -C haswell'
-     alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*cori-haswell_gnu_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_cori-haswell_intel_*.sh;PS1='\[\e[1;36m\]\h:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     if [[ $HOST = nid* ]]; then
-        HostColor='\[\e[1;31m\]'
-        alias lg="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_cori-haswell_gnu_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source /global/homes/m/$USER/repos/compass/master/load_dev_compass_*_cori-haswellcori_intel_*.sh;PS1='\[\e[1;31m\]cori:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     fi
-     alias r='cd /global/cscratch1/sd/$USER/runs; pwd; ls -tlFh | head'
-     alias n='cd /global/cscratch1/sd/$USER/runs/n; pwd; ls -tlFh | head'
-     alias nn='cd /global/cscratch1/sd/$USER/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-     export r='/global/cscratch1/sd/$USER/runs'
-     export n='/global/cscratch1/sd/$USER/runs/n'
-     export TARFILE='/global/cscratch1/sd/$USER/trash/tar.tar'
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
-
-  alias mlg='source ~/repos/dotFiles/modules_cori_gnu.sh'
-  alias mli='module purge; source ~/repos/dotFiles/modules_cori_intel.sh'
 
   alias inu='cd /global/cscratch1/sd/$USER/acme_scratch/inputdata_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
@@ -285,7 +266,6 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   export b=/global/homes/m/$USER/repos/model
   export e=/global/homes/m/$USER/repos/E3SM
-  alias ma='cd /global/homes/m/$USER/repos/scripts_mpas_analysis/master/cori; pwd; dir'
   alias mini='cd /global/homes/m/$USER/repos/miniWeather; pwd; ls'
 
 ### Argonne: theta
@@ -419,7 +399,6 @@ if [[ $QUEUETYPE = slurm ]]; then
   alias ja='echo "slurm: squeue"; squeue -l|cut -c1-120'
   alias canceljob='echo "slurm: scancel"; scancel '
   alias llogin='echo "slurm: salloc --qos=interactive -t 4:0:0 -N 1"; salloc --qos=interactive -t 4:0:0 -N 1'
-  # for cori: salloc --partition=debug --nodes=32 --time=30:00 -C knl
   alias partitions='echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
 elif [[ $QUEUETYPE = pbs ]]; then
   export QSTAT_HEADER=JobId:JobName:User:WallTime:RunTime:Nodes:Mode:State:Queue:Score
@@ -542,9 +521,6 @@ alias gpfs='ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
 alias ar='ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
 # NERSC
-alias cori='ssh mpeterse@cori.nersc.gov'
-alias tcori='scp mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias tocori='scp ~/a/tar.tar mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
 alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
 alias tpm='scp mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias topm='scp ~/a/tar.tar mpeterse@perlmutter-p1.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
@@ -568,7 +544,6 @@ alias totacc='scp /scratch/03443/mpeterse/trash/tar.tar mpeterse@stampede2.tacc.
 alias ttacc='scp mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 alias bl='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues blues.lcrc.anl.gov'
 alias chr='ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
-# old alias ch='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
 alias tbl='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tchr='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tochr=" echo 'sending tar.tar to chyrsalis'; scp -i ~/.ssh/id_rsa_blues $TARFILE ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar"
