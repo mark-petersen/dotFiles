@@ -241,9 +241,9 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
      alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-     export r='/pscratch/sd/m/$USER/runs'
-     export n='/pscratch/sd/m/$USER/runs/n'
-     TARFILE='/pscratch/sd/m/$USER/trash/tar.tar'
+     export r="$SCRATCH/runs"
+     export n="$SCRATCH/runs/n"
+     TARFILE="$SCRATCH/trash/tar.tar"
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
