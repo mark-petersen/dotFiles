@@ -282,16 +282,18 @@ elif [[ $HOST = theta* ]]; then
   alias py='module unload python e3sm-unified; source /lus/theta-fs0/projects/ccsm/acme/tools/e3sm-unified/load_latest_e3sm_unified.sh'
 
 ### Oak Ridge: summit
-elif [[ $HOME = '/ccs/home/$USER' ]]; then
+elif [[ $HOME = "/ccs/home/$USER" ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   if [[ $HOST = login* ]]; then
      if [[ $LMOD_SYSTEM_NAME = summit ]]; then
         PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
         module load python
         alias sa="echo 'bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
+        alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A CLI115 --nodes 1 -t 1:00:00'; salloc -A CLI115 --nodes 1 -t 1:00:00"
+        alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
         PS1='\[\e[1;35m\]cr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2'; salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2"
