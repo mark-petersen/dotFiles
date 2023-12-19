@@ -1,5 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # ** bash colors **
 # Black        0;30     Dark Gray     1;30
 # Red          0;31     Light Red     1;31
@@ -21,9 +24,6 @@ Blue='\033[0;34m'         # Blue
 Purple='\033[0;35m'       # Purple
 Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
-
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's exporting of `ignorespace'.
@@ -281,7 +281,7 @@ elif [[ $HOST = theta* ]]; then
   alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate_2/mpas_analysis_html; pwd; ls'
   alias py='module unload python e3sm-unified; source /lus/theta-fs0/projects/ccsm/acme/tools/e3sm-unified/load_latest_e3sm_unified.sh'
 
-### Oak Ridge: summit
+### Oak Ridge: summit, frontier
 elif [[ $HOME = "/ccs/home/$USER" ]]; then
   echo 'Oak Ridge hostname: ' $HOST
   if [[ $HOST = login* ]]; then
@@ -292,8 +292,8 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
         alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
-        alias sa="echo 'salloc -A CLI115 --nodes 1 -t 1:00:00'; salloc -A CLI115 --nodes 1 -t 1:00:00"
-        alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
+        alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0"
+#        alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
         PS1='\[\e[1;35m\]cr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2'; salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2"
@@ -308,6 +308,8 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
         module load python
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;31m\]fr:\h:\W\$\[\e[0m\] ' # maroon
+# same for summit?
+#        alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
         PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # maroon
         module load cray-python
@@ -318,12 +320,14 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
   PATH=$PATH:/ccs/home/$USER/.local/summit/anaconda3/2020.07/3.8/bin
   export RUN_ROOT=/lustre/atlas/scratch/$USER/cli127
   alias inu='cd /ccs/home/$USER/inputdata_for_uploading; pwd; ls'
-  export TARFILE="/gpfs/alpine/cli115/scratch/$USER/trash/tar.tar"
-  MODULEFILES='/ccs/proj/cli900/sw/rhea/modulefiles/all'
+# might be for summit:
+#  export TARFILE="/gpfs/alpine/cli115/scratch/$USER/trash/tar.tar"
+  export TARFILE="/lustre/orion/cli115/scratch/$USER/trash/tar.tar"
   module load git
+  module load cmake
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
-  alias r='cd /gpfs/alpine/cli115/scratch/$USER/runs; pwd; ls -tlFh | head'
-  alias n='cd /gpfs/alpine/cli115/scratch/$USER/runs/n; pwd; ls -tlFh | head'
+  alias r='cd /lustre/orion/cli115/scratch/$USER/runs; pwd; ls -tlFh | head'
+  alias n='cd /lustre/orion/cli115/scratch/$USER/runs/n; pwd; ls -tlFh | head'
   alias cppm='cd /ccs/home/$USER/repos/beginning-cpp20/mark_exercises; pwd; ls'
   alias mini='cd /gpfs/alpine/cli115/scratch/$USER/repos/miniWeather/simple_yakl_tests/cpp; pwd; ls'
   alias vip='vim -p main* timestep.cpp tendencies.cpp Config.cpp Mesh.cpp State.cpp Tend.cpp Diag.cpp io.cpp'
