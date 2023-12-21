@@ -428,8 +428,6 @@ alias home='cd $HOMEDIR; pwd; ls'
 alias re='cd $HOMEDIR/repos; pwd; ls'
 alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
 alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
-alias cc='cd $HOMEDIR/repos/compass; dir'
-alias cm='cd $HOMEDIR/repos/compass/ma*; dir'
 alias cpr='cd $HOMEDIR/repos/compass/pr; dir'
 alias mt='cd $HOMEDIR/repos/tools; pwd; dir'
 alias mtm='cd $HOMEDIR/repos/tools/ma*/grid_gen/mesh_conversion_tools; pwd; dir'
@@ -482,9 +480,11 @@ alias gdh4="echo 'git diff HEAD~4'; git diff HEAD~4"
 alias gdhs4="echo 'git diff HEAD~4 --stat'; git diff HEAD~4 --stat"
 
 # e3sm aliases
-alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
+alias ee='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
+alias em='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
+alias cc='cd $HOMEDIR/repos/compass; dir'
+alias cm='cd $HOMEDIR/repos/compass/ma*; dir'
 alias q='cd $HOMEDIR/repos/quickviz; echo "cd to quickviz:" `pwd`; ls'
-alias ee='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`; ls -tlFh | head'
 alias to='tail  "$(\ls -1dt ocn.log*|head -n 1 )" -n 1'
