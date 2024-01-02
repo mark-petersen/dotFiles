@@ -483,6 +483,7 @@ alias gdhs4="echo 'git diff HEAD~4 --stat'; git diff HEAD~4 --stat"
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
 alias ee='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
 alias em='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
+alias epr='cd $HOMEDIR/repos/E3SM/pr; echo "cd to E3SM_ROOT:" `pwd`; ls'
 alias cc='cd $HOMEDIR/repos/compass; dir'
 alias cm='cd $HOMEDIR/repos/compass/ma*; dir'
 alias q='cd $HOMEDIR/repos/quickviz; echo "cd to quickviz:" `pwd`; ls'
