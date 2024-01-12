@@ -490,6 +490,7 @@ alias q='cd $HOMEDIR/repos/quickviz; echo "cd to quickviz:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`; ls -tlFh | head'
 alias to='tail  "$(\ls -1dt ocn.log*|head -n 1 )" -n 1'
+alias ke='echo "ncdump -v kineticEnergyCellMax analysis_members/globalStats.*.nc |tail -n 20";ncdump -v kineticEnergyCellMax analysis_members/globalStats.*.nc |tail -n 20'
 
 # unix aliases
 alias ex='exit'
