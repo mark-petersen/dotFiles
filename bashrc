@@ -501,7 +501,7 @@ alias cd.='cd ..'
 alias cd..='cd ../..'
 alias cd...='cd ../../..'
 alias cd....='cd ../../../..'
-alias space='du -m | sort -n'
+alias space='du --block-size=1G | sort -n'
 alias grep='grep -d skip --color=always'
 
 # login and tar aliases
