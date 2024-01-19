@@ -160,7 +160,7 @@ elif [[ $HOSTNAME = ch-* ]]; then
   module load git
 
   ### E3SM section ###
-  export RUN_ROOT=/lustre/scratch5/$USER/E3SM/cases
+  export RUN_ROOT=/lustre/scratch4/turquoise/$USER/E3SM/scratch/chicoma-cpu/
   export ARCHIVE_ROOT=/lustre/scratch5/$USER/E3SM/archive
   alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
   alias inu='cd /lustre/scratch5/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
