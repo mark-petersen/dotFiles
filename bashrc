@@ -242,6 +242,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
      alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+     alias www='cd /global/cfs/cdirs/e3sm/www/mpeterse; echo "see web at https://portal.nersc.gov/project/e3sm/"; pwd; ls'
      export r="$SCRATCH/runs"
      export n="$SCRATCH/runs/n"
      TARFILE="$SCRATCH/trash/tar.tar"
