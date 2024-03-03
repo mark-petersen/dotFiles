@@ -160,7 +160,7 @@ elif [[ $HOSTNAME = ch-* ]]; then
   module load git
 
   ### E3SM section ###
-  export RUN_ROOT=/lustre/scratch4/turquoise/$USER/E3SM/scratch/chicoma-cpu/
+  export RUN_ROOT=/lustre/scratch5/$USER/E3SM/scratch/chicoma-cpu/
   export ARCHIVE_ROOT=/lustre/scratch5/$USER/E3SM/archive
   alias in='cd /usr/projects/e3sm/inputdata/ocn/mpas-o; pwd; ls'
   #alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
@@ -193,7 +193,7 @@ elif [[ $HOST = sn* ]]; then
   export r=/lustre/scratch4/yellow/$USER/runs
   alias sa='salloc -N 1 -t 2:0:0 --qos=interactive'
   alias r='cd /lustre/scratch4/yellow/$USER/runs/; pwd'
-  alias rt='cd /lustre/scratch4/turquoise/$USER/runs; pwd'
+  alias rt='cd /lustre/scratch5/$USER/runs; pwd'
   alias ml='module purge; module load git; module use /users/$USER/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias mli='module purge; module load git; module use /users/$USER/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
