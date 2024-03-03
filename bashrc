@@ -517,6 +517,7 @@ alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE mpeterse@sn-rfe.la
 alias ty="scp -O mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias sn='ssh mpeterse@sn-rfe.lanl.gov'
+alias ro='ssh mpeterse@ro-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
 alias su='ssh mpetersen@summit.olcf.ornl.gov'
 alias fr='ssh mpetersen@frontier.olcf.ornl.gov'
