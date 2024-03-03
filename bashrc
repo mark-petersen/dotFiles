@@ -354,6 +354,7 @@ elif [[ $HOST = chr* ]]; then
   alias r='cd /lcrc/group/e3sm/$USER/scratch/runs; ls -tlFh | head'
   alias n='cd /lcrc/group/e3sm/$USER/scratch/runs/n; ls -tlFh | head'
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
+  alias in="cd /lcrc/group/e3sm/data/inputdata/ocn/mpas-o/; pwd; ls"
 
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
