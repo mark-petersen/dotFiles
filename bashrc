@@ -513,8 +513,8 @@ alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
 alias tt="scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
-alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar;"
-alias ty="scp -O mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar;"
+alias ty="scp -O mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
 alias sn='ssh mpeterse@sn-rfe.lanl.gov'
 alias ro='ssh mpeterse@ro-rfe.lanl.gov'
