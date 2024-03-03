@@ -162,8 +162,9 @@ elif [[ $HOSTNAME = ch-* ]]; then
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch4/turquoise/$USER/E3SM/scratch/chicoma-cpu/
   export ARCHIVE_ROOT=/lustre/scratch5/$USER/E3SM/archive
-  alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
-  alias inu='cd /lustre/scratch5/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
+  alias in='cd /usr/projects/e3sm/inputdata/ocn/mpas-o; pwd; ls'
+  #alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
+  #alias inu='cd /lustre/scratch5/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
   export TARFILE="/lustre/scratch5/$USER/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
