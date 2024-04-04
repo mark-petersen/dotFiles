@@ -1,0 +1,187 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# for macs, use zsh and
+# cat ~/.zshrc
+# source ~/.bashrc
+
+# ** bash colors **
+# Black        0;30     Dark Gray     1;30
+# Red          0;31     Light Red     1;31
+# Green        0;32     Light Green   1;32
+# Brown/Orange 0;33     Yellow        1;33
+# Blue         0;34     Light Blue    1;34
+# Purple       0;35     Light Purple  1;35
+# Cyan         0;36     Light Cyan    1;36
+# Light Gray   0;37     White         1;37
+# Reset
+Color_Off='\033[0m'       # Text Reset
+
+# Regular Colors
+Black='\033[0;30m'        # Black
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's exporting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+# for exporting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+export SVN_EDITOR="/usr/bin/vim"
+export LESS="$LESS -FRXK" 
+export OMP_NUM_THREADS=1
+# added this to avoid window pop-ups from git commands
+unset SSH_ASKPASS
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+export BASHRC_SOURCED=yes
+
+if [[ $SHELL = /bin/bash ]]; then
+   # append to the history file, don't overwrite it
+   shopt -s histappend
+   PS1='\[\e[1;32m\]\h:\W\$\[\e[0m\] ' # bright green
+   bind '"\e[A": history-search-backward'
+   bind '"\e[B": history-search-forward'
+fi
+
+# Settings specific to individual machines:
+HOST=`hostname -s`
+
+# Default, unless replaced below: 
+umask 022
+alias ls='ls --color'
+alias ls1='ls -1 --color' # one file name per line
+function lss { ls $1 | sed "s:^:`pwd`/: "; }
+alias dir='ls -tlFh | head'
+alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.?????'
+export TARFILE="~/a/tar.tar"
+export HOMEDIR=~
+export QUEUETYPE=slurm
+alias ci='vi'
+alias call='cal -y'
+alias vit='vi `ls -tr |tail -n 1`'
+alias tit='tail -f `ls -tr |tail -n 1`'
+alias cdt='cd `ls -d1tr */ |tail -n 1`'
+
+### Local laptops
+if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
+  echo 'mac hostname: ' $HOST
+  PS1='\W$ '
+  alias ls='ls -G'
+  alias dir='ls -tlFhG |head'
+  alias r='echo "cd ~/runs";cd ~/runs'
+  alias b='vi ~/s/other/my_pubs.bib'
+  alias a='vi ~/s/other/pa'
+  alias mu='cd ~/s/m/forever/hillstompers/music; pwd; ls'
+  # Following lines are for zsh. 
+  # also add 'source .bashrc' to .zshrc
+  bindkey "^[[A" history-beginning-search-backward
+  bindkey "^[[B" history-beginning-search-forward
+  PROMPT='%F{115}%1~%f %# '
+fi
+
+alias home='cd $HOMEDIR; pwd; ls'
+alias re='cd $HOMEDIR/repos; pwd; ls'
+alias python='/usr/local/bin/python3'
+alias py='/usr/local/bin/python3'
+
+# git aliases
+alias gs='git status'
+alias gba='git branch --all'
+alias grv='git remote -v'
+alias gl='git log -n 1'
+alias g='git log --graph --oneline -n 12'
+alias gg='git log --graph --oneline'
+alias gitlp='git log --graph --oneline -n 12'
+alias gl='git log -n 1'
+alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
+alias gfa="echo 'git fetch --prune --all'; git fetch --prune --all"
+alias gp="echo 'git push origin master'; git push origin master; git push origin main"
+alias gc="echo 'git commit -a'; git commit -a"
+alias gcm="echo 'git commit -am'; git commit -am"
+alias gca="echo 'git commit -a --amend'; git commit -a --amend"
+alias grom="echo 'git rebase origin/master'; git rebase origin/master"
+alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/master"
+alias grhh="echo 'git reset --hard HEAD'; git reset --hard HEAD"
+alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
+alias gsuo='git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS src/ppr; echo "git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/ppr"'
+alias gd="git diff"
+alias gds="git diff --stat"
+alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
+alias gdo="echo 'git diff origin/master'; git diff origin/master"
+alias gdos="echo 'git diff origin/master'; git diff origin/master --stat"
+alias ggin="echo 'git grep -in '; git grep -in "
+alias gdh="echo 'git diff HEAD~1'; git diff HEAD~1"
+alias gdhs="echo 'git diff HEAD~1 --stat'; git diff HEAD~1 --stat"
+alias gdh2="echo 'git diff HEAD~2'; git diff HEAD~2"
+alias gdhs2="echo 'git diff HEAD~2 --stat'; git diff HEAD~2 --stat"
+alias gdh3="echo 'git diff HEAD~3'; git diff HEAD~3"
+alias gdhs3="echo 'git diff HEAD~3 --stat'; git diff HEAD~3 --stat"
+alias gdh4="echo 'git diff HEAD~4'; git diff HEAD~4"
+alias gdhs4="echo 'git diff HEAD~4 --stat'; git diff HEAD~4 --stat"
+
+# e3sm aliases
+alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
+alias q='cd $HOMEDIR/repos/quickviz; echo "cd to quickviz:" `pwd`; ls'
+alias ee='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
+alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
+alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`; ls -tlFh | head'
+alias to='tail  "$(\ls -1dt ocn.log*|head -n 1 )" -n 1'
+
+# unix aliases
+alias ex='exit'
+alias h='history'
+alias m='less'
+alias cdd='cd \!*; ls'
+alias cd.='cd ..'
+alias cd..='cd ../..'
+alias cd...='cd ../../..'
+alias cd....='cd ../../../..'
+alias space='du -m | sort -n'
+alias grep='grep -d skip --color=always'
+
+# login and tar aliases
+# LANL IC
+alias tt="scp -O ${USER}@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/${USER}/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE ${USER}@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/${USER}/trash/tar.tar;"
+alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE ${USER}@ro-rfe.lanl.gov:/lustre/roscratch1/${USER}/trash/tar.tar;"
+alias ty="scp -O ${USER}@ro-rfe.lanl.gov:/lustre/roscratch1/${USER}/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias ch='ssh -t ${USER}@wtrw.lanl.gov ssh ch-fe'
+alias sn='ssh ${USER}@sn-rfe.lanl.gov'
+alias gpfs='ssh -t ${USER}@wtrw.lanl.gov ssh ar-tn'
+alias ar='ssh -t ${USER}@wtrw.lanl.gov ssh ${USER}@ar-tn'
+alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
+# NERSC
+alias pm='ssh ${USER}@perlmutter-p1.nersc.gov'
+alias tpm='scp ${USER}@perlmutter-p1.nersc.gov:/pscratch/sd/m/${USER}/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias topm='scp ~/a/tar.tar ${USER}@perlmutter-p1.nersc.gov:/global/cscratch1/sd/${USER}/trash/tar.tar'
+
+alias chr='ssh -l ac.${USER}n -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
+alias tchr='scp -i ~/.ssh/id_rsa_blues ac.${USER}n@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.${USER}n/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tochr=" echo 'sending tar.tar to chyrsalis'; scp -i ~/.ssh/id_rsa_blues $TARFILE ac.${USER}n@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.${USER}n/scratch/trash/tar.tar"
+
+# taring aliases
+alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
+alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
+
+# alias to change directory
+alias c='rm -f ~/a/pwd_file; export d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
+alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
+
