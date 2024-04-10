@@ -73,6 +73,7 @@ alias lsgraph='ls -l *part.??; ls -l *part.???; ls -l *part.????; ls -l *part.??
 export TARFILE="~/a/tar.tar"
 export HOMEDIR=~
 export QUEUETYPE=slurm
+export e=~/repos/E3SM
 alias py='echo "Load python for e3sm-unified"; module unload python; module use $MODULEFILES; module load e3sm-unified'
 alias ci='vi'
 alias b='cd $HOMEDIR/repos/model; pwd; dir'
