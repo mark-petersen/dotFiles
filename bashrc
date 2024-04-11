@@ -46,7 +46,7 @@ HISTFILESIZE=2000
 
 export SVN_EDITOR="/usr/bin/vim"
 export LESS="$LESS -FRXK" 
-export OMP_NUM_THREADS=1
+#export OMP_NUM_THREADS=1
 # added this to avoid window pop-ups from git commands
 unset SSH_ASKPASS
 
@@ -154,12 +154,14 @@ elif [[ $HOSTNAME = ch-* ]]; then
   alias nf='cd /lustre/scratch5/$USER/runs/n; pwd'
   alias r='cd /lustre/scratch5/$USER/runs; ls -tlFh | head'
   alias s='cd /lustre/scratch5/$USER/runs/s; ls'
+  alias rrg='cd /lustre/scratch5/$USER/E3SM/scratch/chicoma-gpu; pwd; ls'
   alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
   alias vtk='python /usr/projects/climate/$USER/repos/MPAS-Tools/ma*/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
   alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   alias sb="cp /usr/projects/climate/$USER/repos/dotFiles/sbatch_LANL_IC sbatch_script"
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t24_coastal_ocean'
+  alias sag='salloc -N 1 -t 2:0:0 --account=g23_nonhydro_g --partition=gpu'
   export b=/usr/projects/climate/$USER/repos/model
   export n=/lustre/scratch5/$USER/runs/n
   export n4=/lustre/scratch4/$USER/runs/n
