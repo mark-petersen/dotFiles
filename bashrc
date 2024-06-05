@@ -244,7 +244,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
      alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-     alias www='cd /global/cfs/cdirs/e3sm/www/${USER}; echo "see web at https://portal.nersc.gov/project/e3sm/"; pwd; ls'
+     alias www='cd /global/cfs/cdirs/e3sm/www/mpeterse; echo "see web at https://portal.nersc.gov/project/e3sm/"; pwd; ls'
      export r="$SCRATCH/runs"
      export n="$SCRATCH/runs/n"
      TARFILE="$SCRATCH/trash/tar.tar"
@@ -253,8 +253,8 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
   alias inu='cd /global/cscratch1/sd/$USER/acme_scratch/inputdata_for_upload_171113/acme/inputdata; pwd; ls'
-  alias in='cd /global/cfs/cdirs/e3sm/inputdata/ocn/mpas-o; pwd; ls'
-  export RUN_ROOT=/pscratch/sd/m/${USER}/e3sm_scratch/pm-cpu/
+  alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
+  export RUN_ROOT=/pscratch/sd/m/mpeterse/e3sm_scratch/pm-cpu/
   export ARCHIVE_ROOT=/scratch1/scratchdirs/$USER/E3SM/archive
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/$USER/analysis/; pwd;ls'
   alias anh='echo "cd to analysis html dir"; cd /global/project/projectdirs/m2833/www/mpas_analysis_output/; pwd; ls'
@@ -510,43 +510,49 @@ alias grep='grep -d skip --color=always'
 
 # login and tar aliases
 # CCS server
-alias toccs='scp ~/a/tar.tar ${USER}@ccscs1.lanl.gov:/home/${USER}/a'
-alias tccs='scp ${USER}@ccscs1.lanl.gov:/home/${USER}/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
-alias ccs='ssh ${USER}@ccscs1.lanl.gov'
+alias toccs='scp ~/a/tar.tar mpeterse@ccscs1.lanl.gov:/home/mpeterse/a'
+alias tccs='scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
+alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
-alias tt="scp -O ${USER}@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/${USER}/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE ${USER}@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/${USER}/trash/tar.tar;"
-alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE ${USER}@ro-rfe.lanl.gov:/lustre/roscratch1/${USER}/trash/tar.tar;"
-alias ty="scp -O ${USER}@ro-rfe.lanl.gov:/lustre/roscratch1/${USER}/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias ch='ssh -t ${USER}@wtrw.lanl.gov ssh ch-fe'
-alias sn='ssh ${USER}@sn-rfe.lanl.gov'
-alias ro='ssh ${USER}@ro-rfe.lanl.gov'
+alias tt="scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
+alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar;"
+alias ty="scp -O mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
+alias sn='ssh mpeterse@sn-rfe.lanl.gov'
+alias ro='ssh mpeterse@ro-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
 alias su='ssh mpetersen@summit.olcf.ornl.gov'
 alias fr='ssh mpetersen@frontier.olcf.ornl.gov'
 alias crusher='ssh mpetersen@crusher.olcf.ornl.gov'
-alias da='ssh ${USER}@darwin-fe.lanl.gov'
-alias toda='scp ~/a/tar.tar ${USER}@darwin-fe.lanl.gov:/vast/home/${USER}/a'
-alias tda='scp ${USER}@darwin.lanl.gov:/vast/home/${USER}/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
-alias gpfs='ssh -t ${USER}@wtrw.lanl.gov ssh ar-tn'
-alias ar='ssh -t ${USER}@wtrw.lanl.gov ssh ${USER}@ar-tn'
+alias da='ssh mpeterse@darwin-fe.lanl.gov'
+alias toda='scp ~/a/tar.tar mpeterse@darwin-fe.lanl.gov:/vast/home/mpeterse/a'
+alias tda='scp mpeterse@darwin.lanl.gov:/vast/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
+alias gpfs='ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
+alias ar='ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
 alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
 # NERSC
-alias pm='ssh ${USER}@perlmutter-p1.nersc.gov'
-alias tpm='scp ${USER}@perlmutter-p1.nersc.gov:/pscratch/sd/m/${USER}/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
-alias topm='scp ~/a/tar.tar ${USER}@perlmutter-p1.nersc.gov:/global/cscratch1/sd/${USER}/trash/tar.tar'
+alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
+alias tpm='scp mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias topm='scp ~/a/tar.tar mpeterse@perlmutter-p1.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
 # PNNL
 alias compy='echo "Did not renew compy' #ssh pete011@compy.pnl.gov'
 #alias tcompy='scp pete011@compy.pnl.gov:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 #alias tocompy='scp ~/a/tar.tar pete011@compy.pnl.gov:~/a/tar.tar'
+# Oak Ridge
+alias eos='ssh mpetersen@eos.ccs.ornl.gov'
+alias rhea='ssh mpetersen@rhea.ccs.ornl.gov'
+alias titan='ssh mpetersen@titan.ccs.ornl.gov'
+alias ttitan='scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias totitan='scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar'
 # Argonne
-alias theta='ssh ${USER}@theta.alcf.anl.gov'
-alias ttheta='scp ${USER}@theta.alcf.anl.gov:/projects/OceanClimate_2/${USER}/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias theta='ssh mpeterse@theta.alcf.anl.gov'
+alias ttheta='scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate_2/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 
 # other logins
-alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh ${USER}@stampede2.tacc.utexas.edu'
-alias totacc='scp /scratch/03443/${USER}/trash/tar.tar ${USER}@stampede2.tacc.utexas.edu:/scratch/03443/${USER}/trash/tar.tar'
-alias ttacc='scp ${USER}@stampede2.tacc.utexas.edu:/scratch/03443/${USER}/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
+alias tacc='echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpeterse@stampede2.tacc.utexas.edu'
+alias totacc='scp /scratch/03443/mpeterse/trash/tar.tar mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar'
+alias ttacc='scp mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
 alias bl='ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues blues.lcrc.anl.gov'
 alias chr='ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
 alias tbl='scp -i ~/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
