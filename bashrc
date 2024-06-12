@@ -3,6 +3,14 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# login without password every time
+# Locally, do this:
+# mkdir ~/.ssh/connections
+# vi ~/.ssh/config
+# Host *
+#     ControlMaster auto
+#     ControlPath ~/.ssh/connections/%h_%p_%r
+
 # ** bash colors **
 # Black        0;30     Dark Gray     1;30
 # Red          0;31     Light Red     1;31
@@ -516,10 +524,11 @@ alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
 alias tt="scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
+alias tch="scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias toch=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
 alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar;"
 alias ty="scp -O mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
 alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
-alias sn='ssh mpeterse@sn-rfe.lanl.gov'
 alias ro='ssh mpeterse@ro-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
 alias su='ssh mpetersen@summit.olcf.ornl.gov'
