@@ -116,7 +116,7 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   alias r='echo "cd ~/runs";cd ~/runs'
   alias b='vi ~/s/other/my_pubs.bib'
   alias a='vi ~/s/other/pa'
-  alias mu='cd ~/s/m/forever/hillstompers/music; pwd; ls'
+  alias mu='cd ~/s/m/forever/hillstompers/music/active; pwd; ls'
   # Following lines are for zsh. 
   # also add 'source .bashrc' to .zshrc
   bindkey "^[[A" history-beginning-search-backward
