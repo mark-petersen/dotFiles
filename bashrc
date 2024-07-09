@@ -278,20 +278,6 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   export e=/global/homes/m/$USER/repos/E3SM
   alias mini='cd /global/homes/m/$USER/repos/miniWeather; pwd; ls'
 
-### Argonne: theta
-elif [[ $HOST = theta* ]]; then
-  echo 'theta hostname: ' $HOST
-  PS1='\[\e[1;34m\]\h:\W\$\[\e[0m\] ' # blue
-  export RUN_ROOT=/projects/OceanClimate_2/$USER
-  export TARFILE='/projects/OceanClimate_2/$USER/trash/tar.tar'
-  MODULEFILES='/lus/theta-fs0/projects/ccsm/acme/tools/modulefiles'
-  alias in='cd /projects/OceanClimate_2/acme/inputdata; pwd; ls'
-  alias r='cd $RUN_ROOT; pwd'
-  alias anre='echo "cd to analysis repo"; cd /home/$USER/repos/analysis/develop_180430;pwd;ls'
-  alias ans='echo "cd to analysis results"; cd /projects/OceanClimate_2/mpas_analysis_output; pwd;ls'
-  alias anh='echo "cd to analysis html dir"; cd /projects/OceanClimate_2/mpas_analysis_html; pwd; ls'
-  alias py='module unload python e3sm-unified; source /lus/theta-fs0/projects/ccsm/acme/tools/e3sm-unified/load_latest_e3sm_unified.sh'
-
 ### Oak Ridge: summit, frontier
 elif [[ $HOME = "/ccs/home/$USER" ]]; then
   echo 'Oak Ridge hostname: ' $HOST
