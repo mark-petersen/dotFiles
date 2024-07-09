@@ -364,6 +364,7 @@ elif [[ $HOST = chr* ]]; then
   alias n='cd /lcrc/group/e3sm/$USER/scratch/runs/n; ls -tlFh | head'
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
   alias in="cd /lcrc/group/e3sm/data/inputdata/ocn/mpas-o/; pwd; ls"
+  alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_chrysalis.sh'
 
 ### Oak Ridge: anvil and blues
 elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
