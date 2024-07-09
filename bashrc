@@ -262,7 +262,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
   alias inu='cd /global/cscratch1/sd/$USER/acme_scratch/inputdata_for_upload_171113/acme/inputdata; pwd; ls'
-  alias in='cd /project/projectdirs/acme/inputdata/ocn/mpas-o; pwd; ls'
+  alias in='cd /global/cfs/cdirs/e3sm/inputdata/; pwd; ls'
   export RUN_ROOT=/pscratch/sd/m/mpeterse/e3sm_scratch/pm-cpu/
   export ARCHIVE_ROOT=/scratch1/scratchdirs/$USER/E3SM/archive
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/$USER/analysis/; pwd;ls'
