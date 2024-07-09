@@ -448,6 +448,8 @@ alias mq='cd $HOMEDIR/repos/quickviz; pwd; dir'
 alias dot='cd $HOMEDIR/repos/dotFiles; pwd'
 alias sdot='source $HOMEDIR/repos/dotFiles/bashrc'
 alias sd='source $HOMEDIR/repos/dotFiles/bashrc'
+alias sdoc='echo "source ${HOME}/miniforge3/etc/profile.d/conda.sh"; echo "conda activate omega_dev"; source ${HOME}/miniforge3/etc/profile.d/conda.sh; conda activate omega_dev; echo "You can now: "; echo "cd components/omega/doc/"; echo "make clean"; echo "make html"'
+
 alias vtk='python ${HOMEDIR}/repos/tools/ma*/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
 alias cs='cd cime/scripts'
 
