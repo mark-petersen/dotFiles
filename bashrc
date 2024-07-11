@@ -574,8 +574,9 @@ alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
 
 export om=/components/mpas-ocean/
 alias om='cd components/mpas-ocean'
+alias co="echo 'cd components/omega'; cd components/omega"
+alias cos="echo 'cd components/omega/src'; cd components/omega/src"
 alias cdp='cd ocean/global_ocean/QU240/PHC/performance_test/forward/'
-alias co='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 alias cr='compass run'
 alias cs='cd cime/scripts'
 alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
