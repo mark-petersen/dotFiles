@@ -281,7 +281,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
 
 ### Oak Ridge: summit, frontier
 elif [[ $HOME = "/ccs/home/$USER" ]]; then
-  echo 'Oak Ridge hostname: ' $HOST
+  #echo 'Oak Ridge hostname: ' $HOST
   if [[ $HOST = login* ]]; then
      if [[ $LMOD_SYSTEM_NAME = summit ]]; then
         PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
