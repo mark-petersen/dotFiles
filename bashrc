@@ -485,7 +485,7 @@ alias gdhs4="echo 'git diff HEAD~4 --stat'; git diff HEAD~4 --stat"
 
 # e3sm aliases
 alias e='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
-alias ee='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
+alias ee='cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
 alias em='cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
 alias epr='cd $HOMEDIR/repos/E3SM/pr; echo "cd to E3SM_ROOT:" `pwd`; ls'
 alias cc='cd $HOMEDIR/repos/compass; dir'
@@ -583,3 +583,19 @@ alias cr='compass run'
 alias cs='cd cime/scripts'
 alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 alias cppm='cd ~/repos/beginning-cpp20/mark_exercises; pwd; ls'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/projects/climate/mpeterse/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/projects/climate/mpeterse/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/usr/projects/climate/mpeterse/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/projects/climate/mpeterse/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
