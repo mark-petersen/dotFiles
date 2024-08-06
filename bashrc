@@ -571,8 +571,16 @@ alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
 alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
 
 # alias to change directory
-alias c='rm -f ~/a/pwd_file; export d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
-alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
+alias c='rm -f ~/a/pwd_file; export d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "c=";pwd'
+alias d='export d=`cat ~/a/pwd_file`; cd $d; echo "cd to d:"; pwd'
+alias c1='rm -f ~/a/pwd_file1; export d1=`pwd`; echo `pwd` > ~/a/pwd_file1; echo "c1=";pwd'
+alias d1='export d1=`cat ~/a/pwd_file1`; cd $d1; echo "cd to d1:"; pwd'
+alias c2='rm -f ~/a/pwd_file2; export d2=`pwd`; echo `pwd` > ~/a/pwd_file2; echo "c2=";pwd'
+alias d2='export d2=`cat ~/a/pwd_file2`; cd $d2; echo "cd to d2:"; pwd'
+alias c3='rm -f ~/a/pwd_file3; export d3=`pwd`; echo `pwd` > ~/a/pwd_file3; echo "c3=";pwd'
+alias d3='export d3=`cat ~/a/pwd_file3`; cd $d3; echo "cd to d3:"; pwd'
+alias c4='rm -f ~/a/pwd_file4; export d4=`pwd`; echo `pwd` > ~/a/pwd_file4; echo "c4=";pwd'
+alias d4='export d4=`cat ~/a/pwd_file4`; cd $d4; echo "cd to d4:"; pwd'
 
 export om=/components/mpas-ocean/
 alias om='cd components/mpas-ocean'
