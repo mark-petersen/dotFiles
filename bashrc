@@ -355,7 +355,10 @@ elif [[ $HOST = chr* ]]; then
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
   alias in="cd /lcrc/group/e3sm/data/inputdata/; pwd; ls"
   alias ino="cd /lcrc/group/e3sm/data/inputdata/ocn/mpas-o/; pwd; ls"
+  alias ini="cd /lcrc/group/e3sm/data/inputdata/ice/mpas-seaice/; pwd; ls"
   alias inu="cd /lcrc/group/acme/public_html/inputdata/; pwd; ls"
+  alias inuo="cd /lcrc/group/acme/public_html/inputdata/ocn/mpas-o; pwd; ls"
+  alias inui="cd /lcrc/group/acme/public_html/inputdata/ice/mpas-seaice/; pwd; ls"
   alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_chrysalis.sh'
 
 ### Oak Ridge: anvil and blues
