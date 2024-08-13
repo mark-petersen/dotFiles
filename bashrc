@@ -173,7 +173,8 @@ elif [[ $HOSTNAME = ch-* ]]; then
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch5/$USER/E3SM/scratch/chicoma-cpu/
   export ARCHIVE_ROOT=/lustre/scratch5/$USER/E3SM/archive
-  alias in='cd /usr/projects/e3sm/inputdata/ocn/mpas-o; pwd; ls'
+  alias in='cd /usr/projects/e3sm/inputdata; pwd; ls'
+  alias ino='cd /usr/projects/e3sm/inputdata/ocn/mpas-o; pwd; ls'
   #alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
   #alias inu='cd /lustre/scratch5/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
   export TARFILE="/lustre/scratch5/$USER/trash/tar.tar"
@@ -263,8 +264,8 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
-  alias inu='cd /global/cscratch1/sd/$USER/acme_scratch/inputdata_for_upload_171113/acme/inputdata; pwd; ls'
   alias in='cd /global/cfs/cdirs/e3sm/inputdata/; pwd; ls'
+  alias ino='cd /global/cfs/cdirs/e3sm/inputdata/ocn/mpas-o/; pwd; ls'
   export RUN_ROOT=/pscratch/sd/m/mpeterse/e3sm_scratch/pm-cpu/
   export ARCHIVE_ROOT=/scratch1/scratchdirs/$USER/E3SM/archive
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/$USER/analysis/; pwd;ls'
@@ -352,7 +353,9 @@ elif [[ $HOST = chr* ]]; then
   alias r='cd /lcrc/group/e3sm/$USER/scratch/runs; ls -tlFh | head'
   alias n='cd /lcrc/group/e3sm/$USER/scratch/runs/n; ls -tlFh | head'
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
-  alias in="cd /lcrc/group/e3sm/data/inputdata/ocn/mpas-o/; pwd; ls"
+  alias in="cd /lcrc/group/e3sm/data/inputdata/; pwd; ls"
+  alias ino="cd /lcrc/group/e3sm/data/inputdata/ocn/mpas-o/; pwd; ls"
+  alias inu="cd /lcrc/group/acme/public_html/inputdata/share/domains; pwd; ls"
   alias py='echo "Load python for e3sm"; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_chrysalis.sh'
 
 ### Oak Ridge: anvil and blues
@@ -370,7 +373,8 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   PATH=$PATH:/usr/libexec/git-core
   alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_anvil.sh' 
   alias rrr='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-  alias in='cd /lcrc/group/acme/data/inputdata/ocn/mpas-o/; pwd; ls'
+  alias in='cd /lcrc/group/acme/data/inputdata/; pwd; ls'
+  alias ino='cd /lcrc/group/acme/data/inputdata/ocn/mpas-o/; pwd; ls'
   alias inn='cd /lcrc/group/e3sm/$USER/scratch/E3SM/inputdata; pwd; ls'
 
 ### PNNL: compy I did not renew compy!
