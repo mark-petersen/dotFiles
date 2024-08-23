@@ -173,8 +173,7 @@ elif [[ $HOSTNAME = ch-* ]]; then
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch5/$USER/E3SM/scratch/chicoma-cpu/
   export ARCHIVE_ROOT=/lustre/scratch5/$USER/E3SM/archive
-  alias in='cd /usr/projects/e3sm/inputdata; pwd; ls'
-  alias ino='cd /usr/projects/e3sm/inputdata/ocn/mpas-o; pwd; ls'
+  export INPUTDATA=/usr/projects/e3sm/inputdata
   #alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
   #alias inu='cd /lustre/scratch5/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
   export TARFILE="/lustre/scratch5/$USER/trash/tar.tar"
@@ -218,7 +217,7 @@ elif [[ $HOST = sn* ]]; then
   ### E3SM section ###
   export RUN_ROOT=/users/$USER/jayenne_build/jayenne/src/mcgrid/test/phys_verification
   export ARCHIVE_ROOT=/lustre/scratch3/turquoise/$USER/E3SM/archive
-  alias in='cd /lustre/scratch3/turquoise/$USER/E3SM/inputdata; pwd; ls'
+  export INPUTDATA=/usr/projects/e3sm/inputdata
   alias inu='cd /lustre/scratch3/turquoise/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
   export TARFILE="/lustre/scratch4/yellow/$USER/trash/tar.tar"
 
@@ -259,13 +258,13 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias www='cd /global/cfs/cdirs/e3sm/www/mpeterse; echo "see web at https://portal.nersc.gov/project/e3sm/"; pwd; ls'
      export r="$SCRATCH/runs"
      export n="$SCRATCH/runs/n"
+     export INPUTDATA=/global/cfs/cdirs/e3sm/inputdata
+     
      TARFILE="$SCRATCH/trash/tar.tar"
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
 
-  alias in='cd /global/cfs/cdirs/e3sm/inputdata/; pwd; ls'
-  alias ino='cd /global/cfs/cdirs/e3sm/inputdata/ocn/mpas-o/; pwd; ls'
   export RUN_ROOT=/pscratch/sd/m/mpeterse/e3sm_scratch/pm-cpu/
   export ARCHIVE_ROOT=/scratch1/scratchdirs/$USER/E3SM/archive
   alias ans='echo "cd to analysis results"; cd /global/cscratch1/sd/$USER/analysis/; pwd;ls'
@@ -350,12 +349,10 @@ elif [[ $HOST = chr* ]]; then
   export r=/lcrc/group/e3sm/$USER/scratch/runs
   export n=/lcrc/group/e3sm/$USER/scratch/runs/n
   export bo=/lcrc/group/e3sm/$USER/scratch/by_others/
+  export INPUTDATA=/lcrc/group/e3sm/data/inputdata/
   alias r='cd /lcrc/group/e3sm/$USER/scratch/runs; ls -tlFh | head'
   alias n='cd /lcrc/group/e3sm/$USER/scratch/runs/n; ls -tlFh | head'
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
-  alias in="cd /lcrc/group/e3sm/data/inputdata/; pwd; ls"
-  alias ino="cd /lcrc/group/e3sm/data/inputdata/ocn/mpas-o/; pwd; ls"
-  alias ini="cd /lcrc/group/e3sm/data/inputdata/ice/mpas-seaice/; pwd; ls"
   alias inu="cd /lcrc/group/acme/public_html/inputdata/; pwd; ls"
   alias inuo="cd /lcrc/group/acme/public_html/inputdata/ocn/mpas-o; pwd; ls"
   alias inui="cd /lcrc/group/acme/public_html/inputdata/ice/mpas-seaice/; pwd; ls"
@@ -376,8 +373,7 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   PATH=$PATH:/usr/libexec/git-core
   alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_anvil.sh' 
   alias rrr='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-  alias in='cd /lcrc/group/acme/data/inputdata/; pwd; ls'
-  alias ino='cd /lcrc/group/acme/data/inputdata/ocn/mpas-o/; pwd; ls'
+  export INPUTDATA=/lcrc/group/e3sm/data/inputdata/
   alias inn='cd /lcrc/group/e3sm/$USER/scratch/E3SM/inputdata; pwd; ls'
 
 ### PNNL: compy I did not renew compy!
@@ -599,6 +595,10 @@ alias cr='compass run'
 alias cs='cd cime/scripts'
 alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 alias cppm='cd ~/repos/beginning-cpp20/mark_exercises; pwd; ls'
+
+alias in='cd $INPUTDATA; pwd; ls'
+alias ino='cd $INPUTDATA/ocn/mpas-o/; pwd; ls'
+alias ini='cd $INPUTDATA/ice/mpas-seaice/; pwd; ls'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
