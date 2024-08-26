@@ -372,7 +372,6 @@ elif [[ $HOST = anvil* ]] || [[ $HOST = blueslogin* ]]; then
   module load git
   PATH=$PATH:/usr/libexec/git-core
   alias py='echo "Load python for e3sm-unified"; module unload python; source /lcrc/soft/climate/e3sm-unified/load_latest_e3sm_unified_anvil.sh' 
-  alias rrr='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
   export INPUTDATA=/lcrc/group/e3sm/data/inputdata/
   alias inn='cd /lcrc/group/e3sm/$USER/scratch/E3SM/inputdata; pwd; ls'
 
@@ -497,6 +496,9 @@ alias cm='cd $HOMEDIR/repos/compass/ma*; dir'
 alias q='cd $HOMEDIR/repos/quickviz; echo "cd to quickviz:" `pwd`; ls'
 alias cr='cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
 alias rr='cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`; ls -tlFh | head'
+alias rrr='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+alias r1='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+alias r2='cd $RUN_ROOT; cd  "$(\ls -1dt ./*/ | head -n 2|tail -n 1)"'
 alias to='tail  "$(\ls -1dt ocn.log*|head -n 1 )" -n 1'
 alias ke='echo "ncdump -v kineticEnergyCellMax analysis_members/globalStats.*.nc |tail -n 20";ncdump -v kineticEnergyCellMax analysis_members/globalStats.*.nc |tail -n 20'
 
