@@ -450,6 +450,7 @@ CASE_ROOT=$HOMEDIR/e3sm_cases
 
 # git aliases
 alias gs='git status'
+alias gb='git branch'
 alias gba='git branch --all'
 alias grv='git remote -v'
 alias gl='git log -n 1'
