@@ -160,8 +160,8 @@ elif [[ $HOSTNAME = ch-* ]]; then
   alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
   alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
   alias sb="cp /usr/projects/climate/$USER/repos/dotFiles/sbatch_LANL_IC sbatch_script"
-  alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t24_coastal_ocean'
-  alias sag='salloc -N 1 -t 2:0:0 --account=g23_nonhydro_g --partition=gpu'
+  alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t25_coastal_ocean'
+  alias sag='salloc -N 1 -t 2:0:0 --account=t25_coastal_ocean_g --partition=gpu'
   export b=/usr/projects/climate/$USER/repos/model
   export n=/lustre/scratch5/$USER/runs/n
   export n4=/lustre/scratch4/$USER/runs/n
