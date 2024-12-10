@@ -284,6 +284,8 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
 ### Oak Ridge: summit, frontier
 elif [[ $HOME = "/ccs/home/$USER" ]]; then
   #echo 'Oak Ridge hostname: ' $HOST
+  alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
+  export r=/lustre/orion/cli115/scratch/mpetersen/runs
   if [[ $HOST = login* ]]; then
      if [[ $LMOD_SYSTEM_NAME = summit ]]; then
         PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
@@ -293,7 +295,6 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0"
-#        alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
         PS1='\[\e[1;35m\]cr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2'; salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2"
@@ -605,14 +606,14 @@ alias ini='cd $INPUTDATA/ice/mpas-seaice/; pwd; ls'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/projects/climate/mpeterse/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/autofs/nccs-svm1_home1/mpetersen/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/usr/projects/climate/mpeterse/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/usr/projects/climate/mpeterse/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/autofs/nccs-svm1_home1/mpetersen/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/autofs/nccs-svm1_home1/mpetersen/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/projects/climate/mpeterse/miniforge3/bin:$PATH"
+        export PATH="/autofs/nccs-svm1_home1/mpetersen/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
