@@ -319,7 +319,7 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
      fi
   fi
   PATH=$PATH:/ccs/home/$USER/.local/summit/anaconda3/2020.07/3.8/bin
-  export RUN_ROOT=/lustre/atlas/scratch/$USER/cli127
+  export RUN_ROOT=/lustre/orion/cli115/proj-shared/${USER}/e3sm_scratch
   alias inu='cd /ccs/home/$USER/inputdata_for_uploading; pwd; ls'
 # might be for summit:
 #  export TARFILE="/gpfs/alpine/cli115/scratch/$USER/trash/tar.tar"
