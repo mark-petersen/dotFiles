@@ -90,8 +90,9 @@ alias vit='vi `ls -tr |tail -n 1`'
 alias tit='tail -f `ls -tr |tail -n 1`'
 alias cdt='cd `ls -d1tr */ |tail -n 1`'
 
-alias lg="source ~/repos/compass/ma*/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
-alias li="source ~/repos/compass/ma*/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+alias lc="source ~/repos/polaris/ma*/load_dev_polaris_*_cray_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
 # directory aliases. May be reset below for each machine.
 alias n='cd $n; ls -tlFh | head'
@@ -139,12 +140,12 @@ elif [[ $HOSTNAME = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   if [[ $HOST = ch-fe* ]]; then
     PS1='\[\e[1;32m\]ch:\W\$\[\e[0m\] ' # login: green
-    alias lg="source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias lg="source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   else
     PS1='\[\e[1;31m\]ch:\[\e[1;32m\]\W\$\[\e[0m\] ' # compute: red and green
-    alias lg="source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/compass/ma*/load_dev_compass_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias lg="source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
+    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   fi
   export HOMEDIR=/usr/projects/climate/$USER
 
@@ -245,12 +246,12 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      ACCOUNT='m4572'
      alias sa="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=$ACCOUNT"
      alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
-     alias lg="source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="echo 'intel not available'" #source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="echo 'intel not available'" #source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
-        alias lg="source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source ~/repos/compass/ma*/load_dev_compass_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
@@ -273,7 +274,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   alias se='cd /global/cscratch1/sd/$USER/repos/e3sm; pwd; ls'
   alias py='echo "perlmutter: Load python for e3sm-unified"; source /global/common/software/e3sm/anaconda_envs/load_latest_e3sm_unified_pm-cpu.sh'
 
-  alias pyc='echo "Load python for compass"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_compass.sh'
+  alias pyc='echo "Load python for polaris"; module unload python; source /global/project/projectdirs/e3sm/software/anaconda_envs/load_latest_polaris.sh'
   alias ec='cd /global/cscratch1/sd/$USER/repos/E3SM/pr; pwd'
   alias ecm='cd ~/repos/E3SM_current/ma*; pwd; dir'
   alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_nersc config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
@@ -338,12 +339,12 @@ elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
   if [[ $HOST = chrlogin* ]]; then
     PS1='\[\e[1;34m\]chr:\W\$\[\e[0m\] ' # login: blue
-    alias lg="source ~/repos/compass/ma*/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
-    alias li="source ~/repos/compass/ma*/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_gnu_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_intel_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   elif [[ $HOST = chr-* ]]; then
     PS1='\[\e[1;31m\]\h:\[\e[1;34m\]\W\$\[\e[0m\] ' # compute: red and blue
-    alias lg="source ~/repos/compass/ma*/load_dev_compass_*_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
-    alias li="source ~/repos/compass/ma*/load_dev_compass_*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   fi
   export RUN_ROOT=/lcrc/group/e3sm/$USER/scratch/chrys
   export TARFILE="/lcrc/group/e3sm/$USER/scratch/trash/tar.tar"
