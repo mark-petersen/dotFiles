@@ -233,9 +233,9 @@ elif [[ $HOST = sn* ]]; then
 
 ### nersc
 elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
-  echo 'Compute facility is nersc'
-  echo "machine is $NERSC_HOST"
-  echo "host is $HOST"
+  #echo 'Compute facility is nersc'
+  #echo "machine is $NERSC_HOST"
+  #echo "host is $HOST"
   Cyan='\[\e[1;36m\]'
   Normal='\[\e[1;0m\]'
   MachineColor=$Cyan
