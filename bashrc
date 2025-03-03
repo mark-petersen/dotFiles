@@ -287,6 +287,7 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
   #echo 'Oak Ridge hostname: ' $HOST
   alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
   export r=/lustre/orion/cli115/scratch/mpetersen/runs
+  export n=/lustre/orion/cli115/scratch/mpetersen/runs/n
   if [[ $HOST = login* ]]; then
      if [[ $LMOD_SYSTEM_NAME = summit ]]; then
         PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
@@ -296,6 +297,7 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0"
+        alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch"
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
         PS1='\[\e[1;35m\]cr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2'; salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2"
