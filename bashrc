@@ -526,13 +526,13 @@ alias toccs='scp ~/a/tar.tar mpeterse@ccscs1.lanl.gov:/home/mpeterse/a'
 alias tccs='scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
 alias ccs='ssh mpeterse@ccscs1.lanl.gov'
 # LANL IC
-alias tt="scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
-alias tch="scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias toch=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
+alias tt="scp -O mpeterse@ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tot=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
+alias tch="scp -O mpeterse@ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias toch=" echo 'sending tar.tar to turqoise'; scp -O $TARFILE mpeterse@ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
 alias toy=" echo 'sending tar.tar to yellow'; scp -O $TARFILE mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar;"
 alias ty="scp -O mpeterse@ro-rfe.lanl.gov:/lustre/roscratch1/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
-alias ch='ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
+alias ch='ssh -t mpeterse@ch-fe'
 alias ro='ssh mpeterse@ro-rfe.lanl.gov'
 alias summit='ssh mpetersen@summit.olcf.ornl.gov'
 alias su='ssh mpetersen@summit.olcf.ornl.gov'
@@ -541,8 +541,8 @@ alias crusher='ssh mpetersen@crusher.olcf.ornl.gov'
 alias da='ssh mpeterse@darwin-fe.lanl.gov'
 alias toda='scp ~/a/tar.tar mpeterse@darwin-fe.lanl.gov:/vast/home/mpeterse/a'
 alias tda='scp mpeterse@darwin.lanl.gov:/vast/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
-alias gpfs='ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
-alias ar='ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
+alias gpfs='ssh -t mpeterse@ar-tn'
+alias ar='ssh -t mpeterse@ar-tn'
 alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
 # NERSC
 alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
