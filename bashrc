@@ -245,6 +245,7 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      #ACCOUNT='e3sm'
      ACCOUNT='m4572'
      alias sa="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=$ACCOUNT"
+     alias saa="salloc --nodes 1 --qos interactive --time 02:00:00 --constraint cpu --account=$ACCOUNT"
      alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
      alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
      alias li="echo 'intel not available'" #source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
