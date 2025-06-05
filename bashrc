@@ -604,6 +604,7 @@ alias cr='compass run'
 alias cs='cd cime/scripts'
 alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 alias cppm='cd ~/repos/beginning-cpp20/mark_exercises; pwd; ls'
+alias caod='conda activate omega_dev'
 
 alias in='cd $INPUTDATA; pwd; ls'
 alias ino='cd $INPUTDATA/ocn/mpas-o/; pwd; ls'
