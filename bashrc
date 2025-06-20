@@ -579,6 +579,8 @@ alias tosu='scp -O ~/a/tar.tar mpetersen@summit.olcf.ornl.gov:/gpfs/alpine/cli11
 alias tfr='scp -O mpetersen@frontier.olcf.ornl.gov:/lustre/orion/cli115/scratch/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias tofr='scp -O ~/a/tar.tar mpetersen@frontier.olcf.ornl.gov:/lustre/orion/cli115/scratch/mpetersen/trash/tar.tar'
 
+alias au='ssh mpeterse@aurora.alcf.anl.gov'
+
 # taring aliases
 alias t="echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
 alias unt="echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
