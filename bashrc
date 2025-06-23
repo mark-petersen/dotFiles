@@ -32,6 +32,7 @@ Blue='\033[0;34m'         # Blue
 Purple='\033[0;35m'       # Purple
 Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
+Normal='\[\e[1;0m\]'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's exporting of `ignorespace'.
@@ -239,7 +240,6 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   #echo "machine is $NERSC_HOST"
   #echo "host is $HOST"
   Cyan='\[\e[1;36m\]'
-  Normal='\[\e[1;0m\]'
   MachineColor=$Cyan
   HostColor=$Cyan
   if [[ $NERSC_HOST = perlmutter ]]; then
@@ -345,53 +345,22 @@ elif [[ $HOST = aurora* ]]; then
   alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
   export r=/lustre/orion/cli115/scratch/mpetersen/runs
   export n=/lustre/orion/cli115/scratch/mpetersen/runs/n
-  PS1='\[\e[1;33m\]au:\W\$\[\e[0m\] ' # yellow
-  if [[ $HOST = login* ]]; then
-     if [[ $LMOD_SYSTEM_NAME = summit ]]; then
-        PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
-        module load python
-        alias sa="echo 'bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
-        alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
-     elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
-        PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
-        alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0"
-        alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch"
-     elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
-        PS1='\[\e[1;35m\]cr:\W\$\[\e[0m\] ' # maroon
-        alias sa="echo 'salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2'; salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2"
-        module load cray-python
-     else
-        PS1='\[\e[1;35m\]\h\W\$\[\e[0m\] ' # maroon
-     fi
-  elif [[ $HOST = batch* ]]||[[ $HOST = crusher* ]]; then
-     alias sa="echo 'already on compute node'"
-     if [[ $LMOD_SYSTEM_NAME = summit ]]; then
-        PS1='\[\e[1;31m\]su:\[\e[1;35m\]\W\$\[\e[0m\] ' # compute: red and blue
-        module load python
-     elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
-        PS1='\[\e[1;31m\]fr:\h:\W\$\[\e[0m\] ' # maroon
-# same for summit?
-#        alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
-     elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
-        PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # maroon
-        module load cray-python
-     else
-        PS1='\[\e[1;31m\]\h\W\$\[\e[0m\] ' # maroon
-     fi
+  MachineName='au'
+  HostColor='\[\e[1;33m\]'
+  MachineColor='\[\e[1;33m\]'
+  if [[ $HOST = nid* ]]; then # change for aurora
+     HostColor='\[\e[1;31m\]'
+     alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
   fi
-  PATH=$PATH:/ccs/home/$USER/.local/summit/anaconda3/2020.07/3.8/bin
+  PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   export RUN_ROOT=/lustre/orion/cli115/proj-shared/${USER}/e3sm_scratch
   alias inu='cd /ccs/home/$USER/inputdata_for_uploading; pwd; ls'
-# might be for summit:
-#  export TARFILE="/gpfs/alpine/cli115/scratch/$USER/trash/tar.tar"
   export TARFILE="/lustre/orion/cli115/scratch/$USER/trash/tar.tar"
   module load cmake
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
   alias r='cd /lustre/orion/cli115/scratch/$USER/runs; pwd; ls -tlFh | head'
   alias n='cd /lustre/orion/cli115/scratch/$USER/runs/n; pwd; ls -tlFh | head'
-  alias cppm='cd /ccs/home/$USER/repos/beginning-cpp20/mark_exercises; pwd; ls'
-  alias mini='cd /gpfs/alpine/cli115/scratch/$USER/repos/miniWeather/simple_yakl_tests/cpp; pwd; ls'
-  alias vip='vim -p main* timestep.cpp tendencies.cpp Config.cpp Mesh.cpp State.cpp Tend.cpp Diag.cpp io.cpp'
 
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
