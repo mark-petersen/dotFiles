@@ -89,6 +89,7 @@ alias call='cal -y'
 alias vit='vi `ls -tr |tail -n 1`'
 alias tit='tail -f `ls -tr |tail -n 1`'
 alias cdt='cd `ls -d1tr */ |tail -n 1`'
+alias pm='cd $HOMEDIR/repos/polaris/ma*; dir'
 
 alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
 alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
@@ -123,6 +124,7 @@ if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
   bindkey "^[[A" history-beginning-search-backward
   bindkey "^[[B" history-beginning-search-forward
   PROMPT='%F{115}%1~%f %# '
+  alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
 
   if [[ $HOST = pn1707929 ]]; then
     alias git=~/miniconda3/bin/git
@@ -600,7 +602,6 @@ alias gpfs='ssh -t mpeterse@ar-tn'
 alias ar='ssh -t mpeterse@ar-tn'
 alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd docs; make html; cd _build; t html; cd ../../'
 # NERSC
-alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
 alias tpm='scp mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias topm='scp ~/a/tar.tar mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar'
 # PNNL
