@@ -244,8 +244,8 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   HostColor=$Cyan
   if [[ $NERSC_HOST = perlmutter ]]; then
      MachineName='pm'
-     ACCOUNT='e3sm'
-     #ACCOUNT='m4572'
+     #ACCOUNT='e3sm'
+     ACCOUNT='m4572'
      alias sa="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=$ACCOUNT"
      alias saa="salloc --nodes 1 --qos interactive --time 02:00:00 --constraint cpu --account=$ACCOUNT"
      alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
