@@ -502,7 +502,7 @@ alias grhom="echo 'git reset --hard origin/master'; git reset --hard origin/mast
 alias grhh="echo 'git reset --hard HEAD'; git reset --hard HEAD"
 alias gsu="echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
 alias gsuo='git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS src/ppr; echo "git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/ppr"'
-alias gsuom='git submodule update --init --recursive externals/ekat externals/scorpio externals/cpptrace cime; echo "git submodule update --init --recursive externals/ekat externals/scorpio externals/cpptrace cime"'
+alias gsuom='git submodule update --init --recursive components/omega/external/GSW-C components/omega/external/yaml-cpp externals/YAKL externals/ekat externals/scorpio cime externals/cpptrace; echo "git submodule update for omega"'
 alias gd="git diff"
 alias gds="git diff --stat"
 alias gdt="echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
