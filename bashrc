@@ -101,7 +101,7 @@ alias n='cd $n; ls -tlFh | head'
 alias nn='cd $n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
 
 ### Local laptops
-if [[ $HOST = pn* ]]||[[ $HOST = loft* ]]; then
+if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
   echo 'mac hostname: ' $HOST
   PS1='\W$ '
   alias ls='ls -G'
