@@ -134,14 +134,10 @@ elif [[ $HOSTNAME = ch-* ]]; then
   echo 'IC hostname: ' $HOST
   if [[ $HOST = ch-fe* ]]; then
     PS1='\[\e[1;32m\]ch:\W\$\[\e[0m\] ' # login: green
-    alias lg="source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*gnu*.sh;PS1='\[\e[1;32m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*intel*.sh;PS1='\[\e[1;32m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   else
     PS1='\[\e[1;31m\]ch:\[\e[1;32m\]\W\$\[\e[0m\] ' # compute: red and green
-    alias lg="source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*gnu*.sh;PS1='\[\e[1;31m\]ch:\[\e[0;32m\]g:\[\e[1;32m\]\W\$\[\e[0m\] '"
-    alias li="echo 'intel not available'" #source /usr/projects/climate/$USER/repos/polaris/ma*/load_dev_polaris_*intel*.sh;PS1='\[\e[1;31m\]ch:\[\e[1;36m\]i:\[\e[1;32m\]\W\$\[\e[0m\] '"
   fi
-  export HOMEDIR=/usr/projects/climate/$USER
+  export HOMEDIR=/users/$USER
 
   alias r3='cd /lustre/scratch3/$USER/runs; pwd'
   alias r4='cd /lustre/scratch4/$USER/runs; pwd'
@@ -150,27 +146,17 @@ elif [[ $HOSTNAME = ch-* ]]; then
   alias r='cd /lustre/scratch5/$USER/runs; ls -tlFh | head'
   alias s='cd /lustre/scratch5/$USER/runs/s; ls'
   alias rrg='cd /lustre/scratch5/$USER/E3SM/scratch/chicoma-gpu; pwd; ls'
-  alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/initial_condition_database/; pwd'
-  alias vtk='python /usr/projects/climate/$USER/repos/MPAS-Tools/ma*/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
-  alias py='echo "Load python for e3sm-unified"; module unload python; source /usr/projects/climate/SHARED_CLIMATE/anaconda_envs/load_latest_e3sm_unified_badger.sh'
-  alias sedc="cp /usr/projects/climate/$USER/repos/dotFiles/config.ocean_turq config.ocean; echo 'sed -i Qs/ddd/yourdir/gQ config.ocean'"
-  alias sb="cp /usr/projects/climate/$USER/repos/dotFiles/sbatch_LANL_IC sbatch_script"
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t25_coastal_ocean'
   alias sag='salloc -N 1 -t 2:0:0 --account=t25_coastal_ocean_g --partition=gpu'
-  export b=/usr/projects/climate/$USER/repos/model
   export n=/lustre/scratch5/$USER/runs/n
   export n4=/lustre/scratch4/$USER/runs/n
   export n5=/lustre/scratch5/$USER/runs/n
   export r=/lustre/scratch5/$USER/runs
-  export e=/usr/projects/climate/$USER/repos/E3SM
   module load git
 
   ### E3SM section ###
   export RUN_ROOT=/lustre/scratch5/$USER/E3SM/scratch/chicoma-cpu/
   export ARCHIVE_ROOT=/lustre/scratch5/$USER/E3SM/archive
-  export INPUTDATA=/usr/projects/e3sm/inputdata
-  #alias in='cd /lustre/scratch5/$USER/E3SM/inputdata/ocn/mpas-o; pwd; ls'
-  #alias inu='cd /lustre/scratch5/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
   export TARFILE="/lustre/scratch5/$USER/trash/tar.tar"
 
   # see https://hpc.lanl.gov/proxy_setup
@@ -181,10 +167,6 @@ elif [[ $HOSTNAME = ch-* ]]; then
   export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
-
-  # added by Miniconda2 installer
-  # export PATH="/usr/projects/climate/$USER/software/miniconda2/bin:$PATH"
-  #. /usr/projects/climate/$USER/software/miniconda2/etc/profile.d/conda.sh
 
 ### LANL yellow IC: rocinante
 elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
