@@ -118,16 +118,21 @@ if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
   PROMPT='%F{115}%1~%f %# '
   alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
 
-  if [[ $HOST = pn1707929 ]]; then
-    alias git=~/miniconda3/bin/git
+### LANL yellow IC: rocinante
+elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
+  echo 'IC hostname: ' $HOST
+  if [[ $HOST = ro-rfe* ]]; then
+    PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # login: yellow
+  else
+    PS1='\[\e[1;31m\]\h:\[\e[1;33m\]\W\$\[\e[0m\] ' # compute: red and blue
   fi
-
-### LANL ccs servers
-elif [[ $HOST = ccs* ]]; then
-  echo 'ccs hostname: ' $HOST
-  PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # red
-  alias sc='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
-  alias r='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
+  export HOMEDIR=/users/$USER
+  export n=/lustre/scratch4/yellow/$USER/runs/n
+  export r=/lustre/scratch4/yellow/$USER/runs
+  alias sa='salloc -N 1 -t 1:0:0'
+  alias r='cd /lustre/roscratch1/$USER/runs; pwd'
+  alias ll='echo "log into rzadams at LLNL. Use cryptocard:"; reticket; ssh petersen41@rzadams.llnl.gov'
+  alias toll='scp /lustre/roscratch1/${USER}/trash/tar.tar petersen41@rzadams.llnl.gov:/p/lustre1/petersen41/trash/tar.tar'
 
 ### LANL turquoise IC: chicoma
 elif [[ $HOSTNAME = ch-* ]]; then
@@ -167,22 +172,6 @@ elif [[ $HOSTNAME = ch-* ]]; then
   export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
   export FTP_PROXY="http://proxyout.lanl.gov:8080"
   export no_proxy="localhost,127.0.0.1"
-
-### LANL yellow IC: rocinante
-elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
-  echo 'IC hostname: ' $HOST
-  if [[ $HOST = ro-rfe* ]]; then
-    PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # login: yellow
-  else
-    PS1='\[\e[1;31m\]\h:\[\e[1;33m\]\W\$\[\e[0m\] ' # compute: red and blue
-  fi
-  export HOMEDIR=/users/$USER
-  export n=/lustre/scratch4/yellow/$USER/runs/n
-  export r=/lustre/scratch4/yellow/$USER/runs
-  alias sa='salloc -N 1 -t 1:0:0'
-  alias r='cd /lustre/roscratch1/$USER/runs; pwd'
-  alias ll='echo "log into rzadams at LLNL. Use cryptocard:"; reticket; ssh petersen41@rzadams.llnl.gov'
-  alias toll='scp /lustre/roscratch1/${USER}/trash/tar.tar petersen41@rzadams.llnl.gov:/p/lustre1/petersen41/trash/tar.tar'
 
 ### nersc
 elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
@@ -374,6 +363,13 @@ elif [[ $HOST = login* ]] || [[ $HOST = c???-??? ]]; then
   export RUN_ROOT=/lustre/atlas/scratch/$USER/cli127
   alias py='conda activate e3sm-unified-mpich' # see instructions at e3sm unified conda
   export TARFILE='/scratch/03443/$USER/trash/tar.tar'
+
+### LANL ccs servers
+elif [[ $HOST = ccs* ]]; then
+  echo 'ccs hostname: ' $HOST
+  PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # red
+  alias sc='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
+  alias r='echo "cd /scratch/$USER";cd /scratch/$USER; pwd'
 
 ### LANL darwin
 elif [[ $HOST = darwin* ]]; then
