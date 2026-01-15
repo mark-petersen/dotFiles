@@ -1,0 +1,240 @@
+# cshrc file for IC yellow, started Dec 2024
+
+# keybinding shortcuts
+bindkey -k up history-search-backward
+bindkey -k down history-search-forward
+
+umask 022
+
+# This produces abcABC ordering instead of aAbBcC
+setenv LC_ALL C
+
+#echo 'now type: llogin -n nprocs'
+  # from Matthew:
+#setenv F_UFMTENDIAN big
+#limit stacksize unlimited
+
+######## for snow yellow LANL IC only
+#if [[ $HOST = sn-rfe* ]]; then
+set prompt="%{\e[33m%}%m%{\e[37m%}:%{\e[36m%}%c%{\e[37m%}"\$"%{\e[0m%} "
+#PS1 '\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # login: yellow
+#else
+#  PS1 '\[\e[1;31m\]\h:\[\e[1;33m\]\W\$\[\e[0m\] ' # compute: red and blue
+#fi
+#setenv HOMEDIR /users/mpeterse
+setenv HOMEDIR /usr/projects/lindet/mpeterse
+echo 'IC hostname: ' $HOST
+#set SHORTHOST `echo $HOST | cut -c 1-2`
+#echo $SHORTHOST
+#if ($SHORTHOST == "sn") then
+#  echo 'on snow'
+#setenv SCRATCH '/lustre/scratch4/yellow/.mdt4/mpeterse'
+#else if ($SHORTHOST == "ro") then
+#echo 'on rosinante'
+setenv SCRATCH '/lustre/roscratch1/mpeterse/'
+#endif
+setenv n ${SCRATCH}/runs/n
+setenv r ${SCRATCH}/runs
+# snow alias sa "echo 'salloc -N 1 -t 2:0:0 --qos=interactive'; salloc -N 1 -t 2:0:0 --qos=interactive"
+alias sa "echo 'salloc -N 1 -t 2:0:0'; salloc -N 1 -t 2:0:0"
+alias r 'cd ${SCRATCH}/runs/; pwd'
+alias rt 'cd /lustre/scratch4/turquoise/mpeterse/runs; pwd'
+alias ml 'module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
+alias mli 'module purge; module load git; module use /users/mpeterse/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
+alias ic 'cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
+alias jj 'cd /users/mpeterse/repos/jayenne; pwd; ls'
+alias jd 'cd /users/mpeterse/repos/jayenne/develop; pwd'
+alias jb 'cd /usr/projects/jayenne/devs/mpeterse/jayenne_build/; pwd; ls'
+alias sm 'echo "cd src/mcgrid/test/phys_verification/"; cd src/mcgrid/test/phys_verification/; ls|grep py; ls |grep test\$'
+alias jm 'cd /users/mpeterse/repos/jayenne/develop/src/mcgrid/test/phys_verification; pwd'
+
+# for slurm
+alias j 'echo "slurm: squeue -u $USER"; squeue -u $USER -l'
+alias ja 'echo "slurm: squeue"; squeue -l'
+alias canceljob 'echo "slurm: scancel"; scancel '
+alias partitions 'echo "slurm: sinfo |cut -c 1-100"; sinfo |cut -c 1-100'
+
+### PARTISN section ###
+alias li "echo 'source $HOME/repos/partisn/developer/environment/cshrc.dev intel'; source $HOME/repos/partisn/developer/environment/cshrc.dev intel"
+alias lp "echo 'module load partisn'; module use /usr/projects/lindet/modules/rocinante; module load partisn"
+
+alias pa "echo 'cd into partisn developer:'; cd $HOME/repos/partisn/developer; ls"
+### E3SM section ###
+setenv RUN_ROOT /users/mpeterse/jayenne_build/jayenne/src/mcgrid/test/phys_verification
+setenv ARCHIVE_ROOT /lustre/scratch3/turquoise/mpeterse/E3SM/archive
+alias in 'cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data; pwd; ls'
+alias inu 'cd /lustre/scratch3/turquoise/mpeterse/E3SM/input_data_for_uploading/E3SM/inputdata; pwd; ls'
+#setenv TARFILE "/lustre/scratch4/yellow/mpeterse/trash/tar.tar"
+setenv TARFILE "/lustre/roscratch1/mpeterse/trash/tar.tar"
+
+# see https://hpc.lanl.gov/software/software-guides/proxy-setup.html
+setenv http_proxy "http://proxyout.lanl.gov:8080"
+setenv https_proxy "http://proxyout.lanl.gov:8080"
+setenv ftp_proxy "http://proxyout.lanl.gov:8080"
+setenv HTTP_PROXY "http://proxyout.lanl.gov:8080"
+setenv HTTPS_PROXY "http://proxyout.lanl.gov:8080"
+setenv FTP_PROXY "http://proxyout.lanl.gov:8080"
+setenv no_proxy "localhost,127.0.0.1"
+
+alias ls 'ls --color '
+alias dir 'ls -tlFh --color | head'
+alias lss 'eval "ls -1d $PWD/\!*"'
+
+# end of yellow snow
+
+# copying aliases, scratch directories
+#   set prompt
+#set hostname=`hostname`
+#set prompt="${hostname}> "
+
+
+alias home 'cd $HOMEDIR; pwd; ls'
+alias re 'cd $HOMEDIR/repos; pwd; ls'
+alias o 'cd $HOMEDIR/repos/model/ocean_develop; pwd'
+alias cl 'cd $HOMEDIR/repos/compass/legacy; pwd'
+alias cc 'cd $HOMEDIR/repos/compass; dir'
+alias cm 'cd $HOMEDIR/repos/compass/master; dir'
+alias cpr 'cd $HOMEDIR/repos/compass/pr; dir'
+alias mt 'cd $HOMEDIR/repos/tools; pwd; dir'
+alias mtm 'cd $HOMEDIR/repos/tools/master/grid_gen/mesh_conversion_tools; pwd; dir'
+alias md 'cd $HOMEDIR/repos/documents; pwd; dir'
+alias mq 'cd $HOMEDIR/repos/quickviz; pwd; dir'
+alias dot 'cd $HOMEDIR/repos/dotFiles; pwd'
+alias sdot 'source $HOMEDIR/repos/dotFiles/bashrc'
+alias sd "echo 'source ~/.cshrc'; source ~/.cshrc"
+alias vtk 'python ${HOMEDIR}/repos/tools/master/visualization/paraview_vtk_field_extractor/paraview_vtk_field_extractor.py  -v allOnCells -d nVertLevels=0 maxEdges=0 '
+alias cs 'cd cime/scripts'
+
+set E3SM_ROOT=$HOMEDIR/repos/E3SM
+set CASE_ROOT=$HOMEDIR/e3sm_cases
+
+# git aliases
+alias gs 'git status'
+alias gba 'git branch --all'
+alias grv 'git remote -v'
+alias gl 'git log -n 1'
+alias g 'git log --graph --oneline -n 12'
+alias gg 'git log --graph --oneline'
+alias gitlp 'git log --graph --oneline -n 12'
+alias gl 'git log -n 1'
+alias gf "echo 'git fetch --prune origin'; git fetch --prune origin"
+alias gfa "echo 'git fetch --prune --all'; git fetch --prune --all"
+alias gfme "echo 'git fetch --prune me'; git fetch --prune me"
+alias gfx "echo 'git fetch --prune xylar'; git fetch --prune xylar"
+alias gfv "echo 'git fetch --prune vanroekel'; git fetch --prune vanroekel"
+alias gp "echo 'git push origin master'; git push origin master"
+alias gc "echo 'git commit -a'; git commit -a"
+alias gcm "echo 'git commit -am'; git commit -am"
+alias gca "echo 'git commit -a --amend'; git commit -a --amend"
+alias grom "echo 'git rebase origin/master'; git rebase origin/master"
+alias grhom "echo 'git reset --hard origin/master'; git reset --hard origin/master"
+alias grhh "echo 'git reset --hard HEAD'; git reset --hard HEAD"
+alias gsu "echo 'git submodule update --init --recursive'; git submodule update --init --recursive"
+alias gsuo 'git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/FFTW src/SHTNS src/ppr; echo "git submodule update --init --recursive src/cvmix/ src/gotm/ src/BGC src/MARBL src/gotm src/ppr"'
+alias gd "git diff"
+alias gds "git diff --stat"
+alias gdt "echo 'git difftool --tool=vimdiff'; git difftool --tool=vimdiff"
+alias gdo "echo 'git diff origin/master'; git diff origin/master"
+alias gdos "echo 'git diff origin/master'; git diff origin/master --stat"
+alias ggin "echo 'git grep -in '; git grep -in "
+alias gdh "echo 'git diff HEAD~1'; git diff HEAD~1"
+alias gdhs "echo 'git diff HEAD~1 --stat'; git diff HEAD~1 --stat"
+alias gdh2 "echo 'git diff HEAD~2'; git diff HEAD~2"
+alias gdhs2 "echo 'git diff HEAD~2 --stat'; git diff HEAD~2 --stat"
+alias gdh3 "echo 'git diff HEAD~3'; git diff HEAD~3"
+alias gdhs3 "echo 'git diff HEAD~3 --stat'; git diff HEAD~3 --stat"
+alias gdh4 "echo 'git diff HEAD~4'; git diff HEAD~4"
+alias gdhs4 "echo 'git diff HEAD~4 --stat'; git diff HEAD~4 --stat"
+
+# e3sm aliases
+alias e 'cd $HOMEDIR/repos/E3SM; echo "cd to E3SM_ROOT:" `pwd`; ls'
+alias q 'cd $HOMEDIR/repos/quickviz; echo "cd to quickviz:" `pwd`; ls'
+alias ee 'cd $HOMEDIR/repos/E3SM/master; echo "cd to E3SM_ROOT/master:" `pwd`; ls'
+alias cr 'cd $CASE_ROOT; echo "cd to CASE_ROOT:" `pwd`'
+alias rr 'cd $RUN_ROOT; echo "cd to RUN_ROOT:" `pwd`; ls -tlFh | head'
+alias to 'tail  "$(\ls -1dt ocn.log*|head -n 1 )" -n 1'
+
+# unix aliases
+alias ex 'exit'
+alias h 'history'
+alias m 'less'
+alias cdd 'cd \!*; ls'
+alias cd. 'cd ..'
+alias cd.. 'cd ../..'
+alias cd... 'cd ../../..'
+alias cd.... 'cd ../../../..'
+alias space 'du -m | sort -n'
+alias grep 'grep -d skip --color=always'
+
+# CCS server
+alias toccs 'scp ~/a/tar.tar mpeterse@ccscs1.lanl.gov:/home/mpeterse/a'
+alias tccs 'scp mpeterse@ccscs1.lanl.gov:/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
+alias ccs 'ssh mpeterse@ccscs1.lanl.gov'
+# LANL IC
+alias tt "scp -O mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias tot " echo 'sending tar.tar to turqoise'; scp $TARFILE mpeterse@wtrw.lanl.gov:ch-fe.lanl.gov:/lustre/scratch5/mpeterse/trash/tar.tar;"
+alias toy " echo 'sending tar.tar to yellow'; scp $TARFILE mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar;"
+alias ty "scp mpeterse@sn-rfe.lanl.gov:/lustre/scratch4/yellow/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar"
+alias ch 'ssh -t mpeterse@wtrw.lanl.gov ssh ch-fe'
+alias sn 'ssh mpeterse@sn-rfe.lanl.gov'
+alias summit 'ssh mpetersen@summit.olcf.ornl.gov'
+alias su 'ssh mpetersen@summit.olcf.ornl.gov'
+alias frontier 'ssh mpetersen@frontier.olcf.ornl.gov'
+alias crusher 'ssh mpetersen@crusher.olcf.ornl.gov'
+alias da 'ssh mpeterse@darwin-fe.lanl.gov'
+alias toda 'scp ~/a/tar.tar mpeterse@darwin-fe.lanl.gov:/vast/home/mpeterse/a'
+alias tda 'scp mpeterse@darwin.lanl.gov:/vast/home/mpeterse/a/tar.tar .; tar xvf tar.tar; rm tar.tar'
+alias gpfs 'ssh -t mpeterse@wtrw.lanl.gov ssh ar-tn'
+alias ar 'ssh -t mpeterse@wtrw.lanl.gov ssh mpeterse@ar-tn'
+alias makehtml 'conda activate test_compass_docs; export DOCS_VERSION "test"; cd docs; make html; cd _build; t html; cd ../../'
+# NERSC
+alias cori 'ssh mpeterse@cori.nersc.gov'
+alias tcori 'scp mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tocori 'scp ~/a/tar.tar mpeterse@cori.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
+alias pm 'ssh mpeterse@perlmutter-p1.nersc.gov'
+alias tpm 'scp mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias topm 'scp ~/a/tar.tar mpeterse@perlmutter-p1.nersc.gov:/global/cscratch1/sd/mpeterse/trash/tar.tar'
+# PNNL
+alias compy 'ssh pete011@compy.pnl.gov'
+alias tcompy 'scp pete011@compy.pnl.gov:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
+alias tocompy 'scp ~/a/tar.tar pete011@compy.pnl.gov:~/a/tar.tar'
+# Oak Ridge
+alias eos 'ssh mpetersen@eos.ccs.ornl.gov'
+alias rhea 'ssh mpetersen@rhea.ccs.ornl.gov'
+alias titan 'ssh mpetersen@titan.ccs.ornl.gov'
+alias ttitan 'scp mpetersen@titan.ccs.ornl.gov:/lustre/atlas2/cli127/scratch/mpetersen/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias totitan 'scp ~/a/tar.tar mpetersen@titan.ccs.ornl.gov:/lustre/atlas1/cli127/proj-shared/mpetersen/trash/tar.tar'
+# Argonne
+alias theta 'ssh mpeterse@theta.alcf.anl.gov'
+alias ttheta 'scp mpeterse@theta.alcf.anl.gov:/projects/OceanClimate_2/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+
+# other logins
+alias tacc 'echo "stampede2 at tacc. cd into stampede2.tacc.utexas.edu"; ssh mpeterse@stampede2.tacc.utexas.edu'
+alias totacc 'scp /scratch/03443/mpeterse/trash/tar.tar mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar'
+alias ttacc 'scp mpeterse@stampede2.tacc.utexas.edu:/scratch/03443/mpeterse/trash/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
+alias bl 'ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues blues.lcrc.anl.gov'
+alias chr 'ssh -l ac.mpetersen -i ~/.ssh/id_rsa chrysalis.lcrc.anl.gov'
+# old alias ch 'ssh -l ac.mpetersen -i ~/.ssh/id_rsa_blues chrysalis.lcrc.anl.gov'
+alias tbl 'scp -i ~/.ssh/id_rsa_blues ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tch 'scp -i ~/.ssh/id_rsa_blues ac.mpetersen@chrysalis.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias tobl 'scp -i ~/.ssh/id_rsa_blues ~/a/tar.tar ac.mpetersen@blues.lcrc.anl.gov:/lcrc/group/e3sm/ac.mpetersen/scratch/trash/tar.tar'
+
+# taring aliases
+alias t "echo 'tarring the following files to $TARFILE'; tar cvf $TARFILE"
+alias unt "echo '** Untarring from $TARFILE'; tar xvf $TARFILE"
+
+alias ta "echo 'tarring the following files to $TARFILE'; tar cvf ~/a/tar.tar"
+alias unta "echo '** Untarring from $TARFILE'; tar xvf ~/a/tar.tar"
+
+# alias to change directory
+alias c 'rm -f ~/a/pwd_file; set d=`pwd`; echo `pwd` > ~/a/pwd_file; echo "put pwd in a/pwd_file:";pwd'
+alias d 'set d=`cat ~/a/pwd_file`; cd $d; echo "cd to"; pwd'
+
+setenv om /components/mpas-ocean/
+alias om 'cd components/mpas-ocean'
+alias cdp 'cd ocean/global_ocean/QU240/PHC/performance_test/forward/'
+alias co 'cd ocean/global_ocean/QU240/PHC/performance_test/forward'
+alias cr 'compass run'
+alias cs 'cd cime/scripts'
+alias per 'cd ocean/global_ocean/QU240/PHC/performance_test/forward'
+alias cppm 'cd ~/repos/beginning-cpp20/mark_exercises; pwd; ls'
