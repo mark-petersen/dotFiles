@@ -106,15 +106,6 @@ if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
   PS1='\W$ '
   alias ls='ls -G'
   alias dir='ls -tlFhG |head'
-  # see https://hpc.lanl.gov/proxy_setup
-  # mrp 211209 this should be for lanl ic only.
-  #export http_proxy="http://proxyout.lanl.gov:8080"
-  #export https_proxy="http://proxyout.lanl.gov:8080"
-  #export ftp_proxy="http://proxyout.lanl.gov:8080"
-  #export HTTP_PROXY="http://proxyout.lanl.gov:8080"
-  #export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
-  #export FTP_PROXY="http://proxyout.lanl.gov:8080"
-  #export no_proxy="localhost,127.0.0.1"
 
   alias r='echo "cd ~/runs";cd ~/runs'
   alias b='vi ~/s/other/my_pubs.bib'
@@ -195,10 +186,10 @@ elif [[ $HOSTNAME = ch-* ]]; then
   # export PATH="/usr/projects/climate/$USER/software/miniconda2/bin:$PATH"
   #. /usr/projects/climate/$USER/software/miniconda2/etc/profile.d/conda.sh
 
-### LANL yellow IC: snow
-elif [[ $HOST = sn* ]]; then
+### LANL yellow IC: rocinante
+elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
   echo 'IC hostname: ' $HOST
-  if [[ $HOST = sn-rfe* ]]; then
+  if [[ $HOST = ro-rfe* ]]; then
     PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # login: yellow
   else
     PS1='\[\e[1;31m\]\h:\[\e[1;33m\]\W\$\[\e[0m\] ' # compute: red and blue
@@ -206,33 +197,10 @@ elif [[ $HOST = sn* ]]; then
   export HOMEDIR=/users/$USER
   export n=/lustre/scratch4/yellow/$USER/runs/n
   export r=/lustre/scratch4/yellow/$USER/runs
-  alias sa='salloc -N 1 -t 2:0:0 --qos=interactive'
-  alias r='cd /lustre/scratch4/yellow/$USER/runs/; pwd'
-  alias rt='cd /lustre/scratch5/$USER/runs; pwd'
-  alias ml='module purge; module load git; module use /users/$USER/modulefiles/all/;module load python/anaconda-2.7-climate;module load gcc/5.3.0 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, gnu, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias mli='module purge; module load git; module use /users/$USER/modulefiles/all/;module load python/anaconda-2.7-climate;module load intel/17.0.1 openmpi/1.10.5 netcdf/4.4.1 parallel-netcdf/1.5.0 pio/1.7.2; echo "loading modules anaconda, intel, openmpi, netcdf, pnetcdf, pio for grizzly"'
-  alias ic='cd /usr/projects/regionalclimate/COMMON_MPAS/ocean/grids/real_bathymetry_uniform/; pwd'
-  alias jj='cd /users/$USER/repos/jayenne; pwd; ls'
-  alias jd='cd /users/$USER/repos/jayenne/develop; pwd'
-  alias jb='cd /usr/projects/jayenne/devs/$USER/jayenne_build/; pwd; ls'
-  alias sm='echo "cd src/mcgrid/test/phys_verification/"; cd src/mcgrid/test/phys_verification/; ls -l|grep py; ls -l |grep test\$'
-  alias jm='cd /users/$USER/repos/jayenne/develop/src/mcgrid/test/phys_verification; pwd'
-  
-  ### E3SM section ###
-  export RUN_ROOT=/users/$USER/jayenne_build/jayenne/src/mcgrid/test/phys_verification
-  export ARCHIVE_ROOT=/lustre/scratch3/turquoise/$USER/E3SM/archive
-  export INPUTDATA=/usr/projects/e3sm/inputdata
-  alias inu='cd /lustre/scratch3/turquoise/$USER/E3SM/inputdata_for_uploading/E3SM/inputdata; pwd; ls'
-  export TARFILE="/lustre/scratch4/yellow/$USER/trash/tar.tar"
-
-  # see https://hpc.lanl.gov/software/software-guides/proxy-setup.html
-  export http_proxy="http://proxyout.lanl.gov:8080"
-  export https_proxy="http://proxyout.lanl.gov:8080"
-  export ftp_proxy="http://proxyout.lanl.gov:8080"
-  export HTTP_PROXY="http://proxyout.lanl.gov:8080"
-  export HTTPS_PROXY="http://proxyout.lanl.gov:8080"
-  export FTP_PROXY="http://proxyout.lanl.gov:8080"
-  export no_proxy="localhost,127.0.0.1"
+  alias sa='salloc -N 1 -t 1:0:0'
+  alias r='cd /lustre/roscratch1/$USER/runs; pwd'
+  alias ll='echo "log into rzadams at LLNL. Use cryptocard:"; reticket; ssh petersen41@rzadams.llnl.gov'
+  alias toll='scp /lustre/roscratch1/${USER}/trash/tar.tar petersen41@rzadams.llnl.gov:/p/lustre1/petersen41/trash/tar.tar'
 
 ### nersc
 elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
