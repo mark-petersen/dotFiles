@@ -109,7 +109,6 @@ if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
 
   alias r='echo "cd ~/runs";cd ~/runs'
   alias b='vi ~/s/other/my_pubs.bib'
-  alias a='vi ~/s/other/pa'
   alias mu='cd ~/s/m/forever/hillstompers/music/active; pwd; ls'
   # Following lines are for zsh. 
   # also add 'source .bashrc' to .zshrc
@@ -117,6 +116,11 @@ if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
   bindkey "^[[B" history-beginning-search-forward
   PROMPT='%F{115}%1~%f %# '
   alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
+  if [[ $HOST = Marks-MacBook-Pro ]]; then
+    alias a='vi /Users/mpeterse/Google\ Drive/My\ Drive/m/25/s/other/pa'
+  else
+    alias a='vi ~/s/other/pa'
+  fi
 
 ### LANL yellow IC: rocinante
 elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
