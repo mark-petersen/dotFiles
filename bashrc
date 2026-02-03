@@ -137,6 +137,7 @@ elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
   alias r='cd /lustre/roscratch1/$USER/runs; pwd'
   alias ll='echo "log into rzadams at LLNL. Use cryptocard:"; reticket; ssh petersen41@rzadams.llnl.gov'
   alias toll='scp /lustre/roscratch1/${USER}/trash/tar.tar petersen41@rzadams.llnl.gov:/p/lustre1/petersen41/trash/tar.tar'
+  export TARFILE="/lustre/roscratch1/${USER}/trash/tar.tar"
 
 ### LANL turquoise IC: chicoma
 elif [[ $HOSTNAME = ch-* ]]; then
