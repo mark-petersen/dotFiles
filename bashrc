@@ -301,7 +301,7 @@ elif [[ $HOST = aurora* ]]; then
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   export RUN_ROOT=/lustre/orion/cli115/proj-shared/${USER}/e3sm_scratch
   alias inu='cd /ccs/home/$USER/inputdata_for_uploading; pwd; ls'
-  export TARFILE="/lustre/orion/cli115/scratch/$USER/trash/tar.tar"
+  export TARFILE="~/a/tar.tar"
   module load cmake
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
   alias r='cd /lustre/orion/cli115/scratch/$USER/runs; pwd; ls -tlFh | head'
