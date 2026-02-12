@@ -286,6 +286,7 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
 ### Argonne: aurora
 elif [[ $HOST = aurora* ]]; then
   #echo 'Oak Ridge hostname: ' $HOST
+  export QUEUETYPE=pbs
   alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
   export r=/lustre/orion/cli115/scratch/mpetersen/runs
   export n=/lustre/orion/cli115/scratch/mpetersen/runs/n
