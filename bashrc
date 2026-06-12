@@ -123,7 +123,8 @@ if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
   fi
 
 ### LANL yellow IC: rocinante
-elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
+#elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
+elif [[ $HOST = ro* ]]; then
   echo 'IC hostname: ' $HOST
   if [[ $HOST = ro-rfe* ]]; then
     PS1='\[\e[1;33m\]\h:\W\$\[\e[0m\] ' # login: yellow
@@ -186,6 +187,8 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   Cyan='\[\e[1;36m\]'
   MachineColor=$Cyan
   HostColor=$Cyan
+  export HOMEDIR=/global/homes/m/mpeterse
+  export SCRATCH=/pscratch/sd/m/mpeterse
   if [[ $NERSC_HOST = perlmutter ]]; then
      MachineName='pm'
      ACCOUNT='e3sm'
