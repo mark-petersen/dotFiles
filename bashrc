@@ -526,6 +526,8 @@ alias makehtml='conda activate test_compass_docs; export DOCS_VERSION="test"; cd
 # NERSC
 alias tpm='scp mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
 alias topm='scp ~/a/tar.tar mpeterse@perlmutter-p1.nersc.gov:/pscratch/sd/m/mpeterse/trash/tar.tar'
+alias tau='scp mpeterse@aurora.alcf.anl.gov:~/a/tar.tar .;tar xvf tar.tar; rm -f tar.tar'
+alias toau='scp ~/a/tar.tar mpeterse@aurora.alcf.anl.gov:~/a/tar.tar'
 # PNNL
 alias compy='echo "Did not renew compy' #ssh pete011@compy.pnl.gov'
 #alias tcompy='scp pete011@compy.pnl.gov:~/a/tar.tar .; tar xvf tar.tar; rm -f tar.tar'
