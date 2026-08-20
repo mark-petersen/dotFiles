@@ -107,7 +107,7 @@ if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
   alias ls='ls -G'
   alias dir='ls -tlFhG |head'
 
-  alias r='echo "cd ~/runs";cd ~/runs'
+  alias r='echo "cd ~/runs";cd ~/runs; pwd; ls -tlFh | head'
   alias b='vi ~/s/other/my_pubs.bib'
   alias mu='cd ~/s/m/forever/hillstompers/music/active; pwd; ls'
   # Following lines are for zsh. 
@@ -134,7 +134,7 @@ elif [[ $HOST = ro* ]]||[[ $HOST = nid* ]]; then
   export n=/lustre/scratch4/yellow/$USER/runs/n
   export r=/lustre/scratch4/yellow/$USER/runs
   alias sa='salloc -N 1 -t 1:0:0'
-  alias r='cd /lustre/roscratch1/$USER/runs; pwd'
+  alias r='cd /lustre/roscratch1/$USER/runs; pwd; ls -tlFh | head'
   alias ll='echo "log into rzadams at LLNL. Use cryptocard:"; reticket; ssh petersen41@rzadams.llnl.gov'
   alias toll='scp /lustre/roscratch1/${USER}/trash/tar.tar petersen41@rzadams.llnl.gov:/p/lustre1/petersen41/trash/tar.tar'
   export TARFILE="/lustre/roscratch1/${USER}/trash/tar.tar"
@@ -153,7 +153,7 @@ elif [[ $HOSTNAME = ch-* ]]; then
   alias r4='cd /lustre/scratch4/$USER/runs; pwd'
   alias rf='cd /lustre/scratch5/$USER/runs; pwd'
   alias nf='cd /lustre/scratch5/$USER/runs/n; pwd'
-  alias r='cd /lustre/scratch5/$USER/runs; ls -tlFh | head'
+  alias r='cd /lustre/scratch5/$USER/runs; pwd; ls -tlFh | head'
   alias s='cd /lustre/scratch5/$USER/runs/s; ls'
   alias rrg='cd /lustre/scratch5/$USER/E3SM/scratch/chicoma-gpu; pwd; ls'
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t25_coastal_ocean'
