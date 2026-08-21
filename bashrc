@@ -92,9 +92,9 @@ alias tit='tail -f `ls -tr |tail -n 1`'
 alias cdt='cd `ls -d1tr */ |tail -n 1`'
 alias pm='cd $HOMEDIR/repos/polaris/ma*; dir'
 
-alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
-alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
-alias lc="source ~/repos/polaris/ma*/load_dev_polaris_*_cray_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+alias lg="source ~/repos/polaris/ma*/load_polaris*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+alias li="source ~/repos/polaris/ma*/load_polaris*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+alias lc="source ~/repos/polaris/ma*/load_polaris*_cray_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
 # directory aliases. May be reset below for each machine.
 alias n='cd $n; ls -tlFh | head'
@@ -196,12 +196,12 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias sa="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=$ACCOUNT"
      alias saa="salloc --nodes 1 --qos interactive --time 02:00:00 --constraint cpu --account=$ACCOUNT"
      alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
-     alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="echo 'intel not available'" #source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lg="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="echo 'intel not available'" #source ~/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
-        alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lg="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
      alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
      alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
@@ -298,8 +298,8 @@ elif [[ $HOST = aurora* ]]; then
   MachineColor='\[\e[1;33m\]'
   if [[ $HOST = nid* ]]; then # change for aurora
      HostColor='\[\e[1;31m\]'
-     alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lg="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias li="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   export RUN_ROOT=/lustre/orion/cli115/proj-shared/${USER}/e3sm_scratch
@@ -315,12 +315,12 @@ elif [[ $HOST = chr* ]]; then
   echo 'chrysalis hostname: ' $HOST
   if [[ $HOST = chrlogin* ]]; then
     PS1='\[\e[1;34m\]chr:\W\$\[\e[0m\] ' # login: blue
-    alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_gnu_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
-    alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_intel_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias lg="source ~/repos/polaris/ma*/load_polaris*_gnu_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias li="source ~/repos/polaris/ma*/load_polaris*_intel_*.sh;PS1='\[\e[1;34m\]chr:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   elif [[ $HOST = chr-* ]]; then
     PS1='\[\e[1;31m\]\h:\[\e[1;34m\]\W\$\[\e[0m\] ' # compute: red and blue
-    alias lg="source ~/repos/polaris/ma*/load_dev_polaris_*_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
-    alias li="source ~/repos/polaris/ma*/load_dev_polaris_*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias lg="source ~/repos/polaris/ma*/load_polaris*_gnu_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;32m\]g:\[\e[1;34m\]\W\$\[\e[0m\] '"
+    alias li="source ~/repos/polaris/ma*/load_polaris*_intel_*.sh;PS1='\[\e[1;31m\]\h:\[\e[1;36m\]i:\[\e[1;34m\]\W\$\[\e[0m\] '"
   fi
   export RUN_ROOT=/lcrc/group/e3sm/$USER/scratch/chrys
   export TARFILE="/lcrc/group/e3sm/$USER/scratch/trash/tar.tar"
@@ -415,6 +415,7 @@ fi
 
 alias home='cd $HOMEDIR; pwd; ls'
 alias re='cd $HOMEDIR/repos; pwd; ls'
+alias res='cd /pscratch/sd/m/mpeterse/repos; pwd; ls'
 alias o='cd $HOMEDIR/repos/model/ocean_develop; pwd'
 alias cl='cd $HOMEDIR/repos/compass/legacy; pwd'
 alias cpr='cd $HOMEDIR/repos/compass/pr; dir'
