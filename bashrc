@@ -232,19 +232,14 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   export e=/global/homes/m/$USER/repos/E3SM
   alias mini='cd /global/homes/m/$USER/repos/miniWeather; pwd; ls'
 
-### Oak Ridge: summit, frontier
+### Oak Ridge: frontier
 elif [[ $HOME = "/ccs/home/$USER" ]]; then
   #echo 'Oak Ridge hostname: ' $HOST
-  alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
-  export r=/lustre/orion/cli115/scratch/mpetersen/runs
-  export n=/lustre/orion/cli115/scratch/mpetersen/runs/n
+  alias r='cd /lustre/orion/cli115/scratch/${USER}/runs; pwd; ls -tlFh | head'
+  export r=/lustre/orion/cli115/scratch/${USER}/runs
+  export n=/lustre/orion/cli115/scratch/${USER}/runs/n
   if [[ $HOST = login* ]]; then
-     if [[ $LMOD_SYSTEM_NAME = summit ]]; then
-        PS1='\[\e[1;35m\]su:\W\$\[\e[0m\] ' # maroon
-        module load python
-        alias sa="echo 'bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash'; bsub -W 2:00 -nnodes 1 -P CLI115 -Is /bin/bash"
-        alias r='cd /gpfs/alpine/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
-     elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
+     if [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0"
         alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch"
@@ -263,7 +258,7 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;31m\]fr:\h:\W\$\[\e[0m\] ' # maroon
 # same for summit?
-#        alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
+#        alias r='cd /lustre/orion/cli115/scratch/${USER}/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
         PS1='\[\e[1;31m\]\h:\W\$\[\e[0m\] ' # maroon
         module load cray-python
@@ -290,9 +285,9 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
 elif [[ $HOST = aurora* ]]; then
   #echo 'Oak Ridge hostname: ' $HOST
   export QUEUETYPE=pbs
-  alias r='cd /lustre/orion/cli115/scratch/mpetersen/runs; pwd; ls -tlFh | head'
-  export r=/lustre/orion/cli115/scratch/mpetersen/runs
-  export n=/lustre/orion/cli115/scratch/mpetersen/runs/n
+  alias r='cd /lustre/orion/cli115/scratch/${USER}/runs; pwd; ls -tlFh | head'
+  export r=/lustre/orion/cli115/scratch/${USER}/runs
+  export n=/lustre/orion/cli115/scratch/${USER}/runs/n
   MachineName='au'
   HostColor='\[\e[1;33m\]'
   MachineColor='\[\e[1;33m\]'
