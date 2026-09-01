@@ -92,9 +92,9 @@ alias tit='tail -f `ls -tr |tail -n 1`'
 alias cdt='cd `ls -d1tr */ |tail -n 1`'
 alias pm='cd $HOMEDIR/repos/polaris/ma*; dir'
 
-alias lg="source ~/repos/polaris/ma*/load_polaris*_gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
-alias li="source ~/repos/polaris/ma*/load_polaris*_intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
-alias lc="source ~/repos/polaris/ma*/load_polaris*_cray_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+alias lg="source ~/repos/polaris/ma*/load_polaris*gnu_*.sh;PS1='\[\e[1;32m\]\h:g:\W\$\[\e[0m\] '"
+alias li="source ~/repos/polaris/ma*/load_polaris*intel_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
+alias lc="source ~/repos/polaris/ma*/load_polaris*cray_*.sh;PS1='\[\e[1;32m\]\h:i:\W\$\[\e[0m\] '"
 
 # directory aliases. May be reset below for each machine.
 alias n='cd $n; ls -tlFh | head'
