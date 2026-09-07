@@ -117,7 +117,7 @@ if [[ $HOST = pn* ]]||[[ $HOST = Marks-MacBook-Pro ]]; then
   PROMPT='%F{115}%1~%f %# '
   alias pm='ssh mpeterse@perlmutter-p1.nersc.gov'
   if [[ $HOST = Marks-MacBook-Pro ]]; then
-    alias a='vi /Users/mpeterse/Google\ Drive/My\ Drive/m/25/s/other/pa'
+    alias a='vi /Users/mpeterse/s/other/pa-260807'
   else
     alias a='vi ~/s/other/pa'
   fi
