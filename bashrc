@@ -437,6 +437,7 @@ alias grv='git remote -v'
 alias gl='git log -n 1'
 alias g='git log --graph --oneline -n 12'
 alias gg='git log --graph --oneline'
+alias ggd='git log --pretty=format:"%h %ad | %s" --date=short'
 alias gitlp='git log --graph --oneline -n 12'
 alias gl='git log -n 1'
 alias gf="echo 'git fetch --prune origin'; git fetch --prune origin"
