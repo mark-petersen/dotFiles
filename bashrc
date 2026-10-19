@@ -132,7 +132,7 @@ elif [[ $HOST = ro* ]]; then
     PS1='\[\e[1;31m\]\h:\[\e[1;33m\]\W\$\[\e[0m\] ' # compute: red and blue
   fi
   export HOMEDIR=/users/$USER
-  export n=/lustre/scratch4/yellow/$USER/runs/n
+  export n=/lustre/scratch4/yellow/$USER/nightly
   export r=/lustre/scratch4/yellow/$USER/runs
   alias sa='salloc -N 1 -t 1:0:0'
   alias r='cd /lustre/roscratch1/$USER/runs; pwd; ls -tlFh | head'
@@ -159,9 +159,9 @@ elif [[ $HOSTNAME = ch-* ]]; then
   alias rrg='cd /lustre/scratch5/$USER/E3SM/scratch/chicoma-gpu; pwd; ls'
   alias sa='salloc -N 1 -t 2:0:0 --qos=debug --reservation=debug --account=t25_coastal_ocean'
   alias sag='salloc -N 1 -t 2:0:0 --account=t25_coastal_ocean_g --partition=gpu'
-  export n=/lustre/scratch5/$USER/runs/n
-  export n4=/lustre/scratch4/$USER/runs/n
-  export n5=/lustre/scratch5/$USER/runs/n
+  export n=/lustre/scratch5/$USER/nightly
+  export n4=/lustre/scratch4/$USER/nightly
+  export n5=/lustre/scratch5/$USER/nightly
   export r=/lustre/scratch5/$USER/runs
   module load git
 
@@ -196,22 +196,13 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias sa="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint cpu --account=$ACCOUNT"
      alias saa="salloc --nodes 1 --qos interactive --time 02:00:00 --constraint cpu --account=$ACCOUNT"
      alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
-     alias lg="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
      alias li="echo 'intel not available'" #source ~/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
-        alias lg="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias li="source ~/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias li="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
-     alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
-     alias n='cd $SCRATCH/runs/n; pwd; ls -tlFh | head'
-     alias nn='cd $SCRATCH/runs/n; cd  "$(\ls -1dt ./*/ | head -n 1)"'
-     alias www='cd /global/cfs/cdirs/e3sm/www/mpeterse; echo "see web at https://portal.nersc.gov/project/e3sm/"; pwd; ls'
-     export r="$SCRATCH/runs"
-     export n="$SCRATCH/runs/n"
-     export INPUTDATA=/global/cfs/cdirs/e3sm/inputdata
-     
-     TARFILE="$SCRATCH/trash/tar.tar"
   fi
   PS1="${HostColor}${MachineName}:${MachineColor}\W\$${Normal} " # bright blue
   MODULEFILES='/global/project/projectdirs/acme/software/modulefiles/all' 
@@ -231,13 +222,23 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
   export b=~/repos/model
   export e=/global/homes/m/$USER/repos/E3SM
   alias mini='cd /global/homes/m/$USER/repos/miniWeather; pwd; ls'
+  alias r='cd $SCRATCH/runs; pwd; ls -tlFh | head'
+  alias n='cd $SCRATCH/nightly; pwd; ls -tlFh | head'
+  alias nn='cd $SCRATCH/nightly; cd  "$(\ls -1dt ./*/ | head -n 1)"'
+  alias www='cd /global/cfs/cdirs/e3sm/www/mpeterse; echo "see web at https://portal.nersc.gov/project/e3sm/"; pwd; ls'
+  alias opr='cd $SCRATCH/repos/E3SM/opr; pwd'
+  alias pm='cd $SCRATCH/repos/polaris/main; pwd'
+  export r="$SCRATCH/runs"
+  export n="$SCRATCH/nightly"
+  export INPUTDATA=/global/cfs/cdirs/e3sm/inputdata
+  TARFILE="$SCRATCH/trash/tar.tar"
 
 ### Oak Ridge: frontier
 elif [[ $HOME = "/ccs/home/$USER" ]]; then
   #echo 'Oak Ridge hostname: ' $HOST
   alias r='cd /lustre/orion/cli115/scratch/${USER}/runs; pwd; ls -tlFh | head'
   export r=/lustre/orion/cli115/scratch/${USER}/runs
-  export n=/lustre/orion/cli115/scratch/${USER}/runs/n
+  export n=/lustre/orion/cli115/scratch/${USER}/nightly
   if [[ $HOST = login* ]]; then
      if [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
@@ -276,7 +277,7 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
   module load cmake
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
   alias r='cd /lustre/orion/cli115/scratch/$USER/runs; pwd; ls -tlFh | head'
-  alias n='cd /lustre/orion/cli115/scratch/$USER/runs/n; pwd; ls -tlFh | head'
+  alias n='cd /lustre/orion/cli115/scratch/$USER/nightly; pwd; ls -tlFh | head'
   alias cppm='cd /ccs/home/$USER/repos/beginning-cpp20/mark_exercises; pwd; ls'
   alias mini='cd /gpfs/alpine/cli115/scratch/$USER/repos/miniWeather/simple_yakl_tests/cpp; pwd; ls'
   alias vip='vim -p main* timestep.cpp tendencies.cpp Config.cpp Mesh.cpp State.cpp Tend.cpp Diag.cpp io.cpp'
@@ -287,7 +288,7 @@ elif [[ $HOST = aurora* ]]; then
   export QUEUETYPE=pbs
   alias r='cd /lustre/orion/cli115/scratch/${USER}/runs; pwd; ls -tlFh | head'
   export r=/lustre/orion/cli115/scratch/${USER}/runs
-  export n=/lustre/orion/cli115/scratch/${USER}/runs/n
+  export n=/lustre/orion/cli115/scratch/${USER}/nightly
   MachineName='au'
   HostColor='\[\e[1;33m\]'
   MachineColor='\[\e[1;33m\]'
@@ -303,7 +304,7 @@ elif [[ $HOST = aurora* ]]; then
   module load cmake
   alias py='echo "Load python for e3sm"; module unload python python/base; module use /global/project/projectdirs/acme/software/modulefiles/all; module load e3sm-unified/1.1.2'
   alias r='cd /lustre/orion/cli115/scratch/$USER/runs; pwd; ls -tlFh | head'
-  alias n='cd /lustre/orion/cli115/scratch/$USER/runs/n; pwd; ls -tlFh | head'
+  alias n='cd /lustre/orion/cli115/scratch/$USER/nightly; pwd; ls -tlFh | head'
 
 ### Oak Ridge chrysalis
 elif [[ $HOST = chr* ]]; then
@@ -320,11 +321,11 @@ elif [[ $HOST = chr* ]]; then
   export RUN_ROOT=/lcrc/group/e3sm/$USER/scratch/chrys
   export TARFILE="/lcrc/group/e3sm/$USER/scratch/trash/tar.tar"
   export r=/lcrc/group/e3sm/$USER/scratch/runs
-  export n=/lcrc/group/e3sm/$USER/scratch/runs/n
+  export n=/lcrc/group/e3sm/$USER/scratch/nightly
   export bo=/lcrc/group/e3sm/$USER/scratch/by_others/
   export INPUTDATA=/lcrc/group/e3sm/data/inputdata/
   alias r='cd /lcrc/group/e3sm/$USER/scratch/runs; ls -tlFh | head'
-  alias n='cd /lcrc/group/e3sm/$USER/scratch/runs/n; ls -tlFh | head'
+  alias n='cd /lcrc/group/e3sm/$USER/scratch/nightly; ls -tlFh | head'
   alias sa="srun -p debug -N 1 -t 1:00:00 --pty bash"
   alias inu="cd /lcrc/group/acme/public_html/inputdata/; pwd; ls"
   alias inuo="cd /lcrc/group/acme/public_html/inputdata/ocn/mpas-o; pwd; ls"
