@@ -198,11 +198,11 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
      alias li="echo 'intel not available'" #source ~/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-     alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-gpu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-gpu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]gg:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
         alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
-        alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-gpu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-gpu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]gg:\[\e[1;36m\]\W\$\[\e[0m\] '"
         alias li="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
   fi
@@ -248,6 +248,8 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -S 0"
         alias sa="echo 'salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch'; salloc -A cli115 -J inter -t 2:00:00 -q debug -N 1 -p batch"
+        alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris_frontier_craygnu_mpich.sh;PS1='\[\e[1;35m\]fr:\[\e[1;32m\]g:\[\e[1;35m\]\W\$\[\e[0m\] '"
+        alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_frontier_craygnu-mphipcc_*.sh;PS1='\[\e[1;35m\]fr:\[\e[1;32m\]gg:\[\e[1;35m\]\W\$\[\e[0m\] '"
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
         PS1='\[\e[1;35m\]cr:\W\$\[\e[0m\] ' # maroon
         alias sa="echo 'salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2'; salloc -A CLI115 -J mrp_test -t 00:05:00 -p batch -N 2"
@@ -262,6 +264,8 @@ elif [[ $HOME = "/ccs/home/$USER" ]]; then
         module load python
      elif [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;31m\]fr:\h:\W\$\[\e[0m\] ' # maroon
+        alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris_frontier_craygnu_mpich.sh;PS1='\[\e[1;31m\]fr:\[\e[1;32m\]g:\[\e[1;35m\]\W\$\[\e[0m\] '"
+        alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_frontier_craygnu-mphipcc_*.sh;PS1='\[\e[1;31m\]fr:\[\e[1;32m\]gg:\[\e[1;35m\]\W\$\[\e[0m\] '"
 # same for summit?
 #        alias r='cd /lustre/orion/cli115/scratch/${USER}/runs; pwd; ls -tlFh | head'
      elif [[ $LMOD_SYSTEM_NAME = crusher ]]; then
