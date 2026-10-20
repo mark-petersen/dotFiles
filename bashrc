@@ -198,9 +198,11 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
      alias sag="salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --account=$ACCOUNT"
      alias li="echo 'intel not available'" #source ~/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+     alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-gpu_*.sh;PS1='\[\e[1;36m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
      if [[ $HOST = nid* ]]; then
         HostColor='\[\e[1;31m\]'
         alias lg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_gnu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
+        alias lgg="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-gpu_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;32m\]g:\[\e[1;36m\]\W\$\[\e[0m\] '"
         alias li="source $SCRATCH/repos/polaris/ma*/load_polaris*_pm-cpu_intel_*.sh;PS1='\[\e[1;31m\]pm:\[\e[1;34m\]i:\[\e[1;36m\]\W\$\[\e[0m\] '"
      fi
   fi
@@ -583,6 +585,7 @@ alias co="echo 'cd components/omega'; cd components/omega"
 alias cos="echo 'cd components/omega/src'; cd components/omega/src"
 alias cdp='cd ocean/global_ocean/QU240/PHC/performance_test/forward/'
 alias cr='compass run'
+alias ps='polaris serial'
 alias cs='cd cime/scripts'
 alias per='cd ocean/global_ocean/QU240/PHC/performance_test/forward'
 alias cppm='cd ~/repos/beginning-cpp20/mark_exercises; pwd; ls'
