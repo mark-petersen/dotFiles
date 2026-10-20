@@ -239,8 +239,10 @@ elif [ ! -z "$NERSC_HOST" ]; then # if variable not empty
 elif [[ $HOME = "/ccs/home/$USER" ]]; then
   #echo 'Oak Ridge hostname: ' $HOST
   alias r='cd /lustre/orion/cli115/scratch/${USER}/runs; pwd; ls -tlFh | head'
-  export r=/lustre/orion/cli115/scratch/${USER}/runs
-  export n=/lustre/orion/cli115/scratch/${USER}/nightly
+  export SCRATCH=/lustre/orion/cli115/scratch/${USER}
+  export r=$SCRATCH/runs
+  export n=$SCRATCH/nightly
+  alias pm='cd $SCRATCH/repos/polaris/main; pwd'
   if [[ $HOST = login* ]]; then
      if [[ $LMOD_SYSTEM_NAME = frontier ]]; then
         PS1='\[\e[1;35m\]fr:\W\$\[\e[0m\] ' # maroon
